@@ -1,21 +1,29 @@
 {
-  "name": "sao-marco-pizza",
+  "name": "tech-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.3"
-  },
-  "devDependencies": {
-    "eslint": "^9",
-    "eslint-config-next": "15.1.3",
-    "@eslint/eslintrc": "^3"
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^2.7.2",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "bcryptjs": "^2.4.3",
+    "firebase": "^11.1.0",
+    "framer-motion": "^6.0.0",
+    "jspdf": "^2.5.2",
+    "next": "15.1.0",
+    "next-auth": "^4.24.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.4.0",
+    "react-scroll": "^1.9.0",
+    "react-slick": "^0.30.3",
+    "slick-carousel": "^1.8.1"
   }
 }
