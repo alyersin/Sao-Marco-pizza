@@ -36,7 +36,6 @@ export default function LoginRegister({ isOpen, onClose }) {
   const [message, setMessage] = useState("");
   const router = useRouter();
 
-  // Login handler
   const handleLogin = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -52,13 +51,12 @@ export default function LoginRegister({ isOpen, onClose }) {
       }
 
       setMessage("Login successful!");
-      router.push("/profile"); // Redirect to profile page
+      router.push("/profile");
     } catch (error) {
       setMessage(error.message);
     }
   };
 
-  // Register handler
   const handleRegister = async () => {
     try {
       if (password !== confirmPassword) {
@@ -66,7 +64,6 @@ export default function LoginRegister({ isOpen, onClose }) {
         return;
       }
 
-      // Create the user
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -74,7 +71,6 @@ export default function LoginRegister({ isOpen, onClose }) {
       );
       const user = userCredential.user;
 
-      // Send email verification
       await sendEmailVerification(user);
 
       setMessage(
@@ -120,7 +116,6 @@ export default function LoginRegister({ isOpen, onClose }) {
                 </VStack>
               </TabPanel>
 
-              {/* Register Panel */}
               <TabPanel>
                 <VStack spacing={4}>
                   {/* <Input
