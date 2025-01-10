@@ -27,8 +27,8 @@ export default function Header() {
                 src="/assets/logo.jpg"
                 alt="Logo"
                 width="100%"
-                height="auto"
-                objectFit="contain"
+                height="106px"
+                objectFit="cover"
               />
             </Link>
           </Box>

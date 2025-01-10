@@ -54,7 +54,7 @@ export default function BlackBar() {
   };
 
   return (
-    <Box bg="#000" color="#828282" py={1.5} fontSize="15px">
+    <Box bg="#000" color="#828282" py={1} fontSize="15px">
       <Box
         display="flex"
         justifyContent="space-between"

@@ -1,0 +1,226 @@
+[
+    {
+        "id": 1,
+        "name": "PIZZA SPINACIO",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, spanac, branza mucegai, rosii cherry, parmezan, miez nuca.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "33.50 lei" },
+            { "label": "XXL (50cm)", "price": "81.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-spinacio.png",
+        "tags": []
+    },    
+    {
+        "id": 2,
+        "name": "PIZZA AFFLUENTE",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, piept pui, ardei, gras, ceapa, rosii, chili, curry.",
+        "type": "Picant",
+        "sizes": [
+            { "label": "L (30cm)", "price": "31.50 lei" },
+            { "label": "XXL (50cm)", "price": "73.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-affluente.png",
+        "tags": []
+    },    
+    {
+        "id": 3,
+        "name": "PIZZA CONTESSA",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, boconcini, prosciuto crudo, rucola, seminte dovleac.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "L (30cm)", "price": "33.50 lei" },
+            { "label": "XXL (50cm)", "price": "81.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-contessa.png",
+        "tags": []
+    },    
+    {
+        "id": 4,
+        "name": "PIZZA FONTANA",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, anghinare, branza mucegai, parmezan.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "L (30cm)", "price": "30.50 lei" },
+            { "label": "XXL (50cm)", "price": "72.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-fontana.png",
+        "tags": []
+    },    
+    {
+        "id": 5,
+        "name": "PIZZA HAWAII",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, sunca, ananas.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "29.50 lei" },
+            { "label": "XXL (50cm)", "price": "71.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-hawaii.png",
+        "tags": []
+    },    
+    {
+        "id": 6,
+        "name": "PIZZA ISTANBUL",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, babic, rosii ,ardei gras, ceapa.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "34.50 lei" },
+            { "label": "XXL (50cm)", "price": "83.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-istanbul.png",
+        "tags": []
+    },    
+    {
+        "id": 7,
+        "name": "PIZZA MARGHERITA",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, busuioc.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "26.50 lei" },
+            { "label": "XXL (50cm)", "price": "65.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-margherita.png",
+        "tags": []
+    },
+    {
+        "id": 8,
+        "name": "PIZZA NAPOLI",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, file de ansoa , rosii cherry, masline.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "L (30cm)", "price": "29.50 lei" },
+            { "label": "XXL (50cm)", "price": "71.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-napoli.png",
+        "tags": []
+    },
+    {
+        "id": 9,
+        "name": "PIZZA POST",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella de post, ciuperci, masline, ardei gras, porumb, rosii.",
+        "type": "De Post",
+        "sizes": [
+            { "label": "L (30cm)", "price": "27.50 lei" },
+            { "label": "XXL (50cm)", "price": "69.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-post.png",
+        "tags": []
+    },
+    {
+        "id": 10,
+        "name": "PIZZA PROSCIUTTO",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, ciuperci, sunca.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "29.50 lei" },
+            { "label": "XXL (50cm)", "price": "71.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-prosciutto.png",
+        "tags": []
+    },
+    {
+        "id": 11,
+        "name": "PIZZA QUATTRO FORMAGGI",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, branza cu mucegai, parmezan, emmentaler.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "32.50 lei" },
+            { "label": "XXL (50cm)", "price": "78.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-quattro-formaggi.png",
+        "tags": []
+    },
+    {
+        "id": 12,
+        "name": "PIZZA RUCOLA",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, boconcini, rucola, parmezan, rosii cherry.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "31.50 lei" },
+            { "label": "XXL (50cm)", "price": "73.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-rucola.png",
+        "tags": []
+    },    
+    {
+        "id": 13,
+        "name": "PIZZA RUSTICA",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, sunculita ardeleneasca, carnaciori, ardei gras, ciuperci, ceapa.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "31.50 lei" },
+            { "label": "XXL (50cm)", "price": "73.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-rustica.png",
+        "tags": []
+    },    
+    {
+        "id": 14,
+        "name": "PIZZA SALMONE",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, file somon af., ceapa, capere, lamaie.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "L (30cm)", "price": "36.50 lei" },
+            { "label": "XXL (50cm)", "price": "89.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-salmone.png",
+        "tags": []
+    },
+    {
+        "id": 15,
+        "name": "PIZZA SUPREME BBQ",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, sunca, sunculita ardeleneasca, carnaciori, ceapa, sos bbq.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "31.50 lei" },
+            { "label": "XXL (50cm)", "price": "73.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-supreme-bbq.png",
+        "tags": []
+    },
+    {
+        "id": 16,
+        "name": "PIZZA TON",
+        "description": "INGREDIENTE: blat, sos pizza, mozzarella, ton, capere, porumb, ceapa,lamaie.",
+        "type": "",
+        "sizes": [
+            { "label": "L (30cm)", "price": "32.50 lei" },
+            { "label": "XXL (50cm)", "price": "78.50 lei" }
+           
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/pizza/pizza-ton.png",
+        "tags": []
+    }
+]

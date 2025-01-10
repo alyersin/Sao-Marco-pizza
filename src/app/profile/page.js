@@ -16,7 +16,7 @@ export default function Profile() {
       if (user) {
         setUser(user);
       } else {
-        router.push("/login"); // Redirect to login if not authenticated
+        router.push("/login");
       }
     });
 
