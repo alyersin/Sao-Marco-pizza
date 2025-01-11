@@ -1,0 +1,210 @@
+[
+    {
+        "id": "e124cd3d-d0f7-4a93-9e9f-8f2c45ae35b7",
+        "name": "PASTE AGLIO OLIO",
+        "description": "INGREDIENTE:paste, rosii uscate, ulei masline, usturoi, chili.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "25.50 lei"},
+            {"label": "XXL (50cm)", "price": "25.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE AGLIO OLIO.png",
+        "tags": []
+    },
+    {
+        "id": "d62fa6a7-6a7c-4530-bc89-53c39b6b503e",
+        "name": "PASTE ARABIATA",
+        "description": "INGREDIENTE:paste, sos rosu, rosii uscate, ardei iute.",
+        "type": "De Post",
+        "sizes": [
+            {"label": "L (30cm)", "price": "30.50 lei"},
+            {"label": "XXL (50cm)", "price": "30.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE ARABIATA.png",
+        "tags": []
+    },
+    {
+        "id": "72f37f82-8309-4b92-8bd8-6022c4a850b9",
+        "name": "PASTE CARBONARA",
+        "description": "INGREDIENTE:paste, crema de gatit, sunculita ardeleneasca, parmezan, bacon, mozzarella.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "33.50 lei"},
+            {"label": "XXL (50cm)", "price": "33.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE CARBONARA.png",
+        "tags": []
+    },
+    {
+        "id": "fa3b905d-9c48-4f39-b06a-64cfd4af90df",
+        "name": "PASTE GAMBERETTI",
+        "description": "INGREDIENTE:paste, sos rosu, creveti, capere, lamaie.",
+        "type": "Nou",
+        "sizes": [
+            {"label": "L (30cm)", "price": "40.50 lei"},
+            {"label": "XXL (50cm)", "price": "40.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE GAMBERETTI.png",
+        "tags": []
+    },
+    {
+        "id": "5c91d9bc-dc87-4e9d-ae73-1742b6c81941",
+        "name": "PASTE MAFALDA",
+        "description": "INGREDIENTE:paste, crema de gatit, piept pui, bacon, mazare, sunculita ardeleneasca, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "33.50 lei"},
+            {"label": "XXL (50cm)", "price": "33.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE MAFALDA.png",
+        "tags": []
+    },
+    {
+        "id": "80a34414-2a66-4700-bd25-64d7035a0d43",
+        "name": "PASTE MILANEZE",
+        "description": "INGREDIENTE:paste, sos rosu, sunca, ciuperci, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "32.50 lei"},
+            {"label": "XXL (50cm)", "price": "32.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE MILANEZE.png",
+        "tags": []
+    },
+    {
+        "id": "f43e0edc-5909-4b3b-bde6-05c0489e59b1",
+        "name": "PASTE PESTO",
+        "description": "INGREDIENTE:paste, sos pesto, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "32.50 lei"},
+            {"label": "XXL (50cm)", "price": "32.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE PESTO.png",
+        "tags": []
+    },
+    {
+        "id": "2b8a53fc-c488-40dc-9147-0555a2397b20",
+        "name": "PASTE QUATTRO FORMAGGI",
+        "description": "INGREDIENTE:paste, crema de gatit, mozzarella, branza cu mucegai, parmezan, emmentaler.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "33.50 lei"},
+            {"label": "XXL (50cm)", "price": "33.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE QUATTRO FORMAGGI.png",
+        "tags": []
+    },
+    {
+        "id": "7c6025e3-3389-4421-9e86-53c738d51269",
+        "name": "PASTE RAVIOLI",
+        "description": "INGREDIENTE:ravioli, sos rosu, rosii uscate, parmezan.",
+        "type": "Nou",
+        "sizes": [
+            {"label": "L (30cm)", "price": "34.50 lei"},
+            {"label": "XXL (50cm)", "price": "34.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE RAVIOLI.png",
+        "tags": []
+    },
+    {
+        "id": "d9eb242e-9e14-4d83-937d-31355a43173c",
+        "name": "PASTE SAO MARCO",
+        "description": "INGREDIENTE:paste, sos rosu, piept pui, ciuperci, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "34.50 lei"},
+            {"label": "XXL (50cm)", "price": "34.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE SAO MARCO.png",
+        "tags": []
+    },
+    {
+        "id": "842fa16b-9e11-4b7f-9826-4ad9d20b4696",
+        "name": "PASTE SCALOPINA",
+        "description": "INGREDIENTE:paste, crema de gatit, piept pui, ciuperci, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "34.50 lei"},
+            {"label": "XXL (50cm)", "price": "34.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE SCALOPINA.png",
+        "tags": []
+    },
+    {
+        "id": "9d66f60a-bdc2-40f1-8e6d-0d8d7d5a19a9",
+        "name": "PASTE SEAFOOD",
+        "description": "INGREDIENTE:paste, sos rosu, fructe de mare, capere, lamaie.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "40.50 lei"},
+            {"label": "XXL (50cm)", "price": "40.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE SEAFOOD.png",
+        "tags": []
+    },
+    {
+        "id": "a23c5982-40e8-4292-9a25-e593c4744291",
+        "name": "PASTE TARTUFFO",
+        "description": "INGREDIENTE:paste, crema de gatit, crema trufe, piept pui, ciuperci, emmentaler, parmezan.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "31.50 lei"},
+            {"label": "XXL (50cm)", "price": "73.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE TARTUFFO.png",
+        "tags": []
+    },
+    {
+        "id": "b17a9b7d-047d-4cb2-a70e-67f48b44552b",
+        "name": "PASTE TON",
+        "description": "INGREDIENTE:paste, sos rosu, ton, capere, rosii uscate, masline, lamaie.",
+        "type": "",
+        "sizes": [
+            {"label": "L (30cm)", "price": "34.50 lei"},
+            {"label": "XXL (50cm)", "price": "34.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE TON.png",
+        "tags": []
+    },
+    {
+        "id": "ad05eb85-97b2-4b88-88c5-4797e20c5125",
+        "name": "PASTE VEGETARIENE",
+        "description": "INGREDIENTE:paste, sos rosu, masline, usturoi.",
+        "type": "De Post",
+        "sizes": [
+            {"label": "L (30cm)", "price": "29.50 lei"},
+            {"label": "XXL (50cm)", "price": "29.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE VEGETARIENE.png",
+        "tags": []
+    },
+    {
+        "id": "9ef50399-b728-4e3c-b7e5-6472bc91e257",
+        "name": "PASTE BOLOGNESE",
+        "description": "INGREDIENTE:paste, sos bolognes, parmezan.",
+        "type": "Nou",
+        "sizes": [
+            {"label": "L (30cm)", "price": "33.50 lei"},
+            {"label": "XXL (50cm)", "price": "33.50 lei"}
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/paste/PASTE BOLOGNESE.png",
+        "tags": []
+    }
+]

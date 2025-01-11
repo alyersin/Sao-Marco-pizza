@@ -64,15 +64,11 @@ export default function BlackBar() {
         margin="0 auto"
         px={10}
       >
-        {/* Left Section: Logo, Contact, Social Media */}
         <HStack spacing={6} alignItems="center">
-          {/* Pizza Constanta */}
           <Text fontWeight="500">Pizza Constanta</Text>
 
-          {/* Vertical Line */}
           <Box height="20px" width="1px" bg="#828282" />
 
-          {/* Contact Link */}
           <Link
             href="/contact"
             fontSize="sm"
@@ -81,7 +77,6 @@ export default function BlackBar() {
             Contact
           </Link>
 
-          {/* Social Media Icons */}
           <HStack
             spacing={4}
             alignItems="center"
@@ -97,7 +92,6 @@ export default function BlackBar() {
           </HStack>
         </HStack>
 
-        {/* Right Section: Phone Number, Login/Register */}
         <HStack spacing={6} alignItems="center">
           <Link
             display="flex"
@@ -193,7 +187,6 @@ export default function BlackBar() {
         </HStack>
       </Box>
 
-      {/* Include the Login/Register Modal */}
       <LoginRegister
         isOpen={isModalOpen}
         onClose={closeModal}

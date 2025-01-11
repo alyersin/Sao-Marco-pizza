@@ -1,0 +1,170 @@
+[
+    {
+        "id": "b7f6c97d-41a2-4a3e-8e5d-2d529c2b0f12",
+        "name": "CHEESEBURGER",
+        "description": "INGREDIENTE: chifla alba, burger, bacon, cheddar, maioneza, salata verde, rosii, ceapa, castraveti murati, sos Aurora.",
+        "type": "",
+        "sizes": [
+            { "label": "300g", "price": "32.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/cheeseburger.png",
+        "tags": []
+    },
+    {
+        "id": "72a732c7-b6ee-49b1-a4f3-bf2efc41a958",
+        "name": "CHEF BURGER",
+        "description": "INGREDIENTE: chifla neagra, burger, crema de trufe, salata verde, rosii, ceapa, parmezan, sos Aurora.",
+        "type": "",
+        "sizes": [
+            { "label": "300g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/chef-burger.png",
+        "tags": []
+    },
+    {
+        "id": "843601da-b7e0-41e4-9d79-76492eb31aa7",
+        "name": "CHICKEN BURGER",
+        "description": "INGREDIENTE: chifla alba, snitel pui, bacon, cheddar, maioneza, salata verde, rosii, ceapa, castraveti murati, sos Aurora.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "290g", "price": "30.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/chicken-burger.png",
+        "tags": []
+    },
+    {
+        "id": "58cde8e1-bb11-442f-9987-6d21c59d8830",
+        "name": "EGG BURGER",
+        "description": "INGREDIENTE: chifla muffin, cheddar, bacon, ou.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "135g", "price": "18.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/egg-burger.png",
+        "tags": []
+    },
+    {
+        "id": "c6e00e76-bbb0-45bb-b658-79df17d36762",
+        "name": "HAMBURGER",
+        "description": "INGREDIENTE: chifla alba, burger, maioneza, salata verde, rosii, ceapa, castraveti murati, sos Aurora.",
+        "type": "",
+        "sizes": [
+            { "label": "290g", "price": "30.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/hamburger.png",
+        "tags": []
+    },
+    {
+        "id": "9abf7e64-d615-4c3a-83e2-4721ef8df1a8",
+        "name": "VEGGIE BURGER",
+        "description": "INGREDIENTE: chifla alba, burger vegetarian, maioneza vegetala, salata verde, rosii, ceapa, castraveti murati, sos Aurora.",
+        "type": "De Post",
+        "sizes": [
+            { "label": "280g", "price": "33.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/veggie-burger.png",
+        "tags": []
+    },
+    {
+        "id": "13b76a5c-8e4f-4d9f-b7a6-d57be46a53d3",
+        "name": "WRAP AVOCADO-CAPRESE",
+        "description": "INGREDIENTE: lipie, avocado, salata verde, spanac, bocconcini, sos pesto, rosii.",
+        "type": "",
+        "sizes": [
+            { "label": "270g", "price": "24.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-avocado-caprese.png",
+        "tags": []
+    },
+    {
+        "id": "c41975e5-8f42-4c95-b762-06504b1147d2",
+        "name": "WRAP CHICKEN STRIPS",
+        "description": "INGREDIENTE: lipie, chicken strips, emmentaler, salata verde, rosii, castraveti, masline, porumb, sos Aurora.",
+        "type": "",
+        "sizes": [
+            { "label": "280g", "price": "24.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-chicken-strips.png",
+        "tags": []
+    },
+    {
+        "id": "726f572b-d8df-48c7-8b1b-2a6206c7ad27",
+        "name": "WRAP FALAFEL-HUMMUS",
+        "description": "INGREDIENTE: lipie, falafel, hummus, avocado, salata verde, spanac, masline, naut, morcov, rosii uscate, castraveti, ceapa, seminte f.s.",
+        "type": "De Post",
+        "sizes": [
+            { "label": "300g", "price": "25.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-falafel-hummus.png",
+        "tags": []
+    },
+    {
+        "id": "9f9cb1c3-8817-45bc-b0aa-5ecb6fd87084",
+        "name": "WRAP PUI-AVOCADO",
+        "description": "INGREDIENTE: lipie, piept de pui, avocado, crema branza, salata verde, spanac, ou fiert, morcov, edamame, seminte in f.s.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "285g", "price": "25.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-pui-avocado.png",
+        "tags": []
+    },
+    {
+        "id": "5e8c63e7-4d0a-4a74-8b61-c61cba79f207",
+        "name": "WRAP SALAMI-CHEDDAR",
+        "description": "INGREDIENTE: lipie, salam Milano, cheddar, crema branza, salata verde, castraveti, morcov, rosii, masline.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "280g", "price": "24.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-salami-cheddar.png",
+        "tags": []
+    },
+    {
+        "id": "1d72a846-1c51-4780-9b0e-98b7d13c2728",
+        "name": "WRAP SEAFOOD",
+        "description": "INGREDIENTE: lipie, fructe de mare, avocado, salata verde, rosii, ceapa, edamame, sos Aurora.",
+        "type": "",
+        "sizes": [
+            { "label": "280g", "price": "26.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-seafood.png",
+        "tags": []
+    },
+    {
+        "id": "5a9f1b5f-90f0-4df2-9869-bfd6f703b52a",
+        "name": "WRAP TEX MEX",
+        "description": "INGREDIENTE: lipie, piept pui, avocado, crema branza, salata verde, rosii, porumb, fasole rosie.",
+        "type": "Picant",
+        "sizes": [
+            { "label": "280g", "price": "26.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-text-mex.png",
+        "tags": []
+    },
+    {
+        "id": "6cf8b91f-b17d-41e1-9b5c-0332ee77041c",
+        "name": "WRAP TUNA-MAYO",
+        "description": "INGREDIENTE: lipie, ton, maioneza, salata verde, ardei gras, ceapa, porumb, castraveti, ou fiert.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "270g", "price": "24.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/burger-wrap/wrap-tuna-mayo.png",
+        "tags": []
+    }
+]

@@ -1,7 +1,7 @@
 "use client";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
-import paste from "../../paste.json";
+import burgerAndWraps from "../../burgerAndWraps.json";
 import Card from "../../components/Card/Card";
 import "../../app/globals.css";
 
@@ -16,7 +16,7 @@ export default function page() {
         paddingBottom={28}
         textAlign="center"
       >
-        {paste.map((item) => (
+        {burgerAndWraps.map((item) => (
           <Card key={item.id} item={item} />
         ))}
       </SimpleGrid>

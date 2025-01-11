@@ -1,0 +1,98 @@
+[
+    {
+        "id": "6e6782ec-7af7-4c16-b89e-154f667c256d",
+        "name": "COCA-COLA LAMAIE 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "29b836ec-dc57-4b7f-8e5c-6a39f9d8f3b1",
+        "name": "COCA-COLA LIME 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "a78b5a02-4d7a-43f1-bd39-1e6f5deecf2e",
+        "name": "COCA-COLA ZERO 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "8e16e0f8-40e4-4236-99fc-40aaebc1e2b1",
+        "name": "FANTA 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "b94e8c2b-cc76-42c3-9963-3374c392d2c8",
+        "name": "FUZE TEA FRUCTE DE PADURE 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "64c4ebd6-4be3-48d0-901e-9ae8c3d03f9f",
+        "name": "FUZE TEA LAMAIE 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "21548a13-5c2e-4b22-9b32-c90e8fd29ab1",
+        "name": "FUZE TEA PIERSICA 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "8.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    },
+    {
+        "id": "e964f9cf-3835-43d0-a280-8a2f5cf62d77",
+        "name": "SCHWEPPES BITTER LEMON 0.500L",
+        "description": "",
+        "type": "",
+        "sizes": [
+            { "label": "0.500L", "price": "9.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/bauturi/COCA-COLA-LAMAIE.png",
+        "tags": []
+    }
+]

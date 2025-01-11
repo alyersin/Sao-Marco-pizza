@@ -1,0 +1,194 @@
+[
+    {
+        "id": "a1f2b3c4-5678-9101-1121-314159265358",
+        "name": "SALATA PRIMAVERA",
+        "description": "INGREDIENTE: salata verde, rucola, castraveti, ciuperci, morcov, porumb, naut, ceapa, seminte f.s., arahide, germeni din grau, crutoane.",
+        "type": "De Post",
+        "sizes": [
+            { "label": "400g", "price": "31.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "b2f3c4d5-6789-0112-2132-425159265358",
+        "name": "SALATA SALMONE",
+        "description": "INGREDIENTE: salata verde, rucola, file somon af., rosii, fasole rosie, porumb, ceapa, masline, seminte f.s, germeni de grâu, lamaie, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "450g", "price": "35.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "c3f4d5e6-7890-1121-3142-535159265358",
+        "name": "SALATA MILANO",
+        "description": "INGREDIENTE: salata verde, rucola, salam Milano, sunca, castraveti, ardei gras, rosii, ou fiert, emmentaler, morcov, masline, parmezan, seminte in f.s., crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "450g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "d4f5e6f7-8901-2132-4251-645159265358",
+        "name": "SALATA CHICKEN STRIPS",
+        "description": "INGREDIENTE: salata verde, chicken strips, rosii, castraveti, porumb, morcov, masline, emmentaler, parmezan, seminte in f.s., dovleac, crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "450g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "e5f6g7h8-9012-3142-5351-755159265358",
+        "name": "SALATA PARMA",
+        "description": "INGREDIENTE: salata verde, rucola, sunca, rosii, fasole rosie, anghinare, rosii uscate, morcov, parmezan, seminte in f.s., crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "450g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "f6g7h8i9-0123-4251-6451-865159265358",
+        "name": "SALATA CAESAR",
+        "description": "INGREDIENTE: salata verde, piept de pui, ou fiert, crispy bacon, ansoa, parmezan, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "400g", "price": "33.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "g7h8i9j0-1234-5351-7551-975159265358",
+        "name": "SALATA ATHENA",
+        "description": "INGREDIENTE: salata verde, rosii, castraveti, ardei, morcov, ceapa, masline, branza tip feta, germeni din grau, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "450g", "price": "31.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "h8i9j0k1-2345-6451-8651-085159265358",
+        "name": "SALATA SPINACIO",
+        "description": "INGREDIENTE: salata verde, spanac, piept de pui, rosii, branza cu mucegai, ceapa, ou fiert, merisoare, miez de nuca, seminte de in, germeni din grau, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "450g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "i9j0k1l2-3456-7551-9751-195159265358",
+        "name": "SALATA GAMBERETTI",
+        "description": "INGREDIENTE: salata verde, rucola, creveti, rosii, castraveti, morcov, ceapa, ou fiert, porumb, parmezan, lamaie, crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "500g", "price": "36.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "j0k1l2m3-4567-8651-0851-205159265358",
+        "name": "SALATA TON",
+        "description": "INGREDIENTE: salata verde, rucola, ton bucati, rosii, fasole rosie, porumb, ceapa, masline, seminte f.s, germeni din grau, lamaie, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "500g", "price": "34.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "k1l2m3n4-5678-9751-1951-315159265358",
+        "name": "SALATA SEAFOOD",
+        "description": "INGREDIENTE: salata verde, rucola, fructe de mare, rosii, ardei gras, castraveti, edamame, ceapa, lamaie, crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "500g", "price": "39.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "l2m3n4o5-6789-0851-2051-425159265358",
+        "name": "SALATA ROMA",
+        "description": "INGREDIENTE: salata verde, rucola, rosii, morcov, bocconcino, sos pesto, arahide, parmezan, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "400g", "price": "32.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "m3n4o5p6-7890-1951-3151-535159265358",
+        "name": "SALATA FALAFEL",
+        "description": "INGREDIENTE: salata verde, spanac, falafel, rosii, castraveti, hummus, morcov, masline, naut, ardei gras, ceapa, rosii uscate, seminte in f.s, dovleac, crutoane.",
+        "type": "De Post",
+        "sizes": [
+            { "label": "500g", "price": "35.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "n4o5p6q7-8901-2051-4251-645159265358",
+        "name": "SALATA GARDEN",
+        "description": "INGREDIENTE: salata verde, piept de pui, mar, telina, morcov, ananas, branza feta, porumb, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "450g", "price": "32.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "o5p6q7r8-9012-3151-5351-755159265358",
+        "name": "SALATA PASTA SALAD",
+        "description": "INGREDIENTE: salata verde, penne, piept de pui, rosii, ardei gras, fasole rosie, masline, parmezan, crutoane.",
+        "type": "",
+        "sizes": [
+            { "label": "450g", "price": "31.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    },
+    {
+        "id": "p6q7r8s9-0123-4251-6451-865159265358",
+        "name": "SALATA ROSSO",
+        "description": "INGREDIENTE: salata verde, spanac, piept de pui, sfecla rosie, branza de capra, morcov, naut, miez nuca, crutoane.",
+        "type": "Nou",
+        "sizes": [
+            { "label": "400g", "price": "33.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/salate/SALATA PRIMAVERA.png",
+        "tags": []
+    }
+]

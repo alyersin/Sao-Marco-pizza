@@ -1,0 +1,98 @@
+[
+    {
+        "id": "9e3c0f56-8dc2-4c50-9a76-f6e3de2c5115",
+        "name": "PANACOTTA CARAMEL",
+        "description": "INGREDIENTE: Topping caramel, lapte, frisca, mascarpone, zahar.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "fb88e8be-cadb-46b6-bb9a-d24dd86aa989",
+        "name": "PANACOTTA CIOCOLATA",
+        "description": "INGREDIENTE: Topping ciocolata, lapte, frisca, mascarpone, zahar.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "65ef7a2c-7a3e-46da-bdc0-9950b15348b6",
+        "name": "PANACOTTA FRUCTE",
+        "description": "INGREDIENTE: Dulceata, lapte, frisca, mascarpone, zahar.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "8f260477-d320-457d-8f36-ea78ed4a8c7d",
+        "name": "SAVARINA",
+        "description": "INGREDIENTE: Rum baba, crema chantilly.",
+        "type": "",
+        "sizes": [
+            { "label": "350g", "price": "20.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "eb8cc2cb-2c8e-4c97-b95f-95dfcb22eb08",
+        "name": "TARTA ANANAS",
+        "description": "INGREDIENTE: Ananas, biscuiti, crema budinca, lapte, frisca, mascarpone.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "c69ed810-06ed-4625-82f7-bb73b08e8d79",
+        "name": "TARTA CU FRUCTE ASORTATE",
+        "description": "INGREDIENTE: Kiwi, ananas, mandarine, biscuiti, crema budinca, lapte, frisca, mascarpone.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "fcd7a491-b0da-4a0f-bd45-0550b509cd16",
+        "name": "TARTA KIWI",
+        "description": "INGREDIENTE: Kiwi, biscuiti, crema budinca, lapte, frisca, mascarpone.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    },
+    {
+        "id": "8ec7c91a-1243-41c3-aaf6-9a9f54abbd8e",
+        "name": "TARTA MANDARINE",
+        "description": "INGREDIENTE: Mandarine, biscuiti, crema budinca, lapte, frisca, mascarpone.",
+        "type": "",
+        "sizes": [
+            { "label": "180g", "price": "16.50 lei" }
+        ],
+        "buttonLabel": "CUM VREI TU",
+        "image": "../../assets/menu/desert/PANACOTTA CARAMEL.png",
+        "tags": []
+    }
+]
