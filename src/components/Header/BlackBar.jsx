@@ -13,7 +13,6 @@ import {
   Text,
   Spinner,
   Icon,
-  Span,
 } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaPhone, FaUser } from "react-icons/fa";
@@ -24,12 +23,12 @@ import LoginRegister from "../LoginRegister/LoginRegister.jsx";
 
 export default function BlackBar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isRegister, setIsRegister] = useState(false);
+  const [defaultTab, setDefaultTab] = useState("login");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const openModal = (register = false) => {
-    setIsRegister(register);
+  const openModal = (tab = "login") => {
+    setDefaultTab(tab);
     setIsModalOpen(true);
   };
 
@@ -103,7 +102,6 @@ export default function BlackBar() {
             _hover={{ textDecoration: "none" }}
           >
             <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
-            {/* <Icon as={FaPhone} mr={1} /> */}
             <Text fontSize="sm" mr={1}>
               Comenzi telefonice:
             </Text>
@@ -134,7 +132,13 @@ export default function BlackBar() {
                 <Text px={4} py={2} fontWeight="bold">
                   Hello, {user.displayName || user.email}
                 </Text>
-                <MenuItem href="/profile">Profile</MenuItem>
+                <MenuItem
+                  as={Link}
+                  href="/profile"
+                  _hover={{ textDecoration: "none" }}
+                >
+                  Profile
+                </MenuItem>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
             </Menu>
@@ -143,8 +147,7 @@ export default function BlackBar() {
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
-                  onClick={() => openModal(true)}
-                  // _hover={{ bg: "#FFC107" }}
+                  onClick={() => openModal("register")}
                   fontSize="sm"
                   fontWeight="bold"
                   borderRadius="md"
@@ -159,7 +162,7 @@ export default function BlackBar() {
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
-                  onClick={() => openModal(false)}
+                  onClick={() => openModal("login")}
                   display="flex"
                   flexDirection="row"
                   alignItems="center"
@@ -192,7 +195,7 @@ export default function BlackBar() {
       <LoginRegister
         isOpen={isModalOpen}
         onClose={closeModal}
-        defaultTab={isRegister ? "register" : "login"}
+        defaultTab={defaultTab}
       />
     </Box>
   );

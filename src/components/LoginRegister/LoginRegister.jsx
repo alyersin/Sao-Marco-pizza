@@ -26,15 +26,14 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../../lib/firebase";
-import { useRouter } from "next/navigation";
 
-export default function LoginRegister({ isOpen, onClose }) {
+export default function LoginRegister({ isOpen, onClose, defaultTab }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
-  const router = useRouter();
+
+  const defaultIndex = defaultTab === "register" ? 1 : 0;
 
   const handleLogin = async () => {
     try {
@@ -51,7 +50,15 @@ export default function LoginRegister({ isOpen, onClose }) {
       }
 
       setMessage("Login successful!");
-      router.push("/profile");
+
+      setEmail("");
+      setPassword("");
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
+
+      onClose();
     } catch (error) {
       setMessage(error.message);
     }
@@ -76,6 +83,14 @@ export default function LoginRegister({ isOpen, onClose }) {
       setMessage(
         "Registration successful! Please check your email to verify your account."
       );
+
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      setTimeout(() => {
+        setMessage("");
+      }, 3000);
     } catch (error) {
       setMessage(error.message);
     }
@@ -88,13 +103,12 @@ export default function LoginRegister({ isOpen, onClose }) {
         <ModalHeader>Login / Register</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Tabs isFitted variant="enclosed">
+          <Tabs isFitted variant="enclosed" defaultIndex={defaultIndex}>
             <TabList mb="1em">
               <Tab>Login</Tab>
               <Tab>Register</Tab>
             </TabList>
             <TabPanels>
-              {/* Login Panel */}
               <TabPanel>
                 <VStack spacing={4}>
                   <Input
@@ -115,14 +129,8 @@ export default function LoginRegister({ isOpen, onClose }) {
                   {message && <Text color="red.500">{message}</Text>}
                 </VStack>
               </TabPanel>
-
               <TabPanel>
                 <VStack spacing={4}>
-                  {/* <Input
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  /> */}
                   <Input
                     placeholder="Email Address"
                     type="email"

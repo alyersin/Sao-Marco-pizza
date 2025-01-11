@@ -8,12 +8,12 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import NextLink from "next/link";
 
 export default function Footer() {
   return (
     <Box bg="black">
       <Box
-        className="borderRed"
         maxW="1280px"
         mx="auto"
         color="white"
@@ -25,6 +25,8 @@ export default function Footer() {
           {/* TOP */}
           <HStack spacing={4} justify="center">
             <Box
+              as={NextLink}
+              href="/"
               bg="yellow.400"
               borderRadius="full"
               w={10}
@@ -35,6 +37,7 @@ export default function Footer() {
               fontWeight="bold"
               fontSize="lg"
               color="black"
+              _hover={{ bg: "yellow.300" }}
             >
               SO
             </Box>

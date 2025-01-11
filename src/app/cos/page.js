@@ -14,17 +14,43 @@ import {
   Textarea,
   Flex,
   Icon,
+  Tooltip,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { FaPizzaSlice } from "react-icons/fa";
+import { FaPizzaSlice, FaTrash } from "react-icons/fa";
+import { auth } from "../../lib/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export default function Cos() {
   const [cart, setCart] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
+
+  const handleRemoveItem = (index) => {
+    const updatedCart = cart.filter((_, i) => i !== index);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleCheckout = () => {
+    if (isLoggedIn) {
+      alert("Checkout process initiated!");
+    } else {
+      alert("You need to log in to proceed to checkout!");
+    }
+  };
 
   return (
     <Box
@@ -54,7 +80,42 @@ export default function Cos() {
       </Box>
 
       <Flex mt={6} gap={8} flexDirection={{ base: "column", lg: "row" }}>
+        {/* Left Section: Cart Items */}
         <VStack flex="1" p={6} spacing={6} align="stretch">
+          <Box>
+            <Text fontWeight="bold" mb={2}>
+              Produse adaugate:
+            </Text>
+            {cart.length === 0 ? (
+              <Text color="gray.400">Cosul tau este gol.</Text>
+            ) : (
+              cart.map((item, index) => (
+                <Box
+                  key={index}
+                  bg="gray.800"
+                  p={4}
+                  borderRadius="md"
+                  shadow="md"
+                  mb={4}
+                >
+                  <HStack justify="space-between">
+                    <Text fontWeight="bold">{item.name}</Text>
+                    <Text>{item.size.label}</Text>
+                    <Text>{item.size.price} lei</Text>
+                    <Button
+                      size="sm"
+                      colorScheme="red"
+                      onClick={() => handleRemoveItem(index)}
+                      leftIcon={<Icon as={FaTrash} />}
+                    >
+                      Sterge
+                    </Button>
+                  </HStack>
+                </Box>
+              ))
+            )}
+          </Box>
+          <Divider borderColor="gray.600" />
           <Box>
             <Text fontWeight="bold" mb={2}>
               Foloseste punctele:
@@ -109,12 +170,18 @@ export default function Cos() {
           </Box>
         </VStack>
 
+        {/* Right Section: Summary and Payment */}
         <VStack flex="1" p={6} spacing={6} align="stretch">
           <Box>
             <Text fontWeight="bold" mb={2}>
               Sub-total:
             </Text>
-            <Text fontSize="sm">0.00 lei</Text>
+            <Text fontSize="sm">
+              {cart
+                .reduce((total, item) => total + parseFloat(item.size.price), 0)
+                .toFixed(2)}{" "}
+              lei
+            </Text>
             <Text fontWeight="bold" mt={2}>
               Voucher:
             </Text>
@@ -125,10 +192,13 @@ export default function Cos() {
             <Text fontSize="sm">0.00 lei</Text>
             <Divider borderColor="gray.600" my={4} />
             <Text fontWeight="bold" fontSize="lg" color="yellow.400">
-              Total 0 produse
+              Total {cart.length} produse
             </Text>
             <Text fontWeight="bold" fontSize="2xl" color="yellow.400">
-              0.00 lei
+              {cart
+                .reduce((total, item) => total + parseFloat(item.size.price), 0)
+                .toFixed(2)}{" "}
+              lei
             </Text>
           </Box>
 
@@ -165,13 +235,17 @@ export default function Cos() {
         >
           INAPOI
         </Button>
-        <Button
-          rightIcon={<ChevronRightIcon />}
-          colorScheme="yellow"
-          variant="solid"
-        >
-          TRIMITE COMANDA
-        </Button>
+        <Tooltip label="Login to checkout" isDisabled={isLoggedIn}>
+          <Button
+            rightIcon={<ChevronRightIcon />}
+            colorScheme="yellow"
+            variant="solid"
+            onClick={handleCheckout}
+            isDisabled={!isLoggedIn}
+          >
+            TRIMITE COMANDA
+          </Button>
+        </Tooltip>
       </HStack>
     </Box>
   );

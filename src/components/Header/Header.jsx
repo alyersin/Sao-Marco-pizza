@@ -9,13 +9,6 @@ import {
   VStack,
   Flex,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  Button,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -24,6 +17,7 @@ import { BsGridFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@chakra-ui/react";
+import LoginRegister from "../LoginRegister/LoginRegister.jsx";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -33,7 +27,7 @@ export default function Header() {
     <Box
       position={isSmallScreen ? "static" : "sticky"}
       top="0"
-      zIndex="1000"
+      zIndex="2"
       bg="black"
       boxShadow="md"
     >
@@ -86,7 +80,13 @@ export default function Header() {
             </HStack>
           </Flex>
 
-          <Box bg="black" py={2} overflow="hidden">
+          <Box
+            className="borderGreen"
+            bg="black"
+            py={2}
+            px={4}
+            overflow="hidden"
+          >
             <Swiper
               className="borderRed"
               spaceBetween={16}
@@ -94,7 +94,7 @@ export default function Header() {
               freeMode={true}
               grabCursor={true}
               centeredSlides={false}
-              style={{ padding: "0 16px", width: "70%" }}
+              style={{ padding: "0 6px", width: "100%", letterSpacing: "-1px" }}
             >
               {[
                 { href: "/pizza", label: "PIZZA" },
@@ -104,14 +104,18 @@ export default function Header() {
                 { href: "/deserturi", label: "DESERTURI" },
                 { href: "/bauturi", label: "BAUTURI" },
                 { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
-                { href: "/extra", label: "EXTRA" },
               ].map((item) => (
-                <SwiperSlide key={item.href} style={{ width: "auto" }}>
+                <SwiperSlide
+                  className="borderGreen"
+                  key={item.href}
+                  style={{ width: "auto" }}
+                >
                   <Link href={item.href}>
                     <Text
                       fontWeight="bold"
                       color="white"
                       _hover={{ color: "#FFD100" }}
+                      margin={"auto"}
                     >
                       {item.label}
                     </Text>
@@ -144,6 +148,7 @@ export default function Header() {
 
           <HStack
             spacing={4}
+            letterSpacing={-1}
             divider={<Box height="20px" width="1px" bg="black" />}
           >
             {[
@@ -154,7 +159,6 @@ export default function Header() {
               { href: "/deserturi", label: "DESERTURI" },
               { href: "/bauturi", label: "BAUTURI" },
               { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
-              { href: "/extra", label: "EXTRA" },
             ].map((item) => (
               <Link key={item.href} href={item.href}>
                 <Text fontWeight="bold" _hover={{ color: "#FFD100" }}>
@@ -192,21 +196,8 @@ export default function Header() {
         </Box>
       )}
 
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Login</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Button colorScheme="blue" w="full" mb={4}>
-              Login with Google
-            </Button>
-            <Button colorScheme="gray" w="full">
-              Login with Email
-            </Button>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
+      {/* Login Modal */}
+      <LoginRegister isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 }
