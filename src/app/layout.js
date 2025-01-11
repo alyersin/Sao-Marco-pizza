@@ -7,8 +7,11 @@ import theme from "../theme";
 
 import { CartProvider } from "@/context/CartContext";
 import BlackBar from "@/components/Header/BlackBar";
+import { useMediaQuery } from "@chakra-ui/react";
 
 export default function RootLayout({ children }) {
+  const [isSmallScreen] = useMediaQuery("(max-width: 992px)");
+
   return (
     <html lang="en">
       <head>
@@ -27,7 +30,7 @@ export default function RootLayout({ children }) {
       >
         <ChakraProvider theme={theme}>
           <CartProvider>
-            <BlackBar />
+            {!isSmallScreen && <BlackBar />}
             <Header />
             <main style={{ flex: 1 }}>{children}</main>
             <Footer />

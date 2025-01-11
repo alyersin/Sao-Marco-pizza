@@ -13,7 +13,6 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import "../../app/globals.css";
 
 export default function Contact() {
   return (

@@ -63,6 +63,7 @@ export default function BlackBar() {
         maxW="1280px"
         margin="0 auto"
         px={10}
+        py={0.5}
       >
         <HStack spacing={6} alignItems="center">
           <Text fontWeight="500">Pizza Constanta</Text>
@@ -94,6 +95,7 @@ export default function BlackBar() {
 
         <HStack spacing={6} alignItems="center">
           <Link
+            href="tel:0241555555"
             display="flex"
             flexDirection="row"
             spacing={2}

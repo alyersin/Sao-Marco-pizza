@@ -22,13 +22,14 @@ export default function Card({ item, isDisabled = false }) {
       color="white"
       borderRadius="md"
       overflow="hidden"
-      width="250px"
-      height="560px"
+      width={{ base: "100%", sm: "250px" }} // Full width on mobile, 250px on larger screens
+      height={{ base: "auto", md: "560px" }} // Adjust height for responsiveness
       shadow="lg"
       p={4}
-      margin="auto"
+      mx="auto"
       position="relative"
     >
+      {/* Image Section */}
       <Box position="relative" flexShrink={0} textAlign="center">
         <Image
           src={item.image}
@@ -48,6 +49,7 @@ export default function Card({ item, isDisabled = false }) {
         </Icon>
       </Box>
 
+      {/* Details Section */}
       <VStack align="center" spacing={2} p={4} flexGrow={1}>
         <Text fontWeight="bold" fontSize="lg">
           {item.name}
@@ -76,6 +78,7 @@ export default function Card({ item, isDisabled = false }) {
         </Text>
       </VStack>
 
+      {/* Sizes Section */}
       <VStack spacing={2} flexShrink={0} py={2}>
         {item.sizes.map((size, index) => (
           <HStack
@@ -101,6 +104,7 @@ export default function Card({ item, isDisabled = false }) {
         ))}
       </VStack>
 
+      {/* Button Section */}
       <Button
         mt="auto"
         width="100%"
@@ -109,6 +113,8 @@ export default function Card({ item, isDisabled = false }) {
         _hover={{ bg: "gray.600" }}
         leftIcon={<Icon as={FaShoppingCart} />}
         isDisabled={isDisabled}
+        fontSize={{ base: "sm", md: "md" }} // Responsive font size
+        py={{ base: 2, md: 4 }} // Responsive padding
       >
         {item.buttonLabel}
       </Button>

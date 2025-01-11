@@ -3,17 +3,16 @@ import { Box, SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 import desert from "../../desert.json";
 import Card from "../../components/Card/Card";
-import "../../app/globals.css";
 
 export default function page() {
   return (
-    <Box className="borderRed" maxW="1280px" mx="auto">
+    <Box className="borderRed" maxW="1280px" mx="auto" px={{ base: 4, md: 8 }}>
       <SimpleGrid
-        columns={{ base: 1, md: 2, lg: 4 }}
+        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         spacingY={6}
-        px={24}
-        paddingTop={6}
-        paddingBottom={28}
+        spacingX={{ base: 4, md: 6 }}
+        pt={{ base: 4, md: 6 }}
+        pb={{ base: 12, md: 28 }}
         textAlign="center"
       >
         {desert.map((item) => (
