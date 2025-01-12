@@ -9,15 +9,16 @@ import {
   VStack,
   HStack,
   Divider,
-  Text,
+  Link as ChakraLink,
   Icon,
 } from "@chakra-ui/react";
 import { auth } from "../../lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import NextLink from "next/link";
 import { FaTrash, FaSignOutAlt, FaLock } from "react-icons/fa";
 
-export default function page() {
+export default function Page() {
   const [user, setUser] = useState(null);
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
@@ -30,7 +31,6 @@ export default function page() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-
         setFirstName("Ersin");
         setLastName("Ali");
         setPhone("0732906480");
@@ -48,15 +48,15 @@ export default function page() {
   };
 
   const handleDeleteAccount = () => {
-    alert("Account deletion is not implemented in this example.");
+    alert("Account deletion is not implemented.");
   };
 
   const handleUpdateProfile = () => {
-    alert("Profile update is not implemented in this example.");
+    alert("Profile update is not implemented.");
   };
 
   const handleChangePassword = () => {
-    alert("Password change is not implemented in this example.");
+    alert("Password change is not implemented.");
   };
 
   return (
@@ -74,32 +74,38 @@ export default function page() {
       </Heading>
 
       <HStack spacing={4} justifyContent="space-between" mb={4}>
-        <Button
-          variant="unstyled"
+        <ChakraLink
+          as={NextLink}
+          href="/profile"
           color="#FFD100"
           fontWeight="bold"
           fontSize="lg"
+          textDecoration="none"
         >
           DATE PERSONALE
-        </Button>
+        </ChakraLink>
         <Divider orientation="vertical" h="20px" bg="#FFD100" />
-        <Button
-          variant="unstyled"
+        <ChakraLink
+          as={NextLink}
+          href="/adrese-de-livrare"
           color="gray.500"
           fontWeight="bold"
           fontSize="lg"
+          textDecoration="none"
         >
           ADRESE DE LIVRARE
-        </Button>
+        </ChakraLink>
         <Divider orientation="vertical" h="20px" bg="#FFD100" />
-        <Button
-          variant="unstyled"
+        <ChakraLink
+          as={NextLink}
+          href="/istoricComenzi"
           color="gray.500"
           fontWeight="bold"
           fontSize="lg"
+          textDecoration="none"
         >
           ISTORIC COMENZI
-        </Button>
+        </ChakraLink>
       </HStack>
 
       <Divider borderColor="#FFD100" mb={6} />
