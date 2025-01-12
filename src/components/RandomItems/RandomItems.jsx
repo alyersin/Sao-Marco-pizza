@@ -85,15 +85,25 @@ export default function RandomItems() {
       </SimpleGrid>
 
       {/* BANNER */}
-      <Box mx={{ base: 4, lg: 10 }} px={1} pb={{ base: 4, md: 6 }}>
+      <Box
+        className="borderRed"
+        display="flex"
+        justifyContent="center"
+        width="auto"
+        mx={{ base: 4, lg: "auto" }}
+        pb={{ base: 4, md: 6 }}
+        px={{ base: 4, md: 0 }}
+      >
         <Flex
+          className="borderGreen"
           bg="black"
           color="white"
           justify="space-between"
           align="center"
+          width="100%"
           p={{ base: 4, md: 6 }}
           mt={{ base: 2, md: 4 }}
-          mx="auto"
+          mx="4"
           borderRadius="md"
           flexWrap="wrap"
         >

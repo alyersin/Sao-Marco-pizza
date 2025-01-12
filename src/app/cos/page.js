@@ -11,7 +11,12 @@ import {
   Image,
   Divider,
   Flex,
+  Link,
   Tooltip,
+  Input,
+  RadioGroup,
+  Radio,
+  Textarea,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
@@ -32,14 +37,23 @@ export default function Cos() {
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
+    const updatedCart = storedCart.map((item) => ({
+      ...item,
+      size: {
+        ...item.size,
+        price: parseFloat(item.size.price) || 0,
+      },
+      quantity: item.quantity || 1,
+    }));
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
   }, []);
 
   const updateCartQuantity = (index, quantity) => {
     const updatedCart = [...cart];
     updatedCart[index].quantity = Math.max(
       1,
-      updatedCart[index].quantity + quantity
+      (updatedCart[index].quantity || 1) + quantity
     );
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -62,7 +76,8 @@ export default function Cos() {
   const calculateTotal = () => {
     return cart
       .reduce(
-        (total, item) => total + parseFloat(item.size.price) * item.quantity,
+        (total, item) =>
+          total + parseFloat(item.size.price) * (item.quantity || 1),
         0
       )
       .toFixed(2);
@@ -81,7 +96,7 @@ export default function Cos() {
         COS CUMPARATURI
       </Text>
 
-      <Box bg="gray.900" p={4} borderRadius="md" shadow="md" mb={6}>
+      <Box p={4} borderRadius="md" shadow="md" mb={6}>
         <Text fontWeight="bold" fontSize="lg" mb={4}>
           Produse adaugate:
         </Text>
@@ -91,7 +106,7 @@ export default function Cos() {
           cart.map((item, index) => (
             <Box
               key={index}
-              bg="gray.800"
+              // bg="#232323"
               p={4}
               borderRadius="md"
               shadow="md"
@@ -130,14 +145,20 @@ export default function Cos() {
                     <Icon as={FaPlus} />
                   </Button>
                 </HStack>
-                <Text>{(item.size.price * item.quantity).toFixed(2)} lei</Text>
-                <Button
-                  size="sm"
-                  colorScheme="red"
-                  onClick={() => handleRemoveItem(index)}
-                >
-                  <Icon as={FaTrash} />
-                </Button>
+                <Text>
+                  {(parseFloat(item.size.price) * (item.quantity || 1)).toFixed(
+                    2
+                  )}{" "}
+                  lei
+                </Text>
+                <Link onClick={() => handleRemoveItem(index)} cursor="pointer">
+                  <Image
+                    src="../assets/delete.png"
+                    alt="Delete"
+                    boxSize="30px"
+                    filter="contrast(0) invert(1)"
+                  />
+                </Link>
               </HStack>
             </Box>
           ))
@@ -166,13 +187,44 @@ export default function Cos() {
           <Divider borderColor="gray.600" />
           <Box>
             <Text fontWeight="bold" mb={2}>
-              Sub-total:
+              Foloseste punctele:
             </Text>
-            <Text>{calculateTotal()} lei</Text>
+            <Text fontSize="sm" color="gray.400">
+              Aceasta functie momentan este indisponibila.
+            </Text>
+          </Box>
+
+          <Divider borderColor="gray.600" />
+
+          <Box>
+            <Text fontWeight="bold" mb={2}>
+              Ai un voucher?
+            </Text>
+            <Text fontSize="sm" color="gray.400" mb={4}>
+              In cazul in care detii un voucher de reducere il poti introduce in
+              campul de mai jos. Se va aplica la totalul comenzii.
+            </Text>
+            <HStack spacing={2}>
+              <Input placeholder="Voucher" bg="#707070" color="white" />
+              <Button
+                rightIcon={<ChevronRightIcon />}
+                colorScheme="yellow"
+                variant="solid"
+              >
+                APLICA
+              </Button>
+            </HStack>
           </Box>
         </VStack>
 
         <VStack flex="1" p={6} spacing={6} align="stretch">
+          <Box>
+            <Text fontWeight="bold" mb={2}>
+              Sub-total:
+            </Text>
+            <Text fontSize="sm">{calculateTotal()} lei</Text>
+          </Box>
+
           <Button
             rightIcon={<ChevronRightIcon />}
             colorScheme="yellow"

@@ -18,6 +18,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@chakra-ui/react";
 import LoginRegister from "../LoginRegister/LoginRegister.jsx";
+import "../../app/globals.css";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -64,7 +65,7 @@ export default function Header() {
       boxShadow="md"
     >
       {isSmallScreen ? (
-        <VStack align="stretch" spacing={0}>
+        <VStack className="borderGreen" align="stretch" spacing={0}>
           <Flex
             justifyContent="space-between"
             alignItems="center"
@@ -90,7 +91,7 @@ export default function Header() {
               </Link>
             </Box>
 
-            <HStack spacing={2}>
+            <HStack className="borderGreen" spacing={2}>
               <Link href="/cos">
                 <HStack>
                   <Box
@@ -106,9 +107,9 @@ export default function Header() {
                   >
                     {cart.length}
                   </Box>
-                  <Text color="white" fontWeight="bold">
+                  {/* <Text color="white" fontWeight="bold">
                     {totalAmount} lei
-                  </Text>
+                  </Text> */}
                 </HStack>
               </Link>
               <Link href="/cos">
@@ -116,6 +117,56 @@ export default function Header() {
               </Link>
             </HStack>
           </Flex>
+
+          {/* NAV MENU (MOBILE) */}
+          <Box
+            className="borderGreen"
+            bg="black"
+            py={2}
+            px={4}
+            overflow="hidden"
+          >
+            <Swiper
+              className="borderGreen"
+              spaceBetween={16}
+              slidesPerView={2.5}
+              freeMode={true}
+              grabCursor={true}
+              centeredSlides={false}
+              style={{ padding: "0 6px", width: "100%", letterSpacing: "-1px" }}
+            >
+              {[
+                { href: "/pizza", label: "PIZZA" },
+                { href: "/paste", label: "PASTE" },
+                { href: "/salate", label: "SALATE" },
+                { href: "/sandwichuri", label: "SANDWICHURI" },
+                { href: "/deserturi", label: "DESERTURI" },
+                { href: "/bauturi", label: "BAUTURI" },
+                { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
+              ].map((item) => (
+                <SwiperSlide
+                  className="borderRed"
+                  key={item.href}
+                  style={{
+                    display: "flex",
+                    width: "100%",
+                  }}
+                >
+                  <Link href={item.href}>
+                    <Text
+                      fontWeight="bold"
+                      fontFamily="'Mongoose', sans-serif"
+                      color="white"
+                      _hover={{ color: "#FFD100" }}
+                      textAlign="center"
+                    >
+                      {item.label}
+                    </Text>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </Box>
         </VStack>
       ) : (
         <Box
