@@ -6,18 +6,15 @@ import {
   Text,
   VStack,
   HStack,
-  Input,
   Button,
-  RadioGroup,
-  Radio,
-  Divider,
-  Textarea,
-  Flex,
   Icon,
+  Image,
+  Divider,
+  Flex,
   Tooltip,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { FaPizzaSlice, FaTrash } from "react-icons/fa";
+import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
 import { auth } from "../../lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
@@ -38,6 +35,16 @@ export default function Cos() {
     setCart(storedCart);
   }, []);
 
+  const updateCartQuantity = (index, quantity) => {
+    const updatedCart = [...cart];
+    updatedCart[index].quantity = Math.max(
+      1,
+      updatedCart[index].quantity + quantity
+    );
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
   const handleRemoveItem = (index) => {
     const updatedCart = cart.filter((_, i) => i !== index);
     setCart(updatedCart);
@@ -50,6 +57,15 @@ export default function Cos() {
     } else {
       alert("You need to log in to proceed to checkout!");
     }
+  };
+
+  const calculateTotal = () => {
+    return cart
+      .reduce(
+        (total, item) => total + parseFloat(item.size.price) * item.quantity,
+        0
+      )
+      .toFixed(2);
   };
 
   return (
@@ -65,12 +81,78 @@ export default function Cos() {
         COS CUMPARATURI
       </Text>
 
+      <Box bg="gray.900" p={4} borderRadius="md" shadow="md" mb={6}>
+        <Text fontWeight="bold" fontSize="lg" mb={4}>
+          Produse adaugate:
+        </Text>
+        {cart.length === 0 ? (
+          <Text color="gray.400">Cosul tau este gol.</Text>
+        ) : (
+          cart.map((item, index) => (
+            <Box
+              key={index}
+              bg="gray.800"
+              p={4}
+              borderRadius="md"
+              shadow="md"
+              mb={4}
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <HStack>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  boxSize="50px"
+                  borderRadius="md"
+                />
+                <VStack align="start" spacing={0} ml={3}>
+                  <Text fontWeight="bold">{item.name}</Text>
+                  <Text fontSize="sm">{item.size.label}</Text>
+                </VStack>
+              </HStack>
+              <HStack spacing={4}>
+                <HStack spacing={1}>
+                  <Button
+                    size="xs"
+                    bg="gray.700"
+                    onClick={() => updateCartQuantity(index, -1)}
+                  >
+                    <Icon as={FaMinus} />
+                  </Button>
+                  <Text>{item.quantity}</Text>
+                  <Button
+                    size="xs"
+                    bg="gray.700"
+                    onClick={() => updateCartQuantity(index, 1)}
+                  >
+                    <Icon as={FaPlus} />
+                  </Button>
+                </HStack>
+                <Text>{(item.size.price * item.quantity).toFixed(2)} lei</Text>
+                <Button
+                  size="sm"
+                  colorScheme="red"
+                  onClick={() => handleRemoveItem(index)}
+                >
+                  <Icon as={FaTrash} />
+                </Button>
+              </HStack>
+            </Box>
+          ))
+        )}
+      </Box>
+
       <Box
         bg="black"
         color="yellow.400"
         p={4}
         textAlign="center"
         fontWeight="bold"
+        borderRadius="md"
+        shadow="md"
+        mb={6}
       >
         <HStack justify="center" spacing={4}>
           <Text>La 3 pizza marimea L beneficiezi de promotia</Text>
@@ -80,173 +162,27 @@ export default function Cos() {
       </Box>
 
       <Flex mt={6} gap={8} flexDirection={{ base: "column", lg: "row" }}>
-        {/* Left Section: Cart Items */}
         <VStack flex="1" p={6} spacing={6} align="stretch">
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Produse adaugate:
-            </Text>
-            {cart.length === 0 ? (
-              <Text color="gray.400">Cosul tau este gol.</Text>
-            ) : (
-              cart.map((item, index) => (
-                <Box
-                  key={index}
-                  bg="gray.800"
-                  p={4}
-                  borderRadius="md"
-                  shadow="md"
-                  mb={4}
-                >
-                  <HStack justify="space-between">
-                    <Text fontWeight="bold">{item.name}</Text>
-                    <Text>{item.size.label}</Text>
-                    <Text>{item.size.price} lei</Text>
-                    <Button
-                      size="sm"
-                      colorScheme="red"
-                      onClick={() => handleRemoveItem(index)}
-                      leftIcon={<Icon as={FaTrash} />}
-                    >
-                      Sterge
-                    </Button>
-                  </HStack>
-                </Box>
-              ))
-            )}
-          </Box>
           <Divider borderColor="gray.600" />
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Foloseste punctele:
-            </Text>
-            <Text fontSize="sm" color="gray.400">
-              Aceasta functie momentan este indisponibila.
-            </Text>
-          </Box>
-
-          <Divider borderColor="gray.600" />
-
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Ai un voucher?
-            </Text>
-            <Text fontSize="sm" color="gray.400" mb={4}>
-              In cazul in care detii un voucher de reducere il poti introduce in
-              campul de mai jos. Se va aplica la totalul comenzii.
-            </Text>
-            <HStack spacing={2}>
-              <Input placeholder="Voucher" bg="#707070" color="white" />
-              <Button
-                rightIcon={<ChevronRightIcon />}
-                colorScheme="yellow"
-                variant="solid"
-              >
-                APLICA
-              </Button>
-            </HStack>
-          </Box>
-
-          <Divider borderColor="gray.600" />
-
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Metoda de plata:
-            </Text>
-            <RadioGroup>
-              <VStack align="start" spacing={3}>
-                <Radio value="cash">Cash la livrare</Radio>
-                <Radio value="card-on-delivery">
-                  Plata cu cardul la livrare
-                </Radio>
-                <Radio value="online-card">Plata online cu cardul</Radio>
-              </VStack>
-            </RadioGroup>
-            <Text fontSize="sm" color="gray.400" mt={4}>
-              * La metoda de plata cu cardul nu se percepe nici un comision in
-              plus indiferent de banca de care apartineti. Acceptam: Visa si
-              Mastercard.
-            </Text>
-          </Box>
-        </VStack>
-
-        {/* Right Section: Summary and Payment */}
-        <VStack flex="1" p={6} spacing={6} align="stretch">
           <Box>
             <Text fontWeight="bold" mb={2}>
               Sub-total:
             </Text>
-            <Text fontSize="sm">
-              {cart
-                .reduce((total, item) => total + parseFloat(item.size.price), 0)
-                .toFixed(2)}{" "}
-              lei
-            </Text>
-            <Text fontWeight="bold" mt={2}>
-              Voucher:
-            </Text>
-            <Text fontSize="sm">0.00 lei</Text>
-            <Text fontWeight="bold" mt={2}>
-              Garantia SGR:
-            </Text>
-            <Text fontSize="sm">0.00 lei</Text>
-            <Divider borderColor="gray.600" my={4} />
-            <Text fontWeight="bold" fontSize="lg" color="yellow.400">
-              Total {cart.length} produse
-            </Text>
-            <Text fontWeight="bold" fontSize="2xl" color="yellow.400">
-              {cart
-                .reduce((total, item) => total + parseFloat(item.size.price), 0)
-                .toFixed(2)}{" "}
-              lei
-            </Text>
-          </Box>
-
-          <Divider borderColor="gray.600" />
-
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Date de livrare:
-            </Text>
-            <Text fontSize="sm" color="gray.400" mb={2}>
-              * Comanda minima pentru orasul Constanta este de 40 de lei iar
-              pentru zonele rezidentiale si comunele limitrofe este de 100 de
-              lei
-            </Text>
-            <RadioGroup>
-              <Radio value="delivery">Livrare la</Radio>
-            </RadioGroup>
-            <Textarea
-              placeholder="Mesaj"
-              bg="#707070"
-              color="white"
-              mt={4}
-              borderRadius="md"
-            />
+            <Text>{calculateTotal()} lei</Text>
           </Box>
         </VStack>
-      </Flex>
 
-      <HStack justify="space-between" mt={6}>
-        <Button
-          leftIcon={<ChevronRightIcon />}
-          colorScheme="gray"
-          variant="solid"
-        >
-          INAPOI
-        </Button>
-        <Tooltip label="Login to checkout" isDisabled={isLoggedIn}>
+        <VStack flex="1" p={6} spacing={6} align="stretch">
           <Button
             rightIcon={<ChevronRightIcon />}
             colorScheme="yellow"
             variant="solid"
             onClick={handleCheckout}
-            isDisabled={!isLoggedIn}
           >
             TRIMITE COMANDA
           </Button>
-        </Tooltip>
-      </HStack>
+        </VStack>
+      </Flex>
     </Box>
   );
 }

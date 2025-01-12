@@ -1,24 +1,11 @@
 "use client";
 
-import {
-  Box,
-  HStack,
-  Link,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Avatar,
-  Text,
-  Spinner,
-  Icon,
-} from "@chakra-ui/react";
+import { Box, HStack, Link, Text, Spinner, Icon } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
-import { FaFacebook, FaInstagram, FaPhone, FaUser } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaUser } from "react-icons/fa";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { auth } from "../../lib/firebase.js";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import LoginRegister from "../LoginRegister/LoginRegister.jsx";
 
 export default function BlackBar() {
@@ -43,15 +30,6 @@ export default function BlackBar() {
     return () => unsubscribe();
   }, []);
 
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-      setUser(null);
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
-  };
-
   return (
     <Box bg="#000" color="#828282" py={1} fontSize="15px">
       <Box
@@ -64,6 +42,7 @@ export default function BlackBar() {
         px={10}
         py={0.5}
       >
+        {/* Left Section */}
         <HStack spacing={6} alignItems="center">
           <Text fontWeight="500">Pizza Constanta</Text>
 
@@ -92,6 +71,7 @@ export default function BlackBar() {
           </HStack>
         </HStack>
 
+        {/* Right Section */}
         <HStack spacing={6} alignItems="center">
           <Link
             href="tel:0241555555"
@@ -113,34 +93,36 @@ export default function BlackBar() {
           {loading ? (
             <Spinner size="sm" color="blue.500" />
           ) : user ? (
-            <Menu>
-              <MenuButton
-                as={Button}
-                colorScheme="blue"
-                rounded="full"
-                variant="link"
+            <HStack spacing={2} alignItems="center">
+              {/* "Cont" with Arrow */}
+              <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
+              <Link
+                href="/profile"
+                display="flex"
+                alignItems="center"
+                gap={4}
                 cursor="pointer"
-                minW={0}
+                _hover={{ textDecoration: "none" }}
               >
-                <Avatar
-                  size="sm"
-                  name={user.displayName || "User"}
-                  src={user.photoURL || ""}
-                />
-              </MenuButton>
-              <MenuList>
-                <MenuItem
-                  as={Link}
-                  href="/profile"
-                  _hover={{ textDecoration: "none" }}
+                <Text fontSize="sm" mr={2}>
+                  Cont
+                </Text>
+                <Box
+                  bg="#E3051B"
+                  borderRadius="full"
+                  width="30px"
+                  height="30px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
                 >
-                  Profile
-                </MenuItem>
-                <MenuItem onClick={handleLogout}>Logout</MenuItem>
-              </MenuList>
-            </Menu>
+                  <Icon as={FaUser} color="black" boxSize="20px" />
+                </Box>
+              </Link>
+            </HStack>
           ) : (
             <>
+              {/* Register */}
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
@@ -156,6 +138,7 @@ export default function BlackBar() {
                 </Link>
               </HStack>
 
+              {/* Login */}
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link

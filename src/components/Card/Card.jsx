@@ -15,7 +15,7 @@ export default function Card({ item }) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = [...cart, { ...item, size }];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    alert(`Added ${item.name} (${size.label}) to the cart!`);
+    // alert(`Added ${item.name} (${size.label}) to the cart!`);
   };
 
   return (
@@ -49,7 +49,7 @@ export default function Card({ item }) {
             _hover={{ bg: "gray.700" }}
             cursor="pointer"
             width="100%"
-            onClick={() => handleAddToCart(size)} // Add to cart
+            onClick={() => handleAddToCart(size)}
           >
             <Text fontSize="sm">{size.label}</Text>
             <HStack>
