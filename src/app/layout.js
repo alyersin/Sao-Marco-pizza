@@ -8,6 +8,7 @@ import theme from "../theme";
 import { CartProvider } from "@/context/CartContext";
 import BlackBar from "@/components/Header/BlackBar";
 import { useMediaQuery } from "@chakra-ui/react";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
 export default function RootLayout({ children }) {
   const [isSmallScreen] = useMediaQuery("(max-width: 992px)");
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
             {!isSmallScreen && <BlackBar />}
             <Header />
             <main style={{ flex: 1 }}>{children}</main>
+            <ScrollToTop />
             <Footer />
           </CartProvider>
         </ChakraProvider>

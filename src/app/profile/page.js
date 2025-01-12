@@ -11,6 +11,12 @@ import {
   Divider,
   Link as ChakraLink,
   Icon,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverBody,
 } from "@chakra-ui/react";
 import { auth } from "../../lib/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -47,71 +53,75 @@ export default function Page() {
     router.push("/");
   };
 
-  const handleDeleteAccount = () => {
-    alert("Stergerea contului nu este implementata.");
-  };
-
-  const handleUpdateProfile = () => {
-    alert("Actualizarea profilului nu este implementata.");
-  };
-
-  const handleChangePassword = () => {
-    alert("Schimbarea parolei nu este implementata.");
-  };
-
   return (
     <Box
       bg="black"
       color="white"
-      p={8}
+      p={{ base: 4, md: 8 }}
       maxW="800px"
       mx="auto"
-      mt={10}
+      mt={{ base: 4, md: 10 }}
+      mb={{ base: 4, md: 10 }}
       borderRadius="md"
     >
-      <Heading fontSize="lg" mb={6}>
+      <Heading fontSize={{ base: "md", md: "lg" }} mb={{ base: 4, md: 6 }}>
         Cont personal | Date personale
       </Heading>
 
-      <HStack spacing={4} justifyContent="space-between" mb={4}>
+      <HStack
+        spacing={{ base: 2, md: 4 }}
+        justifyContent="space-between"
+        mb={{ base: 4, md: 6 }}
+        flexWrap="wrap"
+      >
         <ChakraLink
           as={NextLink}
           href="/profile"
           color="#FFD100"
           fontWeight="bold"
-          fontSize="lg"
+          fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
           DATE PERSONALE
         </ChakraLink>
-        <Divider orientation="vertical" h="20px" bg="#FFD100" />
+        <Divider
+          orientation="vertical"
+          h="20px"
+          bg="#FFD100"
+          display={{ base: "none", md: "block" }}
+        />
         <ChakraLink
           as={NextLink}
           href="/adrese-de-livrare"
           color="gray.500"
           fontWeight="bold"
-          fontSize="lg"
+          fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
           ADRESE DE LIVRARE
         </ChakraLink>
-        <Divider orientation="vertical" h="20px" bg="#FFD100" />
+        <Divider
+          orientation="vertical"
+          h="20px"
+          bg="#FFD100"
+          display={{ base: "none", md: "block" }}
+        />
         <ChakraLink
           as={NextLink}
           href="/istoricComenzi"
           color="gray.500"
           fontWeight="bold"
-          fontSize="lg"
+          fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
           ISTORIC COMENZI
         </ChakraLink>
       </HStack>
 
-      <Divider borderColor="#FFD100" mb={6} />
+      <Divider borderColor="#FFD100" mb={{ base: 4, md: 6 }} />
 
       <VStack spacing={4} align="stretch">
-        <HStack>
+        <HStack spacing={2} flexWrap="wrap">
           <Input
             placeholder="First Name"
             value={firstName}
@@ -119,6 +129,7 @@ export default function Page() {
             bg="gray.600"
             color="white"
             border="none"
+            flex={{ base: "1 1 100%", md: "1 1 45%" }}
           />
           <Input
             placeholder="Last Name"
@@ -127,6 +138,7 @@ export default function Page() {
             bg="gray.600"
             color="white"
             border="none"
+            flex={{ base: "1 1 100%", md: "1 1 45%" }}
           />
         </HStack>
         <Input
@@ -146,7 +158,7 @@ export default function Page() {
           border="none"
         />
 
-        <HStack>
+        <HStack spacing={2} flexWrap="wrap">
           <Input
             placeholder="Old Password"
             type="password"
@@ -155,6 +167,7 @@ export default function Page() {
             bg="gray.600"
             color="white"
             border="none"
+            flex={{ base: "1 1 100%", md: "1 1 45%" }}
           />
           <Input
             placeholder="New Password"
@@ -164,38 +177,57 @@ export default function Page() {
             bg="gray.600"
             color="white"
             border="none"
+            flex={{ base: "1 1 100%", md: "1 1 45%" }}
           />
         </HStack>
 
-        <Button
-          leftIcon={<FaLock />}
-          onClick={handleChangePassword}
-          bg="gray.600"
-          color="white"
-          border="none"
-          fontWeight="bold"
-          _hover={{ bg: "gray.700" }}
-          w="full"
-        >
-          MODIFICA PAROLA
-        </Button>
+        <Popover>
+          <PopoverTrigger>
+            <Button
+              leftIcon={<FaLock />}
+              bg="gray.600"
+              color="white"
+              border="none"
+              fontWeight="bold"
+              _hover={{ bg: "gray.700" }}
+              w="full"
+            >
+              MODIFICA PAROLA
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent bg="gray.700" color="white">
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Schimbarea parolei nu este implementata.</PopoverBody>
+          </PopoverContent>
+        </Popover>
 
-        <Button
-          rightIcon={<Icon as={FaSignOutAlt} />}
-          onClick={handleUpdateProfile}
-          bg="gray.400"
-          color="black"
-          fontWeight="bold"
-          _hover={{ bg: "gray.500" }}
-          alignSelf="flex-end"
-        >
-          MODIFICA DATELE
-        </Button>
+        <Popover>
+          <PopoverTrigger>
+            <Button
+              rightIcon={<Icon as={FaSignOutAlt} />}
+              bg="gray.400"
+              color="black"
+              fontWeight="bold"
+              _hover={{ bg: "gray.500" }}
+              alignSelf="flex-end"
+            >
+              MODIFICA DATELE
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent bg="gray.700" color="white">
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>
+              Actualizarea profilului nu este implementata.
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
       </VStack>
 
-      <Divider borderColor="gray.700" mt={6} mb={4} />
+      <Divider borderColor="gray.700" mt={{ base: 4, md: 6 }} mb={4} />
 
-      <HStack justifyContent="space-between">
+      <HStack justifyContent="space-between" flexWrap="wrap">
         <Button
           leftIcon={<FaSignOutAlt />}
           onClick={handleLogout}
@@ -206,16 +238,24 @@ export default function Page() {
         >
           Log out
         </Button>
-        <Button
-          leftIcon={<FaTrash />}
-          onClick={handleDeleteAccount}
-          bg="black"
-          color="#FFD100"
-          fontWeight="bold"
-          _hover={{ textDecoration: "underline" }}
-        >
-          Sterge cont
-        </Button>
+        <Popover>
+          <PopoverTrigger>
+            <Button
+              leftIcon={<FaTrash />}
+              bg="black"
+              color="#FFD100"
+              fontWeight="bold"
+              _hover={{ textDecoration: "underline" }}
+            >
+              Sterge cont
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent bg="gray.700" color="white">
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverBody>Stergerea contului nu este implementata.</PopoverBody>
+          </PopoverContent>
+        </Popover>
       </HStack>
     </Box>
   );

@@ -12,11 +12,11 @@ import {
   Divider,
   Flex,
   Link,
-  Tooltip,
   Input,
   RadioGroup,
   Radio,
   Textarea,
+  Tooltip,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
@@ -84,19 +84,13 @@ export default function Cos() {
   };
 
   return (
-    <Box
-      maxW="1280px"
-      margin="80px auto"
-      bg="#232323"
-      color="white"
-      p={8}
-      shadow="lg"
-    >
+    <Box maxW="1280px" margin="80px auto" bg="#232323" color="white" p={8}>
       <Text fontWeight="bold" fontSize="3xl" textAlign="center" mb={6}>
         COS CUMPARATURI
       </Text>
 
-      <Box p={4} borderRadius="md" shadow="md" mb={6}>
+      {/* Products Section */}
+      <Box className="borderRed" p={4} borderRadius="md" mb={6}>
         <Text fontWeight="bold" fontSize="lg" mb={4}>
           Produse adaugate:
         </Text>
@@ -105,8 +99,8 @@ export default function Cos() {
         ) : (
           cart.map((item, index) => (
             <Box
+              className="borderGreen"
               key={index}
-              // bg="#232323"
               p={4}
               borderRadius="md"
               shadow="md"
@@ -119,7 +113,7 @@ export default function Cos() {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  boxSize="50px"
+                  boxSize="120px"
                   borderRadius="md"
                 />
                 <VStack align="start" spacing={0} ml={3}>
@@ -165,6 +159,7 @@ export default function Cos() {
         )}
       </Box>
 
+      {/* Promo Section */}
       <Box
         bg="black"
         color="yellow.400"
@@ -182,20 +177,10 @@ export default function Cos() {
         </HStack>
       </Box>
 
+      {/* Form Section */}
       <Flex mt={6} gap={8} flexDirection={{ base: "column", lg: "row" }}>
+        {/* Voucher and Payment Method */}
         <VStack flex="1" p={6} spacing={6} align="stretch">
-          <Divider borderColor="gray.600" />
-          <Box>
-            <Text fontWeight="bold" mb={2}>
-              Foloseste punctele:
-            </Text>
-            <Text fontSize="sm" color="gray.400">
-              Aceasta functie momentan este indisponibila.
-            </Text>
-          </Box>
-
-          <Divider borderColor="gray.600" />
-
           <Box>
             <Text fontWeight="bold" mb={2}>
               Ai un voucher?
@@ -215,14 +200,48 @@ export default function Cos() {
               </Button>
             </HStack>
           </Box>
+
+          <Box>
+            <Text fontWeight="bold" mb={2}>
+              Metoda de plata:
+            </Text>
+            <RadioGroup defaultValue="1">
+              <VStack align="start">
+                <Radio value="1">Cash la livrare</Radio>
+                <Radio value="2">Plata cu cardul la livrare</Radio>
+                <Radio value="3">Plata online cu cardul</Radio>
+              </VStack>
+            </RadioGroup>
+            <Text fontSize="xs" mt={4} color="gray.400">
+              * La metoda de plata cu cardul nu se percepe nici un comision in
+              plus indiferent de banca de care apartineti. Acceptam: Visa si
+              Mastercard.
+            </Text>
+          </Box>
         </VStack>
 
+        {/* Delivery Details and Order Summary */}
         <VStack flex="1" p={6} spacing={6} align="stretch">
+          <Box>
+            <Text fontWeight="bold" mb={2}>
+              Date de livrare:
+            </Text>
+            <Radio value="1">Livrare la:</Radio>
+            <Textarea
+              placeholder="Mesaj"
+              bg="gray.700"
+              color="white"
+              resize="none"
+            />
+          </Box>
+
+          <Divider borderColor="gray.600" />
+
           <Box>
             <Text fontWeight="bold" mb={2}>
               Sub-total:
             </Text>
-            <Text fontSize="sm">{calculateTotal()} lei</Text>
+            <Text fontSize="lg">{calculateTotal()} lei</Text>
           </Box>
 
           <Button
