@@ -129,9 +129,6 @@ export default function BlackBar() {
                 />
               </MenuButton>
               <MenuList>
-                <Text px={4} py={2} fontWeight="bold">
-                  Hello, {user.displayName || user.email}
-                </Text>
                 <MenuItem
                   as={Link}
                   href="/profile"

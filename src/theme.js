@@ -1,6 +1,10 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
+  fonts: {
+    heading: "'Mongoose', sans-serif",
+    body: "Arial, sans-serif",
+  },
   breakpoints: {
     sm: "30em", // 480px
     md: "48em", // 768px

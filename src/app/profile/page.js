@@ -44,19 +44,19 @@ export default function Page() {
 
   const handleLogout = async () => {
     await signOut(auth);
-    router.push("/login");
+    router.push("/");
   };
 
   const handleDeleteAccount = () => {
-    alert("Account deletion is not implemented.");
+    alert("Stergerea contului nu este implementata.");
   };
 
   const handleUpdateProfile = () => {
-    alert("Profile update is not implemented.");
+    alert("Actualizarea profilului nu este implementata.");
   };
 
   const handleChangePassword = () => {
-    alert("Password change is not implemented.");
+    alert("Schimbarea parolei nu este implementata.");
   };
 
   return (

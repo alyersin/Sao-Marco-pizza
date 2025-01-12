@@ -76,6 +76,8 @@ export default function RandomItems() {
         spacing={{ base: 4, md: 6 }}
         pt={{ base: 8, md: 16 }}
         pb={{ base: 4, md: 7 }}
+        pl={{ base: 4, md: 6 }}
+        pr={{ base: 4, md: 6 }}
       >
         {randomItems.map((item) => (
           <Card key={item.id} item={item} isDisabled={isBtnDisabled(item)} />

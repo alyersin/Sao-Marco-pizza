@@ -44,10 +44,10 @@ export default function LoginRegister({ isOpen, onClose, defaultTab }) {
       );
       const user = userCredential.user;
 
-      if (!user.emailVerified) {
-        setMessage("Please verify your email before logging in.");
-        return;
-      }
+      // if (!user.emailVerified) {
+      //   setMessage("Please verify your email before logging in.");
+      //   return;
+      // }
 
       setMessage("Login successful!");
 
@@ -80,9 +80,7 @@ export default function LoginRegister({ isOpen, onClose, defaultTab }) {
 
       await sendEmailVerification(user);
 
-      setMessage(
-        "Registration successful! Please check your email to verify your account."
-      );
+      setMessage("Registration successful!");
 
       setEmail("");
       setPassword("");

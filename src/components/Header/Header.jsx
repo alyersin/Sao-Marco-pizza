@@ -113,6 +113,7 @@ export default function Header() {
                   <Link href={item.href}>
                     <Text
                       fontWeight="bold"
+                      fontFamily="'Mongoose', sans-serif"
                       color="white"
                       _hover={{ color: "#FFD100" }}
                       margin={"auto"}
@@ -148,7 +149,6 @@ export default function Header() {
 
           <HStack
             spacing={4}
-            letterSpacing={-1}
             divider={<Box height="20px" width="1px" bg="black" />}
           >
             {[
@@ -161,7 +161,12 @@ export default function Header() {
               { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
             ].map((item) => (
               <Link key={item.href} href={item.href}>
-                <Text fontWeight="bold" _hover={{ color: "#FFD100" }}>
+                <Text
+                  fontWeight="bold"
+                  fontFamily="'Mongoose', sans-serif"
+                  _hover={{ color: "#FFD100" }}
+                  letterSpacing="-1px"
+                >
                   {item.label}
                 </Text>
               </Link>
@@ -196,7 +201,6 @@ export default function Header() {
         </Box>
       )}
 
-      {/* Login Modal */}
       <LoginRegister isOpen={isOpen} onClose={onClose} />
     </Box>
   );
