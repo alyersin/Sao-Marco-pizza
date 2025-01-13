@@ -83,37 +83,37 @@ export default function Header() {
             <Box>
               <Link href="/">
                 <Image
-                  src="/assets/logo.jpg"
+                  className="borderGreen"
+                  src="../assets/sao-marco-pizza.svg"
                   alt="Logo"
-                  height="50px"
+                  height="94px"
                   objectFit="contain"
                 />
               </Link>
             </Box>
 
-            <HStack className="borderGreen" spacing={2}>
+            <HStack className="borderGreen" spacing={2} position="relative">
               <Link href="/cos">
-                <HStack>
+                <Box position="relative" cursor="pointer">
+                  <Icon as={FaShoppingCart} boxSize={8} color="#E3051B" />
                   <Box
+                    position="absolute"
+                    top="-5px"
+                    right="-6px"
+                    width="22px"
+                    height="22px"
+                    bg="#E3E3E3"
+                    color="black"
+                    borderRadius="full"
+                    fontSize="xs"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
-                    width="25px"
-                    height="25px"
-                    bg="white"
-                    color="red.500"
-                    borderRadius="full"
                     fontWeight="bold"
                   >
                     {cart.length}
                   </Box>
-                  {/* <Text color="white" fontWeight="bold">
-                    {totalAmount} lei
-                  </Text> */}
-                </HStack>
-              </Link>
-              <Link href="/cos">
-                <Icon as={FaShoppingCart} boxSize={5} color="white" />
+                </Box>
               </Link>
             </HStack>
           </Flex>
@@ -122,7 +122,7 @@ export default function Header() {
           <Box
             className="borderGreen"
             bg="black"
-            py={2}
+            py={{ base: 4, md: 2 }}
             px={4}
             overflow="hidden"
           >
@@ -215,31 +215,39 @@ export default function Header() {
             ))}
           </HStack>
 
-          <HStack spacing={2} paddingRight={{ base: 2, lg: 12 }}>
-            <Link href="/cos">
-              <HStack>
+          <Link href="/cos">
+            <HStack
+              className="borderRed"
+              spacing={2}
+              paddingRight={{ base: 2, lg: 12 }}
+              position="relative"
+              cursor="pointer"
+            >
+              <Box position="relative">
+                <Icon as={FaShoppingCart} color="red.500" boxSize={6} />
                 <Box
+                  position="absolute"
+                  top="-5px"
+                  right="-5px"
+                  width="20px"
+                  height="20px"
+                  bg="red.500"
+                  color="white"
+                  borderRadius="full"
+                  fontSize="xs"
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
-                  width="25px"
-                  height="25px"
-                  bg="white"
-                  color="red.500"
-                  borderRadius="full"
                   fontWeight="bold"
                 >
                   {cart.length}
                 </Box>
-                <Text color="white" fontWeight="bold">
-                  {totalAmount} lei
-                </Text>
-              </HStack>
-            </Link>
-            <Link href="/cos">
-              <Icon as={FaShoppingCart} color="red.500" boxSize={6} />
-            </Link>
-          </HStack>
+              </Box>
+              <Text color="white" fontWeight="bold">
+                {totalAmount} lei
+              </Text>
+            </HStack>
+          </Link>
         </Box>
       )}
 
