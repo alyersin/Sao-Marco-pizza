@@ -21,7 +21,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
 import { auth } from "../../lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -329,6 +329,8 @@ export default function Cos() {
         <Flex
           className="borderRed"
           mt={0}
+          // mb={14}
+
           // gap={8}
           flexDirection={{ base: "column", lg: "row" }}
         >
@@ -346,7 +348,7 @@ export default function Cos() {
               borderBottom="2px solid gray"
               borderRight="2px solid gray"
             >
-              <Box className="borderRed" mt={2} pl={10}>
+              <Box className="borderRed" pt={2} pb={40} pl={10} height="100%">
                 <Text fontSize={"1.6rem"} mb={5}>
                   Foloseste punctele:
                 </Text>
@@ -360,6 +362,7 @@ export default function Cos() {
             <VStack
               className="borderGreen"
               borderRight="2px solid gray"
+              height="100%"
               p={10}
               spacing={7}
               alignItems="left"
@@ -492,7 +495,7 @@ export default function Cos() {
                 }}
                 value={deliveryOption}
               >
-                <Stack direction="column" spacing={3}>
+                <Stack direction="column" spacing={5}>
                   <Radio
                     value="1"
                     colorScheme="yellow"
@@ -517,12 +520,13 @@ export default function Cos() {
               </RadioGroup>
 
               {deliveryOption === "2" && (
-                <VStack mt={4}>
+                <VStack mt={4} mb={10} spacing="18px">
                   <Input
                     placeholder="Cauta localitatea"
                     bg="#707070"
                     color="white"
-                    mb={2}
+                    // mb={2}
+                    height={"50px"}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -533,7 +537,8 @@ export default function Cos() {
                     placeholder="Strada"
                     bg="#707070"
                     color="white"
-                    mb={2}
+                    // mb={2}
+                    height={"50px"}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -544,7 +549,8 @@ export default function Cos() {
                     placeholder="Numarul strazii"
                     bg="#707070"
                     color="white"
-                    mb={2}
+                    // mb={2}
+                    height={"50px"}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -555,7 +561,8 @@ export default function Cos() {
                     placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"
                     bg="#707070"
                     color="white"
-                    mb={2}
+                    // mb={2}
+                    height={"50px"}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -566,7 +573,8 @@ export default function Cos() {
                     placeholder="Repere"
                     bg="#707070"
                     color="white"
-                    mb={2}
+                    // mb={2}
+                    height={"50px"}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -575,9 +583,10 @@ export default function Cos() {
                   />
                   <Textarea
                     placeholder="Mesaj"
+                    height={"150px"}
                     bg="#707070"
                     color="white"
-                    resize="none"
+                    // resize="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -590,15 +599,33 @@ export default function Cos() {
           </VStack>
         </Flex>
 
-        <Divider className="borderRed" my={8} />
-        <Button
-          rightIcon={<ChevronRightIcon />}
-          colorScheme="yellow"
-          variant="solid"
-          onClick={handleCheckout}
-        >
-          TRIMITE COMANDA
-        </Button>
+        <Divider className="borderRed" />
+
+        <HStack justifyContent="space-between" mt={10}>
+          <Button
+            className="borderRed"
+            maxW="440px"
+            width="100%"
+            rightIcon={<ChevronLeftIcon />}
+            colorScheme="yellow"
+            variant="solid"
+            onClick={handleCheckout}
+          >
+            INAPOI
+          </Button>
+
+          <Button
+            className="borderRed"
+            maxW="440px"
+            width="100%"
+            rightIcon={<ChevronRightIcon />}
+            colorScheme="yellow"
+            variant="solid"
+            onClick={handleCheckout}
+          >
+            TRIMITE COMANDA
+          </Button>
+        </HStack>
       </Box>
     </Box>
   );
