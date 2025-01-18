@@ -73,8 +73,9 @@ export default function Header() {
             py={3}
           >
             <Icon
+              className="borderGreen"
               as={BsGridFill}
-              boxSize={6}
+              boxSize={8}
               color="red.500"
               onClick={onOpen}
               cursor="pointer"
@@ -224,15 +225,15 @@ export default function Header() {
               cursor="pointer"
             >
               <Box position="relative">
-                <Icon as={FaShoppingCart} color="red.500" boxSize={6} />
+                <Icon as={FaShoppingCart} color="#E3051B" boxSize={8} />
                 <Box
                   position="absolute"
                   top="-5px"
                   right="-5px"
                   width="20px"
                   height="20px"
-                  bg="red.500"
-                  color="white"
+                  bg="#E3E3E3"
+                  color="black"
                   borderRadius="full"
                   fontSize="xs"
                   display="flex"
