@@ -77,10 +77,8 @@ export default function Footer() {
           </HStack>
           <Divider borderColor="gray.600" />
           {/* BOTTOM */}
-          <Text fontSize="sm" mt={2}>
-            © {new Date().getFullYear()} Ersin.
-          </Text>
-          <Text fontSize="xs" color="gray.400" mt={2} px={6}>
+          <Text fontSize="sm">© {new Date().getFullYear()} Ersin.</Text>
+          <Text fontSize="xs" color="gray.400" px={6}>
             This app is a personal project created for academic purposes and to
             showcase my skills. It is not intended for commercial use or public
             distribution.

@@ -24,13 +24,14 @@ import {
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
 import { auth } from "../../lib/firebase";
+import { useMediaQuery } from "@chakra-ui/react";
 import { onAuthStateChanged } from "firebase/auth";
 
 export default function Cos() {
   const [cart, setCart] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showAltaAdresa, setShowAltaAdresa] = useState(false);
-
+  const [isSmallScreen] = useMediaQuery("(max-width: 992px)");
   const [deliveryOption, setDeliveryOption] = useState("");
   const [showInputs, setShowInputs] = useState(false);
 
@@ -74,9 +75,9 @@ export default function Cos() {
 
   const handleCheckout = () => {
     if (isLoggedIn) {
-      alert("Checkout process initiated!");
+      alert("Checkout process initiated");
     } else {
-      alert("You need to log in to proceed to checkout!");
+      alert("You need to log in to checkout");
     }
   };
 
@@ -102,25 +103,28 @@ export default function Cos() {
   return (
     <Box maxW="1280px" mx="auto">
       <Box
-        // className="borderRed"
-        mx={12}
+        mx={{ base: 0, md: 12 }}
         my={{ base: 0, md: 20 }}
         bg="#232323"
         color="white"
         p={{ base: 2, md: 4 }}
       >
-        <Text fontWeight="bold" fontSize="4xl" textAlign="center" m={6}>
+        <Text
+          fontWeight="bold"
+          fontSize={{ base: "3xl", md: "4xl" }}
+          textAlign="center"
+          m={{ base: 4, md: 6 }}
+        >
           COS CUMPARATURI
         </Text>
-        <Divider borderColor="gray.400" />
+        <Divider borderColor="gray.400" mx={{ base: 2, md: 0 }} />
 
-        <Box borderRadius="md" mb={6}>
+        <Box borderRadius="md" mx={{ base: 2, md: 0 }} mb={{ base: 0, md: 6 }}>
           {cart.length === 0 ? (
             <Text color="gray.400">Cosul tau este gol.</Text>
           ) : (
             cart.map((item, index) => (
               <Box
-                className="borderGreen"
                 key={index}
                 p="38px"
                 borderRadius="md"
@@ -134,12 +138,7 @@ export default function Cos() {
                 color="white"
               >
                 {/* IMAGE NAME SIZE */}
-                <HStack
-                  className="borderRed"
-                  spacing={6}
-                  alignItems="center"
-                  mb={{ base: 4, md: 0 }}
-                >
+                <HStack spacing={6} alignItems="center" mb={{ base: 4, md: 0 }}>
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -164,7 +163,6 @@ export default function Cos() {
                       align="center"
                     >
                       <Button
-                        className="borderRed"
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"
@@ -200,7 +198,6 @@ export default function Cos() {
                       </Button>
 
                       <Button
-                        className="borderRed"
                         display="flex"
                         justifyContent="space-between"
                         alignItems="center"
@@ -218,7 +215,6 @@ export default function Cos() {
                         <Text fontWeight="bold">ADAUGA SOS</Text>
 
                         <Box
-                          className="borderGreen"
                           w="44px"
                           h="100%"
                           display="flex"
@@ -240,29 +236,46 @@ export default function Cos() {
                 </HStack>
 
                 {/* QUANTITY PRICE */}
-                <HStack spacing={2} align="center" mb={{ base: 4, md: 0 }}>
-                  <HStack spacing={2}>
+                <HStack
+                  spacing={2}
+                  align="center"
+                  // width="100%"
+                  mb={{ base: 4, md: 0 }}
+                >
+                  <HStack
+                    className="borderGreen"
+                    bgColor="#707070"
+                    borderRadius="md"
+                    width="140px"
+                    spacing={2}
+                    color="#B3B3B3"
+                  >
+                    {/* BUTON */}
                     <Button
-                      size="sm"
-                      bg="gray.700"
+                      className="borderBlue"
+                      size="lg"
+                      bg="inherit"
                       onClick={() => updateCartQuantity(index, -1)}
                       _hover={{ bg: "gray.600" }}
                     >
-                      <Icon as={FaMinus} />
+                      <Icon color="#B3B3B3" as={FaMinus} />
                     </Button>
-                    <Text fontWeight="bold" fontSize="md">
+                    <Text fontWeight="bold" fontSize="lg">
                       {item.quantity}
                     </Text>
+
+                    {/* BUTON */}
                     <Button
-                      size="sm"
-                      bg="gray.700"
+                      className="borderBlue"
+                      size="lg"
+                      bg="inherit"
                       onClick={() => updateCartQuantity(index, 1)}
                       _hover={{ bg: "gray.600" }}
                     >
-                      <Icon as={FaPlus} />
+                      <Icon color="#B3B3B3" as={FaPlus} />
                     </Button>
                   </HStack>
-                  <Text fontWeight="bold" fontSize="lg">
+                  <Text fontWeight="bold" fontSize="1.7rem">
                     {(
                       parseFloat(item.size.price) * (item.quantity || 1)
                     ).toFixed(2)}{" "}
@@ -290,33 +303,36 @@ export default function Cos() {
 
         {/* PROMO */}
         <Box
-          className="borderRed"
           bg="black"
           color="white"
           py={5}
           px={5}
-          // mb={6}
-          mt={10}
+          mx={{ base: 2, md: 0 }}
+          mt={{ base: 5, md: 10 }}
           fontSize="1.6rem"
-          // borderRadius="md"
         >
           <Box
-            className="borderRed"
             display="flex"
-            flexDirection="row"
+            flexDirection={{ base: "column", md: "row" }}
             justifyContent="space-between"
             alignItems="center"
             spacing={12}
+            gap={{ base: 2, md: 0 }}
           >
-            <Text>La 3 pizza marimea L beneficiezi de promotia</Text>
-            <Text fontSize="5xl" fontWeight={"bold"}>
+            <Text fontSize={{ base: "lg", md: "2xl" }} textAlign="center">
+              La 3 pizza marimea L beneficiezi de promotia
+            </Text>
+            <Text
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight={"bold"}
+              color={{ base: "#FFD100", md: "white" }}
+            >
               3+1 Gratis.
             </Text>
             <Image
-              className="borderGreen"
               src="../assets/pizza-box.svg"
               alt="Pizza"
-              boxSize={28}
+              boxSize={{ base: "0", md: "28" }}
             />
           </Box>
         </Box>
@@ -327,7 +343,6 @@ export default function Cos() {
         {/* CONTINUA DE AICI  */}
 
         <Flex
-          className="borderRed"
           mt={0}
           // mb={14}
 
@@ -339,16 +354,17 @@ export default function Cos() {
             className="borderGreen"
             flexDirection={{ base: "column", lg: "column" }}
             flex="1"
-            // p={6}
+            mx={2}
             spacing={6}
             align="stretch"
           >
             <Box
+              className="borderRed"
               height="228px"
               borderBottom="2px solid gray"
-              borderRight="2px solid gray"
+              borderRight={{ base: "none", lg: "2px solid gray" }}
             >
-              <Box className="borderRed" pt={2} pb={40} pl={10} height="100%">
+              <Box pt={2} pb={40} pl={{ base: 0, md: 10 }} height="100%">
                 <Text fontSize={"1.6rem"} mb={5}>
                   Foloseste punctele:
                 </Text>
@@ -360,14 +376,13 @@ export default function Cos() {
 
             {/* VOUCHER */}
             <VStack
-              className="borderGreen"
               borderRight="2px solid gray"
               height="100%"
               p={10}
               spacing={7}
               alignItems="left"
             >
-              <VStack className="borderRed" align="start" spacing={4}>
+              <VStack align="start" spacing={4}>
                 <Text fontSize="1.7rem">Ai un voucher?</Text>
                 <Text>
                   In cazul in care detii un voucher de reducere il poti
@@ -376,7 +391,7 @@ export default function Cos() {
                 </Text>
               </VStack>
 
-              <HStack className="borderRed" spacing={2}>
+              <HStack spacing={2}>
                 <Input
                   placeholder="Voucher"
                   bg="#707070"
@@ -389,7 +404,6 @@ export default function Cos() {
                   }}
                 />
                 <Button
-                  className="borderRed"
                   pl={8}
                   bgColor="#999999"
                   color="white"
@@ -406,7 +420,7 @@ export default function Cos() {
                 </Button>
               </HStack>
 
-              <Box className="borderRed" mt={8}>
+              <Box mt={8}>
                 <Text fontSize={"1.7rem"} mb={4}>
                   Metoda de plata:
                 </Text>
@@ -423,7 +437,6 @@ export default function Cos() {
                   si Mastercard.
                 </Text>
                 <Image
-                  className="borderRed"
                   src="../assets/payment-methods.png"
                   alt="Credit card"
                   bgColor="white"
@@ -435,14 +448,12 @@ export default function Cos() {
 
           {/* TOTAL VALOARE COMANDA */}
           <VStack
-            className="borderBlue"
             flex="1"
             // p={6}
             // spacing={0}
             align="stretch"
           >
             <Flex
-              className="borderBlue"
               flexDirection="column"
               height="228px"
               borderBottom="2px solid gray"
@@ -476,12 +487,7 @@ export default function Cos() {
 
             {/* DATE LIVRARE */}
 
-            <VStack
-              className="borderGreen"
-              align="left"
-              padding="32px 36px"
-              spacing={4}
-            >
+            <VStack align="left" padding="32px 36px" spacing={4}>
               <Text fontSize="1.7rem">Date de livrare:</Text>
               <Text fontSize="16px" color="#B3B3B3">
                 * Comanda minima pentru orasul Constanta este de 40 de lei iar
@@ -599,31 +605,45 @@ export default function Cos() {
           </VStack>
         </Flex>
 
-        <Divider className="borderRed" />
+        <Divider />
 
-        <HStack justifyContent="space-between" mt={10}>
+        <HStack justifyContent="space-between" mt={10} mb={7}>
           <Button
-            className="borderRed"
             maxW="440px"
             width="100%"
-            rightIcon={<ChevronLeftIcon />}
-            colorScheme="yellow"
+            height="52px"
+            bgColor="#999999"
+            color="#FFFFFF"
             variant="solid"
             onClick={handleCheckout}
           >
+            <Image
+              src="../assets/arrow-left.svg"
+              alt="arrow"
+              boxSize="100%"
+              borderRadius="4px"
+              mr="318px"
+            />
             INAPOI
           </Button>
 
           <Button
-            className="borderRed"
             maxW="440px"
             width="100%"
-            rightIcon={<ChevronRightIcon />}
-            colorScheme="yellow"
+            height="52px"
+            bgColor="#999999"
+            color="#FFFFFF"
             variant="solid"
             onClick={handleCheckout}
           >
             TRIMITE COMANDA
+            <Image
+              src="../assets/thumb-right.svg"
+              alt="arrow"
+              boxSize="100%"
+              borderRadius="4px"
+              ml="228px"
+            />
           </Button>
         </HStack>
       </Box>

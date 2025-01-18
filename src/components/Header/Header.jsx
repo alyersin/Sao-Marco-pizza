@@ -65,7 +65,7 @@ export default function Header() {
       boxShadow="md"
     >
       {isSmallScreen ? (
-        <VStack className="borderGreen" align="stretch" spacing={0}>
+        <VStack align="stretch" spacing={0}>
           <Flex
             justifyContent="space-between"
             alignItems="center"
@@ -73,7 +73,6 @@ export default function Header() {
             py={3}
           >
             <Icon
-              className="borderGreen"
               as={BsGridFill}
               boxSize={8}
               color="red.500"
@@ -84,7 +83,6 @@ export default function Header() {
             <Box>
               <Link href="/">
                 <Image
-                  className="borderGreen"
                   src="../assets/sao-marco-pizza.svg"
                   alt="Logo"
                   height="94px"
@@ -93,7 +91,7 @@ export default function Header() {
               </Link>
             </Box>
 
-            <HStack className="borderGreen" spacing={2} position="relative">
+            <HStack spacing={2} position="relative">
               <Link href="/cos">
                 <Box position="relative" cursor="pointer">
                   <Icon as={FaShoppingCart} boxSize={8} color="#E3051B" />
@@ -121,14 +119,13 @@ export default function Header() {
 
           {/* NAV MENU (MOBILE) */}
           <Box
-            className="borderGreen"
             bg="black"
             py={{ base: 4, md: 2 }}
             px={4}
+            pb={{ base: 8, md: 2 }}
             overflow="hidden"
           >
             <Swiper
-              className="borderGreen"
               spaceBetween={16}
               slidesPerView={2.5}
               freeMode={true}
@@ -146,7 +143,6 @@ export default function Header() {
                 { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
               ].map((item) => (
                 <SwiperSlide
-                  className="borderRed"
                   key={item.href}
                   style={{
                     display: "flex",
