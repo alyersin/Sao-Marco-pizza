@@ -342,29 +342,34 @@ export default function Cos() {
         {/* CONTINUA DE AICI  */}
         {/* CONTINUA DE AICI  */}
 
+        {/* PUNCTE */}
         <Flex
           mt={0}
+          mx={{ base: 2, md: 0 }}
           // mb={14}
-
           // gap={8}
           flexDirection={{ base: "column", lg: "row" }}
         >
-          {/* PUNCTE */}
           <Flex
             className="borderGreen"
             flexDirection={{ base: "column", lg: "column" }}
-            flex="1"
-            mx={2}
+            flex={{ base: 0, md: 1 }}
+            mx={{ base: 0, md: 2 }}
             spacing={6}
             align="stretch"
           >
             <Box
-              className="borderRed"
-              height="228px"
+              height={{ base: "200px", md: "228px" }}
               borderBottom="2px solid gray"
               borderRight={{ base: "none", lg: "2px solid gray" }}
             >
-              <Box pt={2} pb={40} pl={{ base: 0, md: 10 }} height="100%">
+              <Box
+                mb="40px"
+                pt={2}
+                pb={{ base: 0, md: 40 }}
+                pl={{ base: 0, md: 10 }}
+                height={{ base: "auto", md: "100%" }}
+              >
                 <Text fontSize={"1.6rem"} mb={5}>
                   Foloseste punctele:
                 </Text>
@@ -374,11 +379,52 @@ export default function Cos() {
               </Box>
             </Box>
 
+            {/* TOTAL VALOARE MOBILE*/}
+
+            <Flex
+              display={{ base: "flex", md: "none" }}
+              flexDirection="column"
+              height="228px"
+              borderBottom="2px solid gray"
+              gap={3}
+              padding={{ base: "10px 0", md: "10px 36px" }}
+            >
+              <HStack justifyContent={"space-between"}>
+                <Text fontSize={{ base: "1.3rem", md: "1.2rem" }}>
+                  Sub-total:
+                </Text>
+                <Text fontSize="lg">{calculateTotal()} lei</Text>
+              </HStack>
+
+              <HStack justifyContent={"space-between"}>
+                <Text fontSize={{ base: "1.3rem", md: "1.2rem" }}>
+                  Voucher:
+                </Text>
+                <Text fontSize="lg">0.00 lei</Text>
+              </HStack>
+
+              <HStack justifyContent={"space-between"}>
+                <Text fontSize={{ base: "1.3rem", md: "1.2rem" }}>
+                  Garantia SGR:
+                </Text>
+                <Text fontSize="lg">0 lei</Text>
+              </HStack>
+
+              <HStack justifyContent={"space-between"} mt={3}>
+                <Text fontWeight={"bold"} fontSize="1.7rem" color="#FFD100">
+                  Total 1 produs
+                </Text>
+                <Text fontWeight={"bold"} fontSize="1.6rem" color="#FFD100">
+                  {calculateTotal()} lei
+                </Text>
+              </HStack>
+            </Flex>
+
             {/* VOUCHER */}
             <VStack
-              borderRight="2px solid gray"
+              borderRight={{ base: "none", md: "2px solid gray" }}
               height="100%"
-              p={10}
+              py={10}
               spacing={7}
               alignItems="left"
             >
@@ -397,6 +443,7 @@ export default function Cos() {
                   bg="#707070"
                   color="white"
                   height={"46px"}
+                  width={{ base: "360px", md: "100%" }}
                   sx={{
                     "::placeholder": {
                       color: "#B3B3B3",
@@ -404,11 +451,12 @@ export default function Cos() {
                   }}
                 />
                 <Button
-                  pl={8}
+                  pl={{ base: 12, md: 12 }}
                   bgColor="#999999"
                   color="white"
                   variant="solid"
                   height={"46px"}
+                  fontSize={{ base: "0.8rem", md: "inherit" }}
                 >
                   APLICA
                   <Image
@@ -420,7 +468,7 @@ export default function Cos() {
                 </Button>
               </HStack>
 
-              <Box mt={8}>
+              <Flex flexDirection="column" gap="1" mt={7}>
                 <Text fontSize={"1.7rem"} mb={4}>
                   Metoda de plata:
                 </Text>
@@ -442,18 +490,21 @@ export default function Cos() {
                   bgColor="white"
                   mt={5}
                 ></Image>
-              </Box>
+              </Flex>
             </VStack>
           </Flex>
 
-          {/* TOTAL VALOARE COMANDA */}
+          {/* TOTAL VALOARE BIG SCREEN */}
           <VStack
+            className="borderGreen"
+            borderTop={{ base: "2px solid gray", md: "none" }}
             flex="1"
             // p={6}
             // spacing={0}
             align="stretch"
           >
             <Flex
+              display={{ base: "none", md: "flex" }}
               flexDirection="column"
               height="228px"
               borderBottom="2px solid gray"
@@ -487,7 +538,11 @@ export default function Cos() {
 
             {/* DATE LIVRARE */}
 
-            <VStack align="left" padding="32px 36px" spacing={4}>
+            <VStack
+              align="left"
+              padding={{ base: "32px 0", md: "32px 36px" }}
+              spacing={{ base: 5, md: 4 }}
+            >
               <Text fontSize="1.7rem">Date de livrare:</Text>
               <Text fontSize="16px" color="#B3B3B3">
                 * Comanda minima pentru orasul Constanta este de 40 de lei iar
@@ -511,14 +566,14 @@ export default function Cos() {
                   </Radio>
 
                   {showAltaAdresa && (
-                    <Radio value="account" colorScheme="yellow">
+                    <Radio pl={8} value="account" colorScheme="yellow">
                       CONSTANTA, Pescarilor, 30, Bloc BM11, Scara E, ap 53,
                       Elite Beach
                     </Radio>
                   )}
 
                   {showAltaAdresa && (
-                    <Radio value="2" colorScheme="yellow">
+                    <Radio pl={8} value="2" colorScheme="yellow">
                       Alta adresa
                     </Radio>
                   )}
@@ -607,7 +662,13 @@ export default function Cos() {
 
         <Divider />
 
-        <HStack justifyContent="space-between" mt={10} mb={7}>
+        <Stack
+          direction={{ base: "column", md: "row" }} // Column for mobile, row for larger screens
+          spacing={{ base: 5, md: 4 }}
+          mt={10}
+          mb={{ base: 4, md: 7 }}
+          align="center"
+        >
           <Button
             maxW="440px"
             width="100%"
@@ -620,9 +681,9 @@ export default function Cos() {
             <Image
               src="../assets/arrow-left.svg"
               alt="arrow"
-              boxSize="100%"
+              boxSize="24px" // Set fixed size for the image
               borderRadius="4px"
-              mr="318px"
+              mr={2} // Add consistent spacing between the image and text
             />
             INAPOI
           </Button>
@@ -640,12 +701,12 @@ export default function Cos() {
             <Image
               src="../assets/thumb-right.svg"
               alt="arrow"
-              boxSize="100%"
+              boxSize="24px" // Set fixed size for the image
               borderRadius="4px"
-              ml="228px"
+              ml={2} // Add consistent spacing between text and image
             />
           </Button>
-        </HStack>
+        </Stack>
       </Box>
     </Box>
   );
