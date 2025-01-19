@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Image,
-  Text,
-  VStack,
-  HStack,
-  Button,
-  Icon,
-} from "@chakra-ui/react";
+import { Box, Image, Text, VStack, HStack, Icon } from "@chakra-ui/react";
 import { FaShoppingCart } from "react-icons/fa";
 
 export default function Card({ item }) {
@@ -20,16 +12,23 @@ export default function Card({ item }) {
 
   return (
     <Box
-      bg="black"
+      bg="#232323"
       color="white"
       borderRadius="md"
       overflow="hidden"
-      width="250px"
+      width={{ base: "100%", md: "250px" }}
       shadow="lg"
       p={4}
       mx="auto"
     >
-      <Image src={item.image} alt={item.name} width="100%" borderRadius="md" />
+      <Box display="flex" justifyContent="center">
+        <Image
+          src={item.image}
+          alt={item.name}
+          width={{ base: "66%", md: "100%" }}
+          borderRadius="md"
+        />
+      </Box>
       <VStack align="center" spacing={2} p={4}>
         <Text fontWeight="bold" fontSize="lg">
           {item.name}
@@ -41,26 +40,47 @@ export default function Card({ item }) {
       <VStack spacing={2}>
         {item.sizes.map((size, index) => (
           <HStack
+            className="borderRed"
             key={index}
             justify="space-between"
-            bg="gray.800"
-            p={2}
+            align="center"
+            bgColor="#999999"
+            pl={2}
             borderRadius="md"
             _hover={{ bg: "gray.700" }}
             cursor="pointer"
+            height="58px"
             width="100%"
             onClick={() => handleAddToCart(size)}
           >
-            <Text fontSize="sm">{size.label}</Text>
-            <HStack>
-              <Text fontWeight="bold" fontSize="sm">
+            <Box>
+              <Text fontSize="md" fontWeight="800" color="black">
+                {size.label}
+              </Text>
+              {size.description && (
+                <Text fontSize="xs" color="gray.500">
+                  {size.description}
+                </Text>
+              )}
+            </Box>
+            <HStack spacing={2}>
+              <Text fontWeight="bold" fontSize="2xl">
                 {size.price}
               </Text>
-              <Icon as={FaShoppingCart} color="yellow.400" />
             </HStack>
+            <Image
+              borderRadius="10px"
+              src="../assets/thumb-right.svg"
+              alt="arrow"
+              boxSize="66px"
+              ml="4px"
+            />
           </HStack>
         ))}
       </VStack>
     </Box>
   );
 }
+
+// maxW="440px"
+//       width="100%"

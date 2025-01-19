@@ -41,9 +41,11 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@media (max-width: 992px) {
+  html,
+  body {
+    background: black !important;
+    background-image: none !important;
   }
 }
 
