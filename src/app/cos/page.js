@@ -123,19 +123,19 @@ export default function Cos() {
         <Divider borderColor="gray.400" />
 
         <Box
-          className="borderBlue"
+          // className="borderBlue"
           borderRadius="md"
-          height={{ base: "286px", md: "auto" }}
+          // height={{ base: "286px", md: "auto" }}
           mx={{ base: 2, md: 0 }}
-          mb={{ base: 0, md: 6 }}
-          pt={{ base: 8, md: 0 }}
+          mb={{ base: 10, md: 6 }}
+          pt={{ base: 0, md: 0 }}
         >
           {cart.map((item, index) => (
             <Box
-              className="borderRed"
+              // className="borderRed"
               key={index}
-              pt={{ base: 0, md: 10 }}
-              pb={{ base: 10, md: 5 }}
+              pt={{ base: 8, md: 10 }}
+              pb={{ base: 5, md: 5 }}
               borderRadius="md"
               display="flex"
               flexDirection={{ base: "column", md: "row" }}
@@ -442,12 +442,13 @@ export default function Cos() {
 
         {/* PROMO */}
         <Box
+          className="borderRed"
           bg="black"
           color="white"
           py={{ base: 5, md: "28px" }}
           px={5}
           mx={{ base: 2, md: 0 }}
-          mt={{ base: 10, md: 12 }}
+          mt={{ base: 0, md: 12 }}
           fontSize="1.6rem"
         >
           <Box
@@ -464,7 +465,7 @@ export default function Cos() {
             <Text
               fontSize={{ base: "4xl", md: "5xl" }}
               fontWeight={"bold"}
-              color={{ base: "#FFD100", md: "white" }}
+              color={{ base: "#ff6633", md: "white" }}
             >
               3+1 Gratis.
             </Text>
@@ -493,6 +494,7 @@ export default function Cos() {
             flexDirection={{ base: "column", lg: "column" }}
             flex={{ base: 0, md: 1 }}
             mx={{ base: 0, md: 0 }}
+            mb={{ base: 0, md: 2 }}
             spacing={6}
             align="stretch"
           >
@@ -550,10 +552,10 @@ export default function Cos() {
               </HStack>
 
               <HStack justifyContent={"space-between"} mt={3}>
-                <Text fontWeight={"bold"} fontSize="1.7rem" color="#FFD100">
+                <Text fontWeight={"bold"} fontSize="1.7rem" color="#ff6633">
                   Total 1 produs
                 </Text>
-                <Text fontWeight={"bold"} fontSize="1.6rem" color="#FFD100">
+                <Text fontWeight={"bold"} fontSize="1.6rem" color="#ff6633">
                   {calculateTotal()} lei
                 </Text>
               </HStack>
@@ -611,6 +613,8 @@ export default function Cos() {
                 </Button>
               </HStack>
 
+              {/* METODA DE PLATA */}
+
               <Flex
                 flexDirection="column"
                 gap={{ base: 1, md: 3 }}
@@ -621,9 +625,60 @@ export default function Cos() {
                 </Text>
                 <RadioGroup defaultValue="1">
                   <VStack align="start" spacing={5}>
-                    <Radio value="1">Cash la livrare</Radio>
-                    <Radio value="2">Plata cu cardul la livrare</Radio>
-                    <Radio value="3">Plata online cu cardul</Radio>
+                    <Radio
+                      value="1"
+                      sx={{
+                        boxSize: "21px",
+                        borderColor: "#ff6633",
+                        borderWidth: "2px",
+                        color: "transparent",
+                        _checked: {
+                          bg: "#ff6633",
+                          borderColor: "#ff6633",
+                        },
+                        _focus: {
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
+                      Cash la livrare
+                    </Radio>
+                    <Radio
+                      value="2"
+                      sx={{
+                        boxSize: "21px",
+                        borderColor: "#ff6633",
+                        borderWidth: "2px",
+                        color: "transparent",
+                        _checked: {
+                          bg: "#ff6633",
+                          borderColor: "#ff6633",
+                        },
+                        _focus: {
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
+                      Plata cu cardul la livrare
+                    </Radio>
+                    <Radio
+                      value="3"
+                      sx={{
+                        boxSize: "21px",
+                        borderColor: "#ff6633",
+                        borderWidth: "2px",
+                        color: "transparent",
+                        _checked: {
+                          bg: "#ff6633",
+                          borderColor: "#ff6633",
+                        },
+                        _focus: {
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
+                      Plata online cu cardul
+                    </Radio>
                   </VStack>
                 </RadioGroup>
                 <Text
@@ -688,11 +743,11 @@ export default function Cos() {
                 <Text
                   fontWeight={"bold"}
                   fontSize={{ base: "1.4rem", md: "1.8rem" }}
-                  color="#FFD100"
+                  color="#ff6633"
                 >
                   Total 1 produs
                 </Text>
-                <Text fontWeight={"bold"} fontSize="1.6rem" color="#FFD100">
+                <Text fontWeight={"bold"} fontSize="1.6rem" color="#ff6633">
                   {calculateTotal()} lei
                 </Text>
               </HStack>

@@ -67,6 +67,7 @@ export default function Header() {
       {isSmallScreen ? (
         <VStack align="stretch" spacing={0}>
           <Flex
+            className="borderRed"
             justifyContent="space-between"
             alignItems="center"
             px={4}
@@ -120,19 +121,27 @@ export default function Header() {
 
           {/* NAV MENU (MOBILE) */}
           <Box
+            className="borderBlue"
             bg="black"
-            py={{ base: 4, md: 2 }}
+            height="100%"
+            py={{ base: 0, md: 2 }}
             px={4}
-            pb={{ base: 8, md: 2 }}
+            pb={{ base: 0, md: 2 }}
             overflow="hidden"
           >
             <Swiper
+              className="borderRed"
               spaceBetween={16}
               slidesPerView={2.5}
               freeMode={true}
               grabCursor={true}
               centeredSlides={false}
-              style={{ padding: "0 6px", width: "100%", letterSpacing: "-1px" }}
+              style={{
+                padding: "0 6px",
+                width: "100%",
+                letterSpacing: "-1px",
+                fontSize: "16px",
+              }}
             >
               {[
                 { href: "/pizza", label: "PIZZA" },
@@ -144,10 +153,12 @@ export default function Header() {
                 { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
               ].map((item) => (
                 <SwiperSlide
+                  className="borderGreen"
                   key={item.href}
                   style={{
                     display: "flex",
                     width: "100%",
+                    height: "64px",
                   }}
                 >
                   <Link href={item.href}>
@@ -168,6 +179,7 @@ export default function Header() {
         </VStack>
       ) : (
         <Box
+          className="borderBlue"
           display="flex"
           flexDirection="row"
           justifyContent="space-between"

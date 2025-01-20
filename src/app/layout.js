@@ -1,6 +1,6 @@
 "use client";
 import { ChakraProvider } from "@chakra-ui/react";
-import "./globals.css";
+import "../app/globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import theme from "../theme";

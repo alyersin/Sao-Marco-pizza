@@ -7,9 +7,10 @@ export default function Home() {
   return (
     <Box mx="auto">
       <Box
-        height={{ base: "220px", md: "500px", lg: "886px" }}
+        height={{ base: "220px", md: "986px", lg: "886px" }}
         overflow="hidden"
-        mb={{ base: 0, md: 12 }}
+        mb={{ base: 0, md: 16 }}
+        boxShadow="0px 16px 30px rgba(0, 0, 0, 0.7)"
       >
         <Image
           src="../assets/main-page.jpg"
@@ -24,3 +25,5 @@ export default function Home() {
     </Box>
   );
 }
+
+// boxShadow="0px 30px 30px rgba(0, 0, 0, 0.5)"
