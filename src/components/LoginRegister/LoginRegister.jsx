@@ -105,12 +105,12 @@ export default function LoginRegister({ isOpen, onClose, defaultTab }) {
       {/* {isMobile ? (  <Text>dasda</Text>    ) : ( 
         
       )}  */}
-      <ModalOverlay className="borderRed" />
+      <ModalOverlay className="borderRed" bg="rgba(51, 51, 51, 0.8)" />
       <ModalContent
         className="borderRed"
         bgColor="black"
-        maxW="500px"
-        height="490px"
+        maxW="480px"
+        height="440px"
       >
         {/* <ModalHeader>Login / Register</ModalHeader> */}
         <ModalCloseButton color="white" size={4} />

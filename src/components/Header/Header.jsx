@@ -122,7 +122,6 @@ export default function Header() {
 
           {/* NAV MENU (MOBILE) */}
           <Box
-            className="borderBlue"
             bg="black"
             height="100%"
             py={{ base: 0, md: 2 }}
@@ -153,7 +152,6 @@ export default function Header() {
                 { href: "/burgerAndWraps", label: "BURGERI & WRAPS" },
               ].map((item) => (
                 <SwiperSlide
-                  className="borderGreen"
                   key={item.href}
                   style={{
                     display: "flex",
@@ -178,7 +176,6 @@ export default function Header() {
         </VStack>
       ) : (
         <Box
-          className="borderBlue"
           display="flex"
           flexDirection="row"
           justifyContent="space-between"

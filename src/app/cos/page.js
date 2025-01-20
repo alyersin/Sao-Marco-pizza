@@ -34,7 +34,9 @@ export default function Cos() {
   const [isSmallScreen] = useMediaQuery("(max-width: 992px)");
   const [deliveryOption, setDeliveryOption] = useState("");
   const [showInputs, setShowInputs] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("");
 
+  // CHECK IF USER IS LOGGED IN
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
@@ -43,6 +45,7 @@ export default function Cos() {
     return () => unsubscribe();
   }, []);
 
+  // LOAD CART
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = storedCart.map((item) => ({
@@ -57,6 +60,12 @@ export default function Cos() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }, []);
 
+  // HANDLE RADIO
+  const handleRadioChange = (value) => {
+    setSelectedValue((prev) => (prev === value ? "" : value));
+  };
+
+  // HANDLE CART QUANTITY
   const updateCartQuantity = (index, quantity) => {
     const updatedCart = [...cart];
     updatedCart[index].quantity = Math.max(
@@ -67,12 +76,14 @@ export default function Cos() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  // HANDLE ITEM REMOVE
   const handleRemoveItem = (index) => {
     const updatedCart = cart.filter((_, i) => i !== index);
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+  // HANDLE CHECKOUT
   const handleCheckout = () => {
     if (isLoggedIn) {
       alert("Checkout process initiated");
@@ -81,6 +92,7 @@ export default function Cos() {
     }
   };
 
+  // HANDLE DELIVERY OPTION
   const handleDeliveryOptionChange = (value) => {
     setDeliveryOption(value);
     if (value === "2") {
@@ -90,6 +102,7 @@ export default function Cos() {
     }
   };
 
+  // CALCULATE TOTAL
   const calculateTotal = () => {
     return cart
       .reduce(
@@ -103,7 +116,7 @@ export default function Cos() {
   return (
     <Box maxW="1280px" mx="auto">
       <Box
-        // className="BorderBlue"
+        //
         mx={{ base: 0, md: 12 }}
         my={{ base: 0, md: "80px" }}
         bg="#232323"
@@ -123,7 +136,7 @@ export default function Cos() {
         <Divider borderColor="gray.400" />
 
         <Box
-          // className="borderBlue"
+          //
           borderRadius="md"
           // height={{ base: "286px", md: "auto" }}
           mx={{ base: 2, md: 0 }}
@@ -132,7 +145,7 @@ export default function Cos() {
         >
           {cart.map((item, index) => (
             <Box
-              // className="borderRed"
+              //
               key={index}
               pt={{ base: 8, md: 10 }}
               pb={{ base: 5, md: 5 }}
@@ -148,7 +161,7 @@ export default function Cos() {
             >
               {/* IMAGE NAME SIZE */}
               <HStack
-                // className="borderBlue"
+                //
                 spacing={{ base: 0, md: 8 }}
                 alignItems="center"
                 mb={{ base: 4, md: 0 }}
@@ -170,7 +183,6 @@ export default function Cos() {
                 </Link>
 
                 <Image
-                  className="borderBlue"
                   src={item.image}
                   alt={item.name}
                   p={0}
@@ -178,7 +190,6 @@ export default function Cos() {
                   borderRadius="md"
                 />
                 <Flex
-                  className="borderRed"
                   flexDirection={{ base: "column", md: "column" }}
                   gap={{ base: 12, md: 6 }}
                   align="start"
@@ -200,12 +211,10 @@ export default function Cos() {
 
                   {/* ADAUGA BUTTONS */}
                   <Box
-                    className="borderBlue"
                     display={{ base: "flex", md: "flex" }}
                     gap={{ base: 0, md: 16 }}
                   >
                     <Box
-                      className="borderGreen"
                       display={{ base: "none", md: "flex" }}
                       flexDirection={{ base: "row", md: "row" }}
                       gap={{ base: 2, md: 3 }}
@@ -284,14 +293,12 @@ export default function Cos() {
 
                     {/* QUANTITY PRICE */}
                     <HStack
-                      className="borderGreen"
                       mx={{ base: "auto", md: 0 }}
                       mr={{ base: "16px", md: 0 }}
                       spacing={2}
                       align="center"
                     >
                       <HStack
-                        className="borderRed"
                         bgColor="#707070"
                         borderRadius="md"
                         width={{ base: "auto", md: "140px" }}
@@ -358,7 +365,6 @@ export default function Cos() {
 
               {/* ADAUGA BUTTONS MOBILE*/}
               <Box
-                className="borderRed"
                 display={{ base: "flex", md: "none" }}
                 flexDirection={{ base: "row", md: "row" }}
                 gap={{ base: 4, md: 3 }}
@@ -442,7 +448,7 @@ export default function Cos() {
 
         {/* PROMO */}
         <Box
-          // className="borderRed"
+          //
           bg="black"
           color="white"
           py={{ base: 5, md: "17px" }}
@@ -491,7 +497,6 @@ export default function Cos() {
           flexDirection={{ base: "column", lg: "row" }}
         >
           <Flex
-            className="borderRed"
             flexDirection={{ base: "column", lg: "column" }}
             flex={{ base: 0, md: 1 }}
             mx={{ base: 0, md: 0 }}
@@ -499,7 +504,6 @@ export default function Cos() {
             align="stretch"
           >
             <Box
-              className="borderBlue"
               height={{ base: "200px", md: "232px" }}
               borderBottom="2px solid gray"
               borderRight={{ base: "none", lg: "2px solid gray" }}
@@ -523,7 +527,6 @@ export default function Cos() {
             {/* TOTAL VALOARE MOBILE*/}
 
             <Flex
-              className="borderRed"
               display={{ base: "flex", md: "none" }}
               flexDirection="column"
               height="228px"
@@ -564,7 +567,6 @@ export default function Cos() {
 
             {/* VOUCHER */}
             <VStack
-              className="borderGreen"
               borderRight={{ base: "none", md: "2px solid gray" }}
               height="100%"
               py={10}
@@ -610,7 +612,7 @@ export default function Cos() {
                   height={{ base: "46px", md: "50px" }}
                 >
                   <Box
-                    // className="borderRed"
+                    //
                     display="flex"
                     textAlign="left"
                     alignItems="center"
@@ -622,7 +624,6 @@ export default function Cos() {
                     APLICA
                   </Box>
                   <Image
-                    className="borderBlue"
                     src="../assets/arrow-right.svg"
                     alt="arrow"
                     height={"100%"}
@@ -644,6 +645,12 @@ export default function Cos() {
                 <RadioGroup defaultValue="1">
                   <VStack align="start" spacing={{ base: 6, md: 5 }}>
                     <Radio
+                      isChecked={selectedValue === "yes"}
+                      onClick={() =>
+                        setSelectedValue((prev) =>
+                          prev === "yes" ? "" : "yes"
+                        )
+                      }
                       value="1"
                       sx={{
                         boxSize: "21px",
@@ -720,13 +727,11 @@ export default function Cos() {
 
           {/* TOTAL VALOARE BIG SCREEN */}
           <VStack
-            className="borderGreen"
             borderTop={{ base: "2px solid gray", md: "none" }}
             flex="1"
             align="stretch"
           >
             <Flex
-              className="borderRed"
               display={{ base: "none", md: "flex" }}
               flexDirection="column"
               height={{ base: "228px", md: "232px" }}
@@ -772,7 +777,6 @@ export default function Cos() {
             {/* DATE LIVRARE */}
 
             <VStack
-              className="borderBlue"
               align="left"
               py={{ base: "32px", md: "32px" }}
               pl={{ base: "0", md: "44px" }}
@@ -956,7 +960,6 @@ export default function Cos() {
         <Divider />
 
         <Stack
-          className="borderRed"
           direction={{ base: "column-reverse", md: "row" }}
           justifyContent="space-between"
           spacing={{ base: 5, md: 0 }}
@@ -965,7 +968,6 @@ export default function Cos() {
           align="center"
         >
           <Link
-            className="borderBlue"
             href="/"
             display="flex"
             justifyContent="space-between"
@@ -974,10 +976,10 @@ export default function Cos() {
             color="#FFFFFF"
             borderRadius="5px"
             height={{ base: "50px", md: "54px" }}
-            width={{ base: "410px", md: "410px" }}
+            width={{ base: "400px", md: "410px" }}
           >
             <Image
-              // className="borderRed"
+              //
               src="../assets/arrow-left.svg"
               alt="arrow"
               height={"100%"}
@@ -985,7 +987,6 @@ export default function Cos() {
               onClick={handleCheckout}
             />
             <Box
-              className="borderBlue"
               display="flex"
               width={{ base: "auto", md: "auto" }}
               variant="solid"
@@ -1005,10 +1006,9 @@ export default function Cos() {
             color="#FFFFFF"
             borderRadius="5px"
             height={{ base: "50px", md: "54px" }}
-            width={{ base: "410px", md: "410px" }}
+            width={{ base: "400px", md: "410px" }}
           >
             <Box
-              className="borderBlue"
               display="flex"
               width={{ base: "auto", md: "auto" }}
               variant="solid"
@@ -1018,7 +1018,6 @@ export default function Cos() {
               TRIMITE COMANDA
             </Box>
             <Image
-              className="borderRed"
               src="../assets/thumb-right.svg"
               alt="arrow"
               height={"100%"}
