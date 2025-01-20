@@ -40,11 +40,11 @@ export default function BlackBar() {
         maxW="1280px"
         margin="0 auto"
         px={10}
-        py={1}
+        py={0.5}
       >
         {/* Left Section */}
         <HStack spacing={6} alignItems="center">
-          <Text fontWeight="500" fontSize="1.2rem">
+          <Text fontWeight="500" fontSize="1.1rem">
             Pizza Constanta
           </Text>
 

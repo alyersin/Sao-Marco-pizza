@@ -9,6 +9,7 @@ import {
   VStack,
   Flex,
   useDisclosure,
+  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -130,7 +131,6 @@ export default function Header() {
             overflow="hidden"
           >
             <Swiper
-              className="borderRed"
               spaceBetween={16}
               slidesPerView={2.5}
               freeMode={true}
@@ -164,7 +164,6 @@ export default function Header() {
                   <Link href={item.href}>
                     <Text
                       fontWeight="bold"
-                      fontFamily="'Mongoose', sans-serif"
                       color="white"
                       _hover={{ color: "#FFD100" }}
                       textAlign="center"
@@ -194,7 +193,7 @@ export default function Header() {
                 src="/assets/logo.jpg"
                 alt="Logo"
                 width="100%"
-                height="134px"
+                height="120px"
                 objectFit="cover"
               />
             </Link>
@@ -202,7 +201,7 @@ export default function Header() {
 
           <HStack
             spacing={4}
-            divider={<Box height="20px" width="1px" bg="black" />}
+            divider={<Box height="24px" width="2px" bg="black" border="none" />}
           >
             {[
               { href: "/pizza", label: "PIZZA" },
@@ -215,10 +214,16 @@ export default function Header() {
             ].map((item) => (
               <Link key={item.href} href={item.href}>
                 <Text
-                  fontWeight="bold"
-                  fontFamily="'Mongoose', sans-serif"
+                  // className="josefin-sans-regular"
                   _hover={{ color: "#FFD100" }}
                   letterSpacing="-1px"
+                  color="#1A202C"
+                  fontSize="18px"
+                  fontWeight="500"
+                  lineHeight="37.5px"
+                  verticalAlign="baseline"
+                  wordspace="0px"
+                  whiteSpace={"nowrap"}
                 >
                   {item.label}
                 </Text>
@@ -234,13 +239,13 @@ export default function Header() {
               cursor="pointer"
             >
               <Box position="relative">
-                <Icon as={FaShoppingCart} color="#E3051B" boxSize={8} />
+                <Icon as={FaShoppingCart} color="#E3051B" boxSize={12} />
                 <Box
                   position="absolute"
                   top="-5px"
                   right="-5px"
-                  width="20px"
-                  height="20px"
+                  width="30px"
+                  height="30px"
                   bg="#E3E3E3"
                   color="black"
                   borderRadius="full"

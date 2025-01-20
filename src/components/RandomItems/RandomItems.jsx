@@ -69,12 +69,12 @@ export default function RandomItems() {
   };
 
   return (
-    <Box className="borderRed" maxW="1280px" mx="auto" px={{ base: 4, md: 6 }}>
+    <Box maxW="1280px" mx="auto" px={{ base: 0, md: 6 }}>
       {/* 1ST GRID */}
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         spacing={{ base: 4, md: 6 }}
-        pt={{ base: 8, md: 0 }}
+        pt={{ base: 5, md: 0 }}
         pb={{ base: 4, md: 7 }}
         pl={{ base: 4, md: 6 }}
         pr={{ base: 4, md: 6 }}

@@ -105,7 +105,7 @@ export default function Cos() {
       <Box
         // className="BorderBlue"
         mx={{ base: 0, md: 12 }}
-        my={{ base: 0, md: "90px" }}
+        my={{ base: 0, md: "80px" }}
         bg="#232323"
         color="white"
         px={{ base: 2, md: 4 }}
@@ -113,7 +113,7 @@ export default function Cos() {
       >
         <Text
           fontWeight="bold"
-          fontSize={{ base: "3xl", md: "5xl" }}
+          fontSize={{ base: "3xl", md: "2.5rem" }}
           textAlign="center"
           m={{ base: 4, md: 6 }}
         >
@@ -442,13 +442,13 @@ export default function Cos() {
 
         {/* PROMO */}
         <Box
-          className="borderRed"
+          // className="borderRed"
           bg="black"
           color="white"
-          py={{ base: 5, md: "28px" }}
+          py={{ base: 5, md: "17px" }}
           px={5}
           mx={{ base: 2, md: 0 }}
-          mt={{ base: 0, md: 12 }}
+          mt={{ base: 0, md: 10 }}
           fontSize="1.6rem"
         >
           <Box
@@ -459,7 +459,7 @@ export default function Cos() {
             spacing={12}
             gap={{ base: 2, md: 0 }}
           >
-            <Text fontSize={{ base: "lg", md: "3xl" }} textAlign="center">
+            <Text fontSize={{ base: "lg", md: "1.8rem" }} textAlign="center">
               La 3 pizza marimea L beneficiezi de promotia
             </Text>
             <Text
@@ -491,6 +491,7 @@ export default function Cos() {
           flexDirection={{ base: "column", lg: "row" }}
         >
           <Flex
+            className="borderRed"
             flexDirection={{ base: "column", lg: "column" }}
             flex={{ base: 0, md: 1 }}
             mx={{ base: 0, md: 0 }}
@@ -499,7 +500,8 @@ export default function Cos() {
             align="stretch"
           >
             <Box
-              height={{ base: "200px", md: "250px" }}
+              className="borderBlue"
+              height={{ base: "200px", md: "232px" }}
               borderBottom="2px solid gray"
               borderRight={{ base: "none", lg: "2px solid gray" }}
             >
@@ -510,7 +512,7 @@ export default function Cos() {
                 pl={{ base: 0, md: 10 }}
                 height={{ base: "auto", md: "100%" }}
               >
-                <Text fontSize={{ base: "1.6rem", md: "1.8rem" }} mb={5}>
+                <Text fontSize={{ base: "1.6rem", md: "1.7rem" }} mb={5}>
                   Foloseste punctele:
                 </Text>
                 <Text fontSize="16px" color="#B3B3B3" mb={4}>
@@ -568,14 +570,14 @@ export default function Cos() {
               py={10}
               pl={{ base: 0, md: 12 }}
               pr={{ base: 0, md: 10 }}
-              spacing={{ base: 6, md: 8 }}
+              spacing={{ base: 6, md: 7 }}
               alignItems="left"
             >
               <VStack align="start" spacing={{ base: 6, md: 4 }}>
-                <Text fontSize={{ base: "1.7rem", md: "1.8rem" }}>
+                <Text fontSize={{ base: "1.7rem", md: "1.6rem" }}>
                   Ai un voucher?
                 </Text>
-                <Text fontSize={{ base: "1rem", md: "1.2rem" }}>
+                <Text fontSize={{ base: "1rem", md: "16px" }}>
                   In cazul in care detii un voucher de reducere il poti
                   introduce in campul de mai jos. Se va aplica la totalul
                   comenzii.
@@ -587,6 +589,7 @@ export default function Cos() {
                   placeholder="Voucher"
                   bg="#707070"
                   color="white"
+                  border="none"
                   height={{ base: "46px", md: "50px" }}
                   width={{ base: "360px", md: "100%" }}
                   sx={{
@@ -596,6 +599,7 @@ export default function Cos() {
                   }}
                 />
                 <Button
+                  className="borderRed"
                   pl={{ base: 12, md: 12 }}
                   bgColor="#999999"
                   color="white"
@@ -605,6 +609,7 @@ export default function Cos() {
                 >
                   APLICA
                   <Image
+                    className="borderBlue"
                     src="../assets/arrow-right.svg"
                     alt="arrow"
                     boxSize="100%"
@@ -618,13 +623,13 @@ export default function Cos() {
               <Flex
                 flexDirection="column"
                 gap={{ base: 1, md: 3 }}
-                mt={{ base: 7, md: 8 }}
+                mt={{ base: 8, md: 8 }}
               >
-                <Text fontSize={{ base: "1.7rem", md: "1.8rem" }} mb={4}>
+                <Text fontSize={{ base: "1.7rem", md: "1.6rem" }} mb={3}>
                   Metoda de plata:
                 </Text>
                 <RadioGroup defaultValue="1">
-                  <VStack align="start" spacing={5}>
+                  <VStack align="start" spacing={{ base: 6, md: 5 }}>
                     <Radio
                       value="1"
                       sx={{
@@ -682,8 +687,8 @@ export default function Cos() {
                   </VStack>
                 </RadioGroup>
                 <Text
-                  fontSize={{ base: "16px", md: "1.1rem" }}
-                  mt={4}
+                  fontSize={{ base: "16px", md: "16px" }}
+                  mt={{ base: 3, md: 1 }}
                   color="#B3B3B3"
                 >
                   * La metoda de plata cu cardul nu se percepe nici un comision
@@ -713,7 +718,7 @@ export default function Cos() {
               className="borderRed"
               display={{ base: "none", md: "flex" }}
               flexDirection="column"
-              height={{ base: "228px", md: "250px" }}
+              height={{ base: "228px", md: "232px" }}
               borderBottom="2px solid gray"
               gap={3}
               padding="10px 36px"
@@ -756,14 +761,17 @@ export default function Cos() {
             {/* DATE LIVRARE */}
 
             <VStack
+              className="borderRed"
               align="left"
               py={{ base: "32px", md: "32px" }}
               pl={{ base: "0", md: "44px" }}
-              pr={{ base: "0", md: "70px" }}
+              pr={{ base: "0", md: "60px" }}
               spacing={{ base: 5, md: 5 }}
             >
-              <Text fontSize="1.7rem">Date de livrare:</Text>
-              <Text fontSize={{ base: "16px", md: "19px" }} color="#B3B3B3">
+              <Text fontSize={{ base: "1.7rem", md: "1.6rem" }}>
+                Date de livrare:
+              </Text>
+              <Text fontSize={{ base: "16px", md: "16px" }} color="#B3B3B3">
                 * Comanda minima pentru orasul Constanta este de 40 de lei iar
                 pentru zonele rezidentiale si comunele limitrofe este de 100 de
                 lei
@@ -775,7 +783,11 @@ export default function Cos() {
                 }}
                 value={deliveryOption}
               >
-                <Stack direction="column" spacing={{ base: 4, md: 6 }}>
+                <Stack
+                  direction="column"
+                  pb={{ base: 2, md: 1 }}
+                  spacing={{ base: 4, md: 6 }}
+                >
                   <Radio
                     value="1"
                     onChange={() => setShowAltaAdresa(true)}
@@ -855,6 +867,7 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
+                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -866,6 +879,7 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
+                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -877,6 +891,7 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
+                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -888,6 +903,7 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
+                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -899,6 +915,7 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
+                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -910,9 +927,10 @@ export default function Cos() {
 
               <Textarea
                 placeholder="Mesaj"
-                height={{ base: "150px", md: "170px" }}
+                height={{ base: "150px", md: "160px" }}
                 bg="#707070"
                 color="white"
+                border="none"
                 mb={{ base: 12, md: 14 }}
                 sx={{
                   "::placeholder": {
@@ -927,49 +945,71 @@ export default function Cos() {
         <Divider />
 
         <Stack
-          direction={{ base: "column", md: "row" }} // Column for mobile, row for larger screens
-          spacing={{ base: 5, md: 4 }}
+          className="borderRed"
+          direction={{ base: "column-reverse", md: "row" }}
+          justifyContent="space-between"
+          spacing={{ base: 5, md: 0 }}
           mt={10}
-          mb={{ base: 4, md: 7 }}
+          mb={{ base: 4, md: 8 }}
           align="center"
         >
-          <Button
-            maxW="440px"
-            width="100%"
-            height="52px"
+          <Link
+            href="/"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
             bgColor="#999999"
             color="#FFFFFF"
-            variant="solid"
-            onClick={handleCheckout}
+            borderRadius="5px"
+            height={{ base: "50px", md: "54px" }}
           >
             <Image
+              className="borderRed"
               src="../assets/arrow-left.svg"
               alt="arrow"
-              boxSize="24px" // Set fixed size for the image
+              height={"100%"}
               borderRadius="4px"
-              mr={2} // Add consistent spacing between the image and text
+              onClick={handleCheckout}
             />
-            INAPOI
-          </Button>
+            <Box
+              className="borderBlue"
+              display="flex"
+              width={{ base: "410px", md: "380px" }}
+              variant="solid"
+              fontSize={{ base: "20px", md: "1rem" }}
+            >
+              INAPOI
+            </Box>
+          </Link>
 
-          <Button
-            maxW="440px"
-            width="100%"
-            height="52px"
+          <Link
+            href="/"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
             bgColor="#999999"
             color="#FFFFFF"
-            variant="solid"
-            onClick={handleCheckout}
+            borderRadius="5px"
+            height={{ base: "50px", md: "54px" }}
           >
-            TRIMITE COMANDA
+            <Box
+              className="borderBlue"
+              display="flex"
+              width={{ base: "410px", md: "380px" }}
+              variant="solid"
+              fontSize={{ base: "20px", md: "1rem" }}
+            >
+              TRIMITE COMANDA
+            </Box>
             <Image
+              className="borderRed"
               src="../assets/thumb-right.svg"
               alt="arrow"
-              boxSize="24px" // Set fixed size for the image
+              height={"100%"}
               borderRadius="4px"
-              ml={2} // Add consistent spacing between text and image
+              onClick={handleCheckout}
             />
-          </Button>
+          </Link>
         </Stack>
       </Box>
     </Box>
