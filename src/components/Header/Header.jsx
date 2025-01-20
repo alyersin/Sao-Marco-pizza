@@ -85,7 +85,8 @@ export default function Header() {
                 <Image
                   src="../assets/sao-marco-pizza.svg"
                   alt="Logo"
-                  height="94px"
+                  height="98px"
+                  width="auto"
                   objectFit="contain"
                 />
               </Link>
@@ -173,6 +174,7 @@ export default function Header() {
           alignItems="center"
           mx="auto"
           bg="#828282"
+          boxShadow="0px 30px 30px rgba(0, 0, 0, 0.5)"
         >
           <Box width={{ base: "150px", md: "150px" }} height="auto">
             <Link href="/">
@@ -180,7 +182,7 @@ export default function Header() {
                 src="/assets/logo.jpg"
                 alt="Logo"
                 width="100%"
-                height="120px"
+                height="134px"
                 objectFit="cover"
               />
             </Link>
@@ -214,7 +216,6 @@ export default function Header() {
 
           <Link href="/cos">
             <HStack
-              className="borderRed"
               spacing={2}
               paddingRight={{ base: 2, lg: 12 }}
               position="relative"

@@ -103,62 +103,111 @@ export default function Cos() {
   return (
     <Box maxW="1280px" mx="auto">
       <Box
+        // className="BorderBlue"
         mx={{ base: 0, md: 12 }}
-        my={{ base: 0, md: 20 }}
+        my={{ base: 0, md: "90px" }}
         bg="#232323"
         color="white"
-        p={{ base: 2, md: 4 }}
+        px={{ base: 2, md: 4 }}
+        py={{ base: 2, md: 3 }}
       >
         <Text
           fontWeight="bold"
-          fontSize={{ base: "3xl", md: "4xl" }}
+          fontSize={{ base: "3xl", md: "5xl" }}
           textAlign="center"
           m={{ base: 4, md: 6 }}
         >
           COS CUMPARATURI
         </Text>
-        <Divider borderColor="gray.400" mx={{ base: 2, md: 0 }} />
 
-        <Box borderRadius="md" mx={{ base: 2, md: 0 }} mb={{ base: 0, md: 6 }}>
-          {cart.length === 0 ? (
-            <Text color="gray.400">Cosul tau este gol.</Text>
-          ) : (
-            cart.map((item, index) => (
-              <Box
-                key={index}
-                p="38px"
-                borderRadius="md"
-                // mb={4}
-                display="flex"
-                flexDirection={{ base: "column", md: "row" }}
-                alignItems={{ base: "flex-start", md: "center" }}
-                justifyContent="space-between"
-                // bg="black"
-                boxShadow="md"
-                color="white"
+        <Divider borderColor="gray.400" />
+
+        <Box
+          className="borderBlue"
+          borderRadius="md"
+          height={{ base: "286px", md: "auto" }}
+          mx={{ base: 2, md: 0 }}
+          mb={{ base: 0, md: 6 }}
+          pt={{ base: 8, md: 0 }}
+        >
+          {cart.map((item, index) => (
+            <Box
+              className="borderRed"
+              key={index}
+              pt={{ base: 0, md: 10 }}
+              pb={{ base: 10, md: 5 }}
+              borderRadius="md"
+              display="flex"
+              flexDirection={{ base: "column", md: "row" }}
+              alignItems={{ base: "flex-start", md: "center" }}
+              justifyContent="space-between"
+              gap={6}
+              height={{ base: "100%", md: "auto" }}
+              boxShadow="md"
+              color="white"
+            >
+              {/* IMAGE NAME SIZE */}
+              <HStack
+                // className="borderBlue"
+                spacing={{ base: 0, md: 8 }}
+                alignItems="center"
+                mb={{ base: 4, md: 0 }}
               >
-                {/* IMAGE NAME SIZE */}
-                <HStack spacing={6} alignItems="center" mb={{ base: 4, md: 0 }}>
+                {/* DELETE ICON MOBILE */}
+                <Link
+                  display={{ base: "flex", md: "none" }}
+                  onClick={() => handleRemoveItem(index)}
+                  cursor="pointer"
+                  alignSelf={{ base: "flex-start", md: "center" }}
+                >
                   <Image
-                    src={item.image}
-                    alt={item.name}
-                    boxSize="140px"
-                    borderRadius="md"
+                    position="absolute"
+                    src="../assets/delete.png"
+                    alt="Delete"
+                    boxSize="22px"
+                    filter="contrast(0) invert(1)"
                   />
-                  <VStack align="start" spacing={10}>
-                    <VStack align="start" spacing={0}>
-                      <Text fontWeight="bold" fontSize="2xl">
-                        {item.name}
-                      </Text>
-                      <Text fontSize="xs" color="gray.400">
-                        Marime: {item.size.label}
-                      </Text>
-                    </VStack>
+                </Link>
 
-                    {/* ADAUGA BUTTONS */}
+                <Image
+                  className="borderBlue"
+                  src={item.image}
+                  alt={item.name}
+                  p={0}
+                  boxSize={{ base: "150px", md: "180px" }}
+                  borderRadius="md"
+                />
+                <Flex
+                  className="borderRed"
+                  flexDirection={{ base: "column", md: "column" }}
+                  gap={{ base: 12, md: 6 }}
+                  align="start"
+                  width="100%"
+                  mx="auto"
+                  spacing={10}
+                >
+                  <VStack align="start" spacing={0}>
+                    <Text
+                      fontWeight="bold"
+                      fontSize={{ base: "lg", md: "3xl" }}
+                    >
+                      {item.name}
+                    </Text>
+                    <Text fontSize="xs" color="gray.400">
+                      Marime: {item.size.label}
+                    </Text>
+                  </VStack>
+
+                  {/* ADAUGA BUTTONS */}
+                  <Box
+                    className="borderBlue"
+                    display={{ base: "flex", md: "flex" }}
+                    gap={{ base: 0, md: 16 }}
+                  >
                     <Box
-                      display="flex"
-                      flexDirection={{ base: "column", md: "row" }}
+                      className="borderGreen"
+                      display={{ base: "none", md: "flex" }}
+                      flexDirection={{ base: "row", md: "row" }}
                       gap={{ base: 2, md: 3 }}
                       align="center"
                     >
@@ -232,83 +281,173 @@ export default function Cos() {
                         </Box>
                       </Button>
                     </Box>
-                  </VStack>
-                </HStack>
 
-                {/* QUANTITY PRICE */}
-                <HStack
-                  spacing={2}
-                  align="center"
-                  // width="100%"
-                  mb={{ base: 4, md: 0 }}
+                    {/* QUANTITY PRICE */}
+                    <HStack
+                      className="borderGreen"
+                      mx={{ base: "auto", md: 0 }}
+                      mr={{ base: "16px", md: 0 }}
+                      spacing={2}
+                      align="center"
+                    >
+                      <HStack
+                        className="borderRed"
+                        bgColor="#707070"
+                        borderRadius="md"
+                        width={{ base: "auto", md: "140px" }}
+                        height="100%"
+                        spacing={2}
+                        color="#B3B3B3"
+                      >
+                        {/* BUTON */}
+                        <Button
+                          size={{ base: "sm", md: "lg" }}
+                          bg="inherit"
+                          onClick={() => updateCartQuantity(index, -1)}
+                          _hover={{ bg: "gray.600" }}
+                        >
+                          <Icon color="#B3B3B3" as={FaMinus} />
+                        </Button>
+                        <Text fontWeight="bold" fontSize="lg">
+                          {item.quantity}
+                        </Text>
+
+                        {/* BUTON */}
+                        <Button
+                          size={{ base: "sm", md: "lg" }}
+                          bg="inherit"
+                          onClick={() => updateCartQuantity(index, 1)}
+                          _hover={{ bg: "gray.600" }}
+                        >
+                          <Icon color="#B3B3B3" as={FaPlus} />
+                        </Button>
+                      </HStack>
+                      <Text
+                        fontWeight="bold"
+                        fontSize={{ base: "1.7rem", md: "1.9rem" }}
+                      >
+                        {(
+                          parseFloat(item.size.price) * (item.quantity || 1)
+                        ).toFixed(2)}{" "}
+                        <Text
+                          as="span"
+                          fontWeight="normal"
+                          fontSize={{ base: "xs", md: "xl" }}
+                        >
+                          lei
+                        </Text>
+                      </Text>
+                    </HStack>
+                    {/* DELETE ICON */}
+                    <Link
+                      display={{ base: "none", md: "flex" }}
+                      onClick={() => handleRemoveItem(index)}
+                      cursor="pointer"
+                      alignSelf={{ base: "flex-start", md: "center" }}
+                    >
+                      <Image
+                        src="../assets/delete.png"
+                        alt="Delete"
+                        boxSize="30px"
+                        filter="contrast(0) invert(1)"
+                      />
+                    </Link>
+                  </Box>
+                </Flex>
+              </HStack>
+
+              {/* ADAUGA BUTTONS MOBILE*/}
+              <Box
+                className="borderRed"
+                display={{ base: "flex", md: "none" }}
+                flexDirection={{ base: "row", md: "row" }}
+                gap={{ base: 4, md: 3 }}
+                pb={{ base: 0, md: 0 }}
+                // pt={6}
+                align="center"
+              >
+                <Button
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  bgColor="#999999"
+                  color="white"
+                  fontSize="0.95rem"
+                  w="100%"
+                  h="40px"
+                  pl={4}
+                  pr={0}
+                  borderRadius="md"
+                  variant="solid"
+                  _hover={{ bg: "gray.600" }}
                 >
-                  <HStack
-                    className="borderGreen"
-                    bgColor="#707070"
-                    borderRadius="md"
-                    width="140px"
-                    spacing={2}
-                    color="#B3B3B3"
+                  <Text fontWeight="bold">ADAUGA TOPPING</Text>
+
+                  <Box
+                    w="60px"
+                    h="100%"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    borderTopRightRadius="md"
+                    borderBottomRightRadius="md"
                   >
-                    {/* BUTON */}
-                    <Button
-                      className="borderBlue"
-                      size="lg"
-                      bg="inherit"
-                      onClick={() => updateCartQuantity(index, -1)}
-                      _hover={{ bg: "gray.600" }}
-                    >
-                      <Icon color="#B3B3B3" as={FaMinus} />
-                    </Button>
-                    <Text fontWeight="bold" fontSize="lg">
-                      {item.quantity}
-                    </Text>
+                    <Image
+                      src="../assets/arrow-right.svg"
+                      alt="arrow"
+                      boxSize="43px"
+                      borderRadius="md"
+                    />
+                  </Box>
+                </Button>
 
-                    {/* BUTON */}
-                    <Button
-                      className="borderBlue"
-                      size="lg"
-                      bg="inherit"
-                      onClick={() => updateCartQuantity(index, 1)}
-                      _hover={{ bg: "gray.600" }}
-                    >
-                      <Icon color="#B3B3B3" as={FaPlus} />
-                    </Button>
-                  </HStack>
-                  <Text fontWeight="bold" fontSize="1.7rem">
-                    {(
-                      parseFloat(item.size.price) * (item.quantity || 1)
-                    ).toFixed(2)}{" "}
-                    lei
-                  </Text>
-                </HStack>
-
-                {/* DELETE ICON */}
-                <Link
-                  onClick={() => handleRemoveItem(index)}
-                  cursor="pointer"
-                  alignSelf={{ base: "flex-start", md: "center" }}
+                <Button
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  bgColor="#999999"
+                  color="white"
+                  fontSize="0.95rem"
+                  w="100%"
+                  h="40px"
+                  pl={4}
+                  pr={0}
+                  borderRadius="md"
+                  variant="solid"
+                  _hover={{ bg: "gray.600" }}
                 >
-                  <Image
-                    src="../assets/delete.png"
-                    alt="Delete"
-                    boxSize="30px"
-                    filter="contrast(0) invert(1)"
-                  />
-                </Link>
+                  <Text fontWeight="bold">ADAUGA SOS</Text>
+
+                  <Box
+                    w="40px"
+                    h="100%"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    borderTopRightRadius="md"
+                    borderBottomRightRadius="md"
+                  >
+                    <Image
+                      src="../assets/arrow-right.svg"
+                      alt="arrow"
+                      boxSize="43px"
+                      borderRadius="md"
+                    />
+                  </Box>
+                </Button>
               </Box>
-            ))
-          )}
+            </Box>
+          ))}
         </Box>
 
         {/* PROMO */}
         <Box
           bg="black"
           color="white"
-          py={5}
+          py={{ base: 5, md: "28px" }}
           px={5}
           mx={{ base: 2, md: 0 }}
-          mt={{ base: 5, md: 10 }}
+          mt={{ base: 10, md: 12 }}
           fontSize="1.6rem"
         >
           <Box
@@ -319,7 +458,7 @@ export default function Cos() {
             spacing={12}
             gap={{ base: 2, md: 0 }}
           >
-            <Text fontSize={{ base: "lg", md: "2xl" }} textAlign="center">
+            <Text fontSize={{ base: "lg", md: "3xl" }} textAlign="center">
               La 3 pizza marimea L beneficiezi de promotia
             </Text>
             <Text
@@ -351,15 +490,14 @@ export default function Cos() {
           flexDirection={{ base: "column", lg: "row" }}
         >
           <Flex
-            className="borderGreen"
             flexDirection={{ base: "column", lg: "column" }}
             flex={{ base: 0, md: 1 }}
-            mx={{ base: 0, md: 2 }}
+            mx={{ base: 0, md: 0 }}
             spacing={6}
             align="stretch"
           >
             <Box
-              height={{ base: "200px", md: "228px" }}
+              height={{ base: "200px", md: "250px" }}
               borderBottom="2px solid gray"
               borderRight={{ base: "none", lg: "2px solid gray" }}
             >
@@ -370,7 +508,7 @@ export default function Cos() {
                 pl={{ base: 0, md: 10 }}
                 height={{ base: "auto", md: "100%" }}
               >
-                <Text fontSize={"1.6rem"} mb={5}>
+                <Text fontSize={{ base: "1.6rem", md: "1.8rem" }} mb={5}>
                   Foloseste punctele:
                 </Text>
                 <Text fontSize="16px" color="#B3B3B3" mb={4}>
@@ -425,12 +563,16 @@ export default function Cos() {
               borderRight={{ base: "none", md: "2px solid gray" }}
               height="100%"
               py={10}
-              spacing={7}
+              pl={{ base: 0, md: 12 }}
+              pr={{ base: 0, md: 10 }}
+              spacing={{ base: 6, md: 8 }}
               alignItems="left"
             >
-              <VStack align="start" spacing={4}>
-                <Text fontSize="1.7rem">Ai un voucher?</Text>
-                <Text>
+              <VStack align="start" spacing={{ base: 6, md: 4 }}>
+                <Text fontSize={{ base: "1.7rem", md: "1.8rem" }}>
+                  Ai un voucher?
+                </Text>
+                <Text fontSize={{ base: "1rem", md: "1.2rem" }}>
                   In cazul in care detii un voucher de reducere il poti
                   introduce in campul de mai jos. Se va aplica la totalul
                   comenzii.
@@ -442,7 +584,7 @@ export default function Cos() {
                   placeholder="Voucher"
                   bg="#707070"
                   color="white"
-                  height={"46px"}
+                  height={{ base: "46px", md: "50px" }}
                   width={{ base: "360px", md: "100%" }}
                   sx={{
                     "::placeholder": {
@@ -455,7 +597,7 @@ export default function Cos() {
                   bgColor="#999999"
                   color="white"
                   variant="solid"
-                  height={"46px"}
+                  height={{ base: "46px", md: "50px" }}
                   fontSize={{ base: "0.8rem", md: "inherit" }}
                 >
                   APLICA
@@ -468,8 +610,12 @@ export default function Cos() {
                 </Button>
               </HStack>
 
-              <Flex flexDirection="column" gap="1" mt={7}>
-                <Text fontSize={"1.7rem"} mb={4}>
+              <Flex
+                flexDirection="column"
+                gap={{ base: 1, md: 3 }}
+                mt={{ base: 7, md: 8 }}
+              >
+                <Text fontSize={{ base: "1.7rem", md: "1.8rem" }} mb={4}>
                   Metoda de plata:
                 </Text>
                 <RadioGroup defaultValue="1">
@@ -479,7 +625,11 @@ export default function Cos() {
                     <Radio value="3">Plata online cu cardul</Radio>
                   </VStack>
                 </RadioGroup>
-                <Text fontSize="16px" mt={4} color="#B3B3B3">
+                <Text
+                  fontSize={{ base: "16px", md: "1.1rem" }}
+                  mt={4}
+                  color="#B3B3B3"
+                >
                   * La metoda de plata cu cardul nu se percepe nici un comision
                   in plus indiferent de banca de care apartineti. Acceptam: Visa
                   si Mastercard.
@@ -488,7 +638,7 @@ export default function Cos() {
                   src="../assets/payment-methods.png"
                   alt="Credit card"
                   bgColor="white"
-                  mt={5}
+                  mt={{ base: 5, md: 3 }}
                 ></Image>
               </Flex>
             </VStack>
