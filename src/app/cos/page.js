@@ -520,6 +520,7 @@ export default function Cos() {
             {/* TOTAL VALOARE MOBILE*/}
 
             <Flex
+              className="borderRed"
               display={{ base: "flex", md: "none" }}
               flexDirection="column"
               height="228px"
@@ -654,30 +655,41 @@ export default function Cos() {
             align="stretch"
           >
             <Flex
+              className="borderRed"
               display={{ base: "none", md: "flex" }}
               flexDirection="column"
-              height="228px"
+              height={{ base: "228px", md: "250px" }}
               borderBottom="2px solid gray"
               gap={3}
               padding="10px 36px"
             >
               <HStack justifyContent={"space-between"}>
-                <Text fontSize="1.2rem">Sub-total:</Text>
+                <Text fontSize={{ base: "1.2rem", md: "1.4rem" }}>
+                  Sub-total:
+                </Text>
                 <Text fontSize="lg">{calculateTotal()} lei</Text>
               </HStack>
 
               <HStack justifyContent={"space-between"}>
-                <Text fontSize="1.2rem">Voucher:</Text>
+                <Text fontSize={{ base: "1.2rem", md: "1.4rem" }}>
+                  Voucher:
+                </Text>
                 <Text fontSize="lg">0.00 lei</Text>
               </HStack>
 
               <HStack justifyContent={"space-between"}>
-                <Text fontSize="1.2rem">Garantia SGR:</Text>
+                <Text fontSize={{ base: "1.2rem", md: "1.4rem" }}>
+                  Garantia SGR:
+                </Text>
                 <Text fontSize="lg">0 lei</Text>
               </HStack>
 
               <HStack justifyContent={"space-between"} mt={3}>
-                <Text fontWeight={"bold"} fontSize="1.7rem" color="#FFD100">
+                <Text
+                  fontWeight={"bold"}
+                  fontSize={{ base: "1.4rem", md: "1.8rem" }}
+                  color="#FFD100"
+                >
                   Total 1 produs
                 </Text>
                 <Text fontWeight={"bold"} fontSize="1.6rem" color="#FFD100">
@@ -690,11 +702,13 @@ export default function Cos() {
 
             <VStack
               align="left"
-              padding={{ base: "32px 0", md: "32px 36px" }}
-              spacing={{ base: 5, md: 4 }}
+              py={{ base: "32px", md: "32px" }}
+              pl={{ base: "0", md: "44px" }}
+              pr={{ base: "0", md: "70px" }}
+              spacing={{ base: 5, md: 5 }}
             >
               <Text fontSize="1.7rem">Date de livrare:</Text>
-              <Text fontSize="16px" color="#B3B3B3">
+              <Text fontSize={{ base: "16px", md: "19px" }} color="#B3B3B3">
                 * Comanda minima pentru orasul Constanta este de 40 de lei iar
                 pentru zonele rezidentiale si comunele limitrofe este de 100 de
                 lei
@@ -706,24 +720,69 @@ export default function Cos() {
                 }}
                 value={deliveryOption}
               >
-                <Stack direction="column" spacing={5}>
+                <Stack direction="column" spacing={{ base: 4, md: 6 }}>
                   <Radio
                     value="1"
-                    colorScheme="yellow"
                     onChange={() => setShowAltaAdresa(true)}
+                    sx={{
+                      boxSize: "21px",
+                      bg: "#ff6633",
+                      borderColor: "#ff6633",
+                      borderWidth: "2px",
+                      color: "transparent",
+                      _checked: {
+                        bg: "#ff6633",
+                        borderColor: "#ff6633",
+                      },
+                      _focus: {
+                        boxShadow: "none",
+                      },
+                    }}
                   >
                     Livrare la:
                   </Radio>
 
                   {showAltaAdresa && (
-                    <Radio pl={8} value="account" colorScheme="yellow">
+                    <Radio
+                      pl={8}
+                      value="account"
+                      sx={{
+                        boxSize: "21px",
+                        borderColor: "#ff6633",
+                        borderWidth: "2px",
+                        color: "transparent",
+                        _checked: {
+                          bg: "#ff6633",
+                          borderColor: "#ff6633",
+                        },
+                        _focus: {
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
                       CONSTANTA, Pescarilor, 30, Bloc BM11, Scara E, ap 53,
                       Elite Beach
                     </Radio>
                   )}
 
                   {showAltaAdresa && (
-                    <Radio pl={8} value="2" colorScheme="yellow">
+                    <Radio
+                      pl={8}
+                      value="2"
+                      sx={{
+                        boxSize: "21px",
+                        borderColor: "#ff6633",
+                        borderWidth: "2px",
+                        color: "transparent",
+                        _checked: {
+                          bg: "#ff6633",
+                          borderColor: "#ff6633",
+                        },
+                        _focus: {
+                          boxShadow: "none",
+                        },
+                      }}
+                    >
                       Alta adresa
                     </Radio>
                   )}
@@ -731,13 +790,16 @@ export default function Cos() {
               </RadioGroup>
 
               {deliveryOption === "2" && (
-                <VStack mt={4} mb={10} spacing="18px">
+                <VStack
+                  mt={4}
+                  mb={{ base: 0, md: 0 }}
+                  spacing={{ base: "16px", md: "20px" }}
+                >
                   <Input
                     placeholder="Cauta localitatea"
                     bg="#707070"
                     color="white"
-                    // mb={2}
-                    height={"50px"}
+                    height={{ base: "50px", md: "56px" }}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -748,8 +810,7 @@ export default function Cos() {
                     placeholder="Strada"
                     bg="#707070"
                     color="white"
-                    // mb={2}
-                    height={"50px"}
+                    height={{ base: "50px", md: "56px" }}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -760,8 +821,7 @@ export default function Cos() {
                     placeholder="Numarul strazii"
                     bg="#707070"
                     color="white"
-                    // mb={2}
-                    height={"50px"}
+                    height={{ base: "50px", md: "56px" }}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -772,8 +832,7 @@ export default function Cos() {
                     placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"
                     bg="#707070"
                     color="white"
-                    // mb={2}
-                    height={"50px"}
+                    height={{ base: "50px", md: "56px" }}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -784,20 +843,7 @@ export default function Cos() {
                     placeholder="Repere"
                     bg="#707070"
                     color="white"
-                    // mb={2}
-                    height={"50px"}
-                    sx={{
-                      "::placeholder": {
-                        color: "#B3B3B3",
-                      },
-                    }}
-                  />
-                  <Textarea
-                    placeholder="Mesaj"
-                    height={"150px"}
-                    bg="#707070"
-                    color="white"
-                    // resize="none"
+                    height={{ base: "50px", md: "56px" }}
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -806,6 +852,19 @@ export default function Cos() {
                   />
                 </VStack>
               )}
+
+              <Textarea
+                placeholder="Mesaj"
+                height={{ base: "150px", md: "170px" }}
+                bg="#707070"
+                color="white"
+                mb={{ base: 12, md: 14 }}
+                sx={{
+                  "::placeholder": {
+                    color: "#B3B3B3",
+                  },
+                }}
+              />
             </VStack>
           </VStack>
         </Flex>
