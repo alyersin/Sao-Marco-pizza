@@ -495,7 +495,6 @@ export default function Cos() {
             flexDirection={{ base: "column", lg: "column" }}
             flex={{ base: 0, md: 1 }}
             mx={{ base: 0, md: 0 }}
-            mb={{ base: 0, md: 2 }}
             spacing={6}
             align="stretch"
           >
@@ -565,6 +564,7 @@ export default function Cos() {
 
             {/* VOUCHER */}
             <VStack
+              className="borderGreen"
               borderRight={{ base: "none", md: "2px solid gray" }}
               height="100%"
               py={10}
@@ -591,31 +591,44 @@ export default function Cos() {
                   color="white"
                   border="none"
                   height={{ base: "46px", md: "50px" }}
-                  width={{ base: "360px", md: "100%" }}
+                  width={{ base: "auto", md: "auto" }}
                   sx={{
                     "::placeholder": {
                       color: "#B3B3B3",
                     },
                   }}
                 />
-                <Button
-                  className="borderRed"
-                  pl={{ base: 12, md: 12 }}
+
+                <Link
+                  href="/"
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
                   bgColor="#999999"
-                  color="white"
-                  variant="solid"
+                  color="#FFFFFF"
+                  borderRadius="5px"
                   height={{ base: "46px", md: "50px" }}
-                  fontSize={{ base: "0.8rem", md: "inherit" }}
                 >
-                  APLICA
+                  <Box
+                    // className="borderRed"
+                    display="flex"
+                    textAlign="left"
+                    alignItems="center"
+                    pl={{ base: 12, md: 12 }}
+                    variant="solid"
+                    height={{ base: "46px", md: "50px" }}
+                    fontSize={{ base: "0.8rem", md: "inherit" }}
+                  >
+                    APLICA
+                  </Box>
                   <Image
                     className="borderBlue"
                     src="../assets/arrow-right.svg"
                     alt="arrow"
-                    boxSize="100%"
-                    borderRadius="4px"
+                    height={"100%"}
+                    borderRadius="5px"
                   />
-                </Button>
+                </Link>
               </HStack>
 
               {/* METODA DE PLATA */}
@@ -625,7 +638,7 @@ export default function Cos() {
                 gap={{ base: 1, md: 3 }}
                 mt={{ base: 8, md: 8 }}
               >
-                <Text fontSize={{ base: "1.7rem", md: "1.6rem" }} mb={3}>
+                <Text fontSize={{ base: "1.7rem", md: "1.6rem" }}>
                   Metoda de plata:
                 </Text>
                 <RadioGroup defaultValue="1">
@@ -710,8 +723,6 @@ export default function Cos() {
             className="borderGreen"
             borderTop={{ base: "2px solid gray", md: "none" }}
             flex="1"
-            // p={6}
-            // spacing={0}
             align="stretch"
           >
             <Flex
@@ -761,7 +772,7 @@ export default function Cos() {
             {/* DATE LIVRARE */}
 
             <VStack
-              className="borderRed"
+              className="borderBlue"
               align="left"
               py={{ base: "32px", md: "32px" }}
               pl={{ base: "0", md: "44px" }}
@@ -954,6 +965,7 @@ export default function Cos() {
           align="center"
         >
           <Link
+            className="borderBlue"
             href="/"
             display="flex"
             justifyContent="space-between"
@@ -962,21 +974,23 @@ export default function Cos() {
             color="#FFFFFF"
             borderRadius="5px"
             height={{ base: "50px", md: "54px" }}
+            width={{ base: "410px", md: "410px" }}
           >
             <Image
-              className="borderRed"
+              // className="borderRed"
               src="../assets/arrow-left.svg"
               alt="arrow"
               height={"100%"}
-              borderRadius="4px"
+              borderRadius="5px"
               onClick={handleCheckout}
             />
             <Box
               className="borderBlue"
               display="flex"
-              width={{ base: "410px", md: "380px" }}
+              width={{ base: "auto", md: "auto" }}
               variant="solid"
               fontSize={{ base: "20px", md: "1rem" }}
+              pr={{ base: 4, md: 4 }}
             >
               INAPOI
             </Box>
@@ -991,13 +1005,15 @@ export default function Cos() {
             color="#FFFFFF"
             borderRadius="5px"
             height={{ base: "50px", md: "54px" }}
+            width={{ base: "410px", md: "410px" }}
           >
             <Box
               className="borderBlue"
               display="flex"
-              width={{ base: "410px", md: "380px" }}
+              width={{ base: "auto", md: "auto" }}
               variant="solid"
               fontSize={{ base: "20px", md: "1rem" }}
+              pl={{ base: 4, md: 4 }}
             >
               TRIMITE COMANDA
             </Box>
@@ -1006,7 +1022,7 @@ export default function Cos() {
               src="../assets/thumb-right.svg"
               alt="arrow"
               height={"100%"}
-              borderRadius="4px"
+              borderRadius="5px"
               onClick={handleCheckout}
             />
           </Link>
