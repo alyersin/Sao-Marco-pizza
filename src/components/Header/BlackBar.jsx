@@ -44,7 +44,7 @@ export default function BlackBar() {
       >
         {/* Left Section */}
         <HStack spacing={6} alignItems="center">
-          <Text fontWeight="500" fontSize="1.1rem">
+          <Text fontWeight="500" fontSize="0.9rem">
             Pizza Constanta
           </Text>
 
@@ -52,7 +52,7 @@ export default function BlackBar() {
 
           <Link
             href="/contact"
-            fontSize="sm"
+            fontSize="0.9rem"
             _hover={{ textDecoration: "none" }}
           >
             Contact
@@ -84,7 +84,7 @@ export default function BlackBar() {
             _hover={{ textDecoration: "none" }}
           >
             <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
-            <Text fontSize="sm" mr={1}>
+            <Text fontSize="0.9rem" mr={1}>
               Comenzi telefonice:
             </Text>
             <Text fontWeight="bold" fontSize="sm">
@@ -129,8 +129,8 @@ export default function BlackBar() {
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
                   onClick={() => openModal("register")}
-                  fontSize="sm"
-                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  // fontWeight="bold"
                   borderRadius="md"
                   display="inline-block"
                   cursor="pointer"
@@ -148,8 +148,8 @@ export default function BlackBar() {
                   display="flex"
                   flexDirection="row"
                   alignItems="center"
-                  fontSize="sm"
-                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  // fontWeight="bold"
                   borderRadius="md"
                   cursor="pointer"
                   _hover={{ textDecoration: "none" }}
