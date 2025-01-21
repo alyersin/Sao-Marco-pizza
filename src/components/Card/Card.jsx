@@ -1,47 +1,73 @@
 import React from "react";
-import { Box, Image, Text, VStack, HStack, Icon } from "@chakra-ui/react";
-import { FaShoppingCart } from "react-icons/fa";
-
-export default function Card({ item }) {
+import { Box, Image, Text, VStack, HStack } from "@chakra-ui/react";
+export default function Card({
+  item,
+  width = "250px",
+  height = "auto",
+  p = 4,
+  m = "auto",
+}) {
   const handleAddToCart = (size) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = [...cart, { ...item, size }];
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    // alert(`Added ${item.name} (${size.label}) to the cart!`);
+  };
+
+  const typeColor = (type) => {
+    switch (type) {
+      case "De Post":
+        return "green.400";
+      case "Nou":
+        return "yellow.400";
+      case "Picant":
+        return "red.400";
+      default:
+        return "gray.500";
+    }
   };
 
   return (
     <Box
       className="borderRed"
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
       bg="#232323"
       color="white"
       borderRadius="md"
       overflow="hidden"
-      width={{ base: "100%", md: "250px" }}
+      width={width}
+      height={height}
       shadow="lg"
-      p={4}
-      mx="auto"
+      p={p}
+      m={m}
     >
-      <Box display="flex" justifyContent="center">
+      <Box className="borderGreen" display="flex" justifyContent="center">
         <Image
           src={item.image}
           alt={item.name}
-          width={{ base: "66%", md: "100%" }}
+          width="100%"
           borderRadius="md"
         />
       </Box>
-      <VStack align="center" spacing={2} p={4}>
+      <VStack className="borderBlue" align="center" spacing={0} p={4}>
         <Text fontWeight="bold" fontSize="lg">
           {item.name}
         </Text>
+        {item.type && (
+          <Text fontSize="sm" fontWeight="bold" color={typeColor(item.type)}>
+            {item.type}
+          </Text>
+        )}
         <Text fontSize="xs" align="center" color="gray.400" noOfLines={3}>
           {item.description}
         </Text>
       </VStack>
       <VStack spacing={2}>
         {item.sizes.map((size, index) => (
+          // BUTOANE ADAUGA IN COS
           <HStack
-            className="borderRed"
+            className="borderBlue"
             key={index}
             justify="space-between"
             align="center"
@@ -50,12 +76,12 @@ export default function Card({ item }) {
             borderRadius="md"
             _hover={{ bg: "gray.700" }}
             cursor="pointer"
-            height="58px"
+            height="54px"
             width="100%"
             onClick={() => handleAddToCart(size)}
           >
-            <Box>
-              <Text fontSize="md" fontWeight="800" color="black">
+            <HStack justify="space-between" align="center" width="100%">
+              <Text fontSize="sm" fontWeight="800" color="black">
                 {size.label}
               </Text>
               {size.description && (
@@ -63,25 +89,45 @@ export default function Card({ item }) {
                   {size.description}
                 </Text>
               )}
-            </Box>
-            <HStack spacing={2}>
-              <Text fontWeight="bold" fontSize="2xl">
+            </HStack>
+            <HStack className="borderGreen" spacing={2} width={"100%"}>
+              <Text fontWeight="bold" fontSize={{ base: "md", md: "sm" }}>
                 {size.price}
               </Text>
             </HStack>
             <Image
-              borderRadius="10px"
-              src="../assets/thumb-right.svg"
-              alt="arrow"
-              boxSize="66px"
+              borderRadius="5px"
+              src="../assets/addcart.svg"
+              alt="thumb"
+              boxSize="100%"
               ml="4px"
             />
           </HStack>
         ))}
+        <HStack
+          className="borderBlue"
+          // justify="space-between"
+          align="center"
+          bgColor="#999999"
+          pl={2}
+          borderRadius="md"
+          _hover={{ bg: "gray.700" }}
+          cursor="pointer"
+          height="54px"
+          width="100%"
+        >
+          <Text width="100%" fontWeight="bold">
+            CUM VREI TU
+          </Text>
+          <Image
+            borderRadius="5px"
+            src="../assets/thumb-right-gray.svg"
+            alt="thumb-gray"
+            boxSize="100%"
+            ml="4px"
+          />
+        </HStack>
       </VStack>
     </Box>
   );
 }
-
-// maxW="440px"
-//       width="100%"

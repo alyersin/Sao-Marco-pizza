@@ -16,7 +16,14 @@ export default function page() {
         textAlign="center"
       >
         {pizza.map((item) => (
-          <Card key={item.id} item={item} />
+          <Card
+            key={item.id}
+            item={item}
+            width="260px"
+            height="580px"
+            p={6}
+            m={"auto"}
+          />
         ))}
       </SimpleGrid>
     </Box>

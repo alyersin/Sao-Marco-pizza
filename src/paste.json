@@ -3,10 +3,10 @@
         "id": "e124cd3d-d0f7-4a93-9e9f-8f2c45ae35b7",
         "name": "PASTE AGLIO OLIO",
         "description": "INGREDIENTE:paste, rosii uscate, ulei masline, usturoi, chili.",
-        "type": "",
+        "type": "De Post",
         "sizes": [
-            {"label": "L (30cm)", "price": "25.50 lei"},
-            {"label": "XXL (50cm)", "price": "25.50 lei"}
+            {"label": "550g Pene", "price": "25.50 lei"},
+            {"label": "550g Spaghetti", "price": "25.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE AGLIO OLIO.png",
@@ -18,8 +18,8 @@
         "description": "INGREDIENTE:paste, sos rosu, rosii uscate, ardei iute.",
         "type": "De Post",
         "sizes": [
-            {"label": "L (30cm)", "price": "30.50 lei"},
-            {"label": "XXL (50cm)", "price": "30.50 lei"}
+            {"label": "550g Pene", "price": "30.50 lei"},
+            {"label": "550g Spaghetti", "price": "30.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE ARABIATA.png",
@@ -31,8 +31,8 @@
         "description": "INGREDIENTE:paste, crema de gatit, sunculita ardeleneasca, parmezan, bacon, mozzarella.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "33.50 lei"},
-            {"label": "XXL (50cm)", "price": "33.50 lei"}
+            {"label": "550g Pene", "price": "33.50 lei"},
+            {"label": "550g Spaghetti", "price": "33.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE CARBONARA.png",
@@ -44,8 +44,8 @@
         "description": "INGREDIENTE:paste, sos rosu, creveti, capere, lamaie.",
         "type": "Nou",
         "sizes": [
-            {"label": "L (30cm)", "price": "40.50 lei"},
-            {"label": "XXL (50cm)", "price": "40.50 lei"}
+            {"label": "550g Pene", "price": "40.50 lei"},
+            {"label": "550g Spaghetti", "price": "40.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE GAMBERETTI.png",
@@ -57,8 +57,8 @@
         "description": "INGREDIENTE:paste, crema de gatit, piept pui, bacon, mazare, sunculita ardeleneasca, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "33.50 lei"},
-            {"label": "XXL (50cm)", "price": "33.50 lei"}
+            {"label": "550g Pene", "price": "33.50 lei"},
+            {"label": "550g Spaghetti", "price": "33.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE MAFALDA.png",
@@ -70,8 +70,8 @@
         "description": "INGREDIENTE:paste, sos rosu, sunca, ciuperci, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "32.50 lei"},
-            {"label": "XXL (50cm)", "price": "32.50 lei"}
+            {"label": "550g Pene", "price": "32.50 lei"},
+            {"label": "550g Spaghetti", "price": "32.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE MILANEZE.png",
@@ -83,8 +83,8 @@
         "description": "INGREDIENTE:paste, sos pesto, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "32.50 lei"},
-            {"label": "XXL (50cm)", "price": "32.50 lei"}
+            {"label": "550g Pene", "price": "32.50 lei"},
+            {"label": "550g Spaghetti", "price": "32.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE PESTO.png",
@@ -96,8 +96,8 @@
         "description": "INGREDIENTE:paste, crema de gatit, mozzarella, branza cu mucegai, parmezan, emmentaler.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "33.50 lei"},
-            {"label": "XXL (50cm)", "price": "33.50 lei"}
+            {"label": "550g Pene", "price": "33.50 lei"},
+            {"label": "550g Spaghetti", "price": "33.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE QUATTRO FORMAGGI.png",
@@ -109,8 +109,8 @@
         "description": "INGREDIENTE:ravioli, sos rosu, rosii uscate, parmezan.",
         "type": "Nou",
         "sizes": [
-            {"label": "L (30cm)", "price": "34.50 lei"},
-            {"label": "XXL (50cm)", "price": "34.50 lei"}
+            {"label": "550g Pene", "price": "34.50 lei"},
+            {"label": "550g Spaghetti", "price": "34.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE RAVIOLI.png",
@@ -122,8 +122,8 @@
         "description": "INGREDIENTE:paste, sos rosu, piept pui, ciuperci, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "34.50 lei"},
-            {"label": "XXL (50cm)", "price": "34.50 lei"}
+            {"label": "550g Pene", "price": "34.50 lei"},
+            {"label": "550g Spaghetti", "price": "34.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE SAO MARCO.png",
@@ -135,8 +135,8 @@
         "description": "INGREDIENTE:paste, crema de gatit, piept pui, ciuperci, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "34.50 lei"},
-            {"label": "XXL (50cm)", "price": "34.50 lei"}
+            {"label": "550g Pene", "price": "34.50 lei"},
+            {"label": "550g Spaghetti", "price": "34.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE SCALOPINA.png",
@@ -148,8 +148,8 @@
         "description": "INGREDIENTE:paste, sos rosu, fructe de mare, capere, lamaie.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "40.50 lei"},
-            {"label": "XXL (50cm)", "price": "40.50 lei"}
+            {"label": "550g Pene", "price": "40.50 lei"},
+            {"label": "550g Spaghetti", "price": "40.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE SEAFOOD.png",
@@ -161,8 +161,8 @@
         "description": "INGREDIENTE:paste, crema de gatit, crema trufe, piept pui, ciuperci, emmentaler, parmezan.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "31.50 lei"},
-            {"label": "XXL (50cm)", "price": "73.50 lei"}
+            {"label": "550g Pene", "price": "31.50 lei"},
+            {"label": "550g Spaghetti", "price": "73.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE TARTUFFO.png",
@@ -174,8 +174,8 @@
         "description": "INGREDIENTE:paste, sos rosu, ton, capere, rosii uscate, masline, lamaie.",
         "type": "",
         "sizes": [
-            {"label": "L (30cm)", "price": "34.50 lei"},
-            {"label": "XXL (50cm)", "price": "34.50 lei"}
+            {"label": "550g Pene", "price": "34.50 lei"},
+            {"label": "550g Spaghetti", "price": "34.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE TON.png",
@@ -187,8 +187,8 @@
         "description": "INGREDIENTE:paste, sos rosu, masline, usturoi.",
         "type": "De Post",
         "sizes": [
-            {"label": "L (30cm)", "price": "29.50 lei"},
-            {"label": "XXL (50cm)", "price": "29.50 lei"}
+            {"label": "550g Pene", "price": "29.50 lei"},
+            {"label": "550g Spaghetti", "price": "29.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE VEGETARIENE.png",
@@ -200,8 +200,8 @@
         "description": "INGREDIENTE:paste, sos bolognes, parmezan.",
         "type": "Nou",
         "sizes": [
-            {"label": "L (30cm)", "price": "33.50 lei"},
-            {"label": "XXL (50cm)", "price": "33.50 lei"}
+            {"label": "550g Pene", "price": "33.50 lei"},
+            {"label": "550g Spaghetti", "price": "33.50 lei"}
         ],
         "buttonLabel": "CUM VREI TU",
         "image": "../../assets/menu/paste/PASTE BOLOGNESE.png",
