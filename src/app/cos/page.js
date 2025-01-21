@@ -23,6 +23,7 @@ import {
 
 import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
 import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 import { auth } from "../../lib/firebase";
 import { useMediaQuery } from "@chakra-ui/react";
 import { onAuthStateChanged } from "firebase/auth";
@@ -35,6 +36,7 @@ export default function Cos() {
   const [deliveryOption, setDeliveryOption] = useState("");
   const [showInputs, setShowInputs] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const router = useRouter();
 
   // CHECK IF USER IS LOGGED IN
   useEffect(() => {
@@ -968,7 +970,10 @@ export default function Cos() {
           align="center"
         >
           <Link
-            href="/"
+            className="borderRed"
+            // as={Button}
+            // href=""
+            onClick={() => router.back()}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -979,14 +984,16 @@ export default function Cos() {
             width={{ base: "400px", md: "410px" }}
           >
             <Image
-              //
+              className="borderBlue"
               src="../assets/arrow-left.svg"
               alt="arrow"
               height={"100%"}
+              width="auto"
               borderRadius="5px"
               onClick={handleCheckout}
             />
             <Box
+              className="borderGreen"
               display="flex"
               width={{ base: "auto", md: "auto" }}
               variant="solid"

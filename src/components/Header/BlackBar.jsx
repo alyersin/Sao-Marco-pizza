@@ -6,28 +6,34 @@ import { FaFacebook, FaInstagram, FaUser } from "react-icons/fa";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { auth } from "../../lib/firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-import LoginRegister from "../LoginRegister/LoginRegister.jsx";
+import Login from "../LoginRegister/Login.jsx";
+import Register from "../LoginRegister/Register.jsx";
 
 export default function BlackBar() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [defaultTab, setDefaultTab] = useState("login");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const openModal = (tab = "login") => {
-    setDefaultTab(tab);
-    setIsModalOpen(true);
+  const openLoginModal = () => {
+    setDefaultTab("login");
+    setIsLoginModalOpen(true);
   };
 
-  const closeModal = () => setIsModalOpen(false);
+  const closeLoginModal = () => setIsLoginModalOpen(false);
+
+  const openRegisterModal = () => setIsRegisterModalOpen(true);
+
+  const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const removeListener = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
 
-    return () => unsubscribe();
+    return () => removeListener();
   }, []);
 
   return (
@@ -96,7 +102,6 @@ export default function BlackBar() {
             <Spinner size="sm" color="blue.500" />
           ) : user ? (
             <HStack spacing={2} alignItems="center">
-              {/* "Cont" with Arrow */}
               <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
               <Link
                 href="/profile"
@@ -124,13 +129,12 @@ export default function BlackBar() {
             </HStack>
           ) : (
             <>
-              {/* Register */}
+              {/* REGISTER */}
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
-                  onClick={() => openModal("register")}
+                  onClick={openRegisterModal}
                   fontSize="0.9rem"
-                  // fontWeight="bold"
                   borderRadius="md"
                   display="inline-block"
                   cursor="pointer"
@@ -140,16 +144,15 @@ export default function BlackBar() {
                 </Link>
               </HStack>
 
-              {/* Login */}
+              {/* LOGIN */}
               <HStack spacing={2} alignItems="center">
                 <Icon as={ChevronRightIcon} color="#FFD100" boxSize={8} />
                 <Link
-                  onClick={() => openModal("login")}
+                  onClick={openLoginModal}
                   display="flex"
                   flexDirection="row"
                   alignItems="center"
                   fontSize="0.9rem"
-                  // fontWeight="bold"
                   borderRadius="md"
                   cursor="pointer"
                   _hover={{ textDecoration: "none" }}
@@ -174,11 +177,15 @@ export default function BlackBar() {
         </HStack>
       </Box>
 
-      <LoginRegister
-        isOpen={isModalOpen}
-        onClose={closeModal}
+      {/* Login Modal */}
+      <Login
+        isOpen={isLoginModalOpen}
+        onClose={closeLoginModal}
         defaultTab={defaultTab}
       />
+
+      {/* Register Modal */}
+      <Register isOpen={isRegisterModalOpen} onClose={closeRegisterModal} />
     </Box>
   );
 }

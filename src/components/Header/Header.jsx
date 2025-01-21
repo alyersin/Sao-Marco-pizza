@@ -18,7 +18,7 @@ import { BsGridFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@chakra-ui/react";
-import LoginRegister from "../LoginRegister/LoginRegister.jsx";
+import LoginRegister from "../LoginRegister/Login.jsx";
 import "../../app/globals.css";
 
 export default function Header() {
