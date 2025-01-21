@@ -8,7 +8,7 @@ export default function page() {
   return (
     <Box className="borderRed" maxW="1280px" mx="auto" px={{ base: 4, md: 8 }}>
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        columns={{ base: 1, sm: 2, md: 4, lg: 4 }}
         spacingY={6}
         spacingX={{ base: 4, md: 6 }}
         pt={{ base: 4, md: 6 }}

@@ -12,6 +12,7 @@ export default function Card({ item }) {
 
   return (
     <Box
+      className="borderRed"
       bg="#232323"
       color="white"
       borderRadius="md"

@@ -69,10 +69,16 @@ export default function RandomItems() {
   };
 
   return (
-    <Box maxW="1280px" mx="auto" px={{ base: 0, md: 6 }}>
+    <Box
+      className="borderGreen"
+      maxW="1280px"
+      mx="auto"
+      px={{ base: 0, md: 30 }}
+    >
       {/* 1ST GRID */}
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        className="borderBlue"
+        columns={{ base: 1, sm: 2, md: 4, lg: 4 }}
         spacing={{ base: 4, md: 6 }}
         pt={{ base: 5, md: 0 }}
         pb={{ base: 4, md: 7 }}
@@ -141,7 +147,8 @@ export default function RandomItems() {
 
       {/* 2ND GRID */}
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        className="borderBlue"
+        columns={{ base: 1, sm: 2, md: 4, lg: 4 }}
         spacing={{ base: 4, md: 6 }}
         p={{ base: 4, md: 6 }}
       >
@@ -152,7 +159,8 @@ export default function RandomItems() {
 
       {/* 3RD GRID */}
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        className="borderBlue"
+        columns={{ base: 1, sm: 2, md: 4, lg: 4 }}
         spacing={{ base: 4, md: 6 }}
         p={{ base: 4, md: 6 }}
       >
