@@ -7,7 +7,8 @@ export default function Home() {
   return (
     <Box mx="auto">
       <Box
-        height={{ base: "220px", md: "986px", lg: "886px" }}
+        className="borderRed"
+        height={{ base: "220px", md: "888px", lg: "888px" }}
         overflow="hidden"
         mb={{ base: 0, md: 16 }}
         boxShadow="0px 16px 30px rgba(0, 0, 0, 0.7)"

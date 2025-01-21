@@ -68,6 +68,12 @@ export default function RandomItems() {
     );
   };
 
+  // Set sizes for all cards in RandomItems
+  const cardWidth = "240px";
+  const cardHeight = "560px";
+  const cardPadding = 4;
+  const cardMargin = "auto";
+
   return (
     <Box
       className="borderGreen"
@@ -86,7 +92,15 @@ export default function RandomItems() {
         pr={{ base: 4, md: 6 }}
       >
         {randomItems.map((item) => (
-          <Card key={item.id} item={item} isDisabled={isBtnDisabled(item)} />
+          <Card
+            key={item.id}
+            item={item}
+            width={cardWidth}
+            height={cardHeight}
+            p={cardPadding}
+            m={cardMargin}
+            isDisabled={isBtnDisabled(item)}
+          />
         ))}
       </SimpleGrid>
 
@@ -153,7 +167,15 @@ export default function RandomItems() {
         p={{ base: 4, md: 6 }}
       >
         {secondGrid.map((item) => (
-          <Card key={item.id} item={item} isDisabled={isBtnDisabled(item)} />
+          <Card
+            key={item.id}
+            item={item}
+            width={cardWidth}
+            height={cardHeight}
+            p={cardPadding}
+            m={cardMargin}
+            isDisabled={isBtnDisabled(item)}
+          />
         ))}
       </SimpleGrid>
 
@@ -165,7 +187,15 @@ export default function RandomItems() {
         p={{ base: 4, md: 6 }}
       >
         {thirdGrid.map((item) => (
-          <Card key={item.id} item={item} isDisabled={isBtnDisabled(item)} />
+          <Card
+            key={item.id}
+            item={item}
+            width={cardWidth}
+            height={cardHeight}
+            p={cardPadding}
+            m={cardMargin}
+            isDisabled={isBtnDisabled(item)}
+          />
         ))}
       </SimpleGrid>
     </Box>

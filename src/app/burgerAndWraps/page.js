@@ -16,7 +16,14 @@ export default function page() {
         textAlign="center"
       >
         {burgerAndWraps.map((item) => (
-          <Card key={item.id} item={item} />
+          <Card
+            key={item.id}
+            item={item}
+            width="244px"
+            height="560px"
+            p={6}
+            m={"auto"}
+          />
         ))}
       </SimpleGrid>
     </Box>

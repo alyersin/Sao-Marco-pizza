@@ -46,11 +46,18 @@ export default function Card({
         <Image
           src={item.image}
           alt={item.name}
-          width="100%"
+          // width="100%"
+          height="194px"
           borderRadius="md"
         />
       </Box>
-      <VStack className="borderBlue" align="center" spacing={0} p={4}>
+      <VStack
+        className="borderBlue"
+        align="center"
+        height={"100%"}
+        spacing={0}
+        p={4}
+      >
         <Text fontWeight="bold" fontSize="lg">
           {item.name}
         </Text>
@@ -100,13 +107,14 @@ export default function Card({
               src="../assets/addcart.svg"
               alt="thumb"
               boxSize="100%"
+              width="auto"
               ml="4px"
             />
           </HStack>
         ))}
         <HStack
           className="borderBlue"
-          // justify="space-between"
+          justify="space-between"
           align="center"
           bgColor="#999999"
           pl={2}
@@ -116,14 +124,16 @@ export default function Card({
           height="54px"
           width="100%"
         >
-          <Text width="100%" fontWeight="bold">
+          <Text className="borderBlue" width="100%" fontWeight="bold">
             CUM VREI TU
           </Text>
           <Image
+            className="borderGreen"
             borderRadius="5px"
             src="../assets/thumb-right-gray.svg"
             alt="thumb-gray"
             boxSize="100%"
+            width="auto"
             ml="4px"
           />
         </HStack>
