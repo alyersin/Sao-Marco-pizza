@@ -68,11 +68,12 @@ export default function RandomItems() {
     );
   };
 
-  // Set sizes for all cards in RandomItems
-  const cardWidth = "240px";
-  const cardHeight = "560px";
-  const cardPadding = 4;
-  const cardMargin = "auto";
+  const cardStyles = {
+    width: { base: "100%", sm: "200px", md: "240px" },
+    height: { base: "auto", sm: "500px", md: "560px" },
+    padding: { base: 6, sm: 4 },
+    margin: "auto",
+  };
 
   return (
     <Box
@@ -83,7 +84,7 @@ export default function RandomItems() {
     >
       {/* 1ST GRID */}
       <SimpleGrid
-        className="borderBlue"
+        // className="borderBlue"
         columns={{ base: 1, sm: 2, md: 4, lg: 4 }}
         spacing={{ base: 4, md: 6 }}
         pt={{ base: 5, md: 0 }}
@@ -95,10 +96,10 @@ export default function RandomItems() {
           <Card
             key={item.id}
             item={item}
-            width={cardWidth}
-            height={cardHeight}
-            p={cardPadding}
-            m={cardMargin}
+            width={cardStyles.width}
+            height={cardStyles.height}
+            p={cardStyles.padding}
+            m={cardStyles.margin}
             isDisabled={isBtnDisabled(item)}
           />
         ))}
@@ -170,10 +171,10 @@ export default function RandomItems() {
           <Card
             key={item.id}
             item={item}
-            width={cardWidth}
-            height={cardHeight}
-            p={cardPadding}
-            m={cardMargin}
+            width={cardStyles.width}
+            height={cardStyles.height}
+            p={cardStyles.padding}
+            m={cardStyles.margin}
             isDisabled={isBtnDisabled(item)}
           />
         ))}
@@ -190,10 +191,10 @@ export default function RandomItems() {
           <Card
             key={item.id}
             item={item}
-            width={cardWidth}
-            height={cardHeight}
-            p={cardPadding}
-            m={cardMargin}
+            width={cardStyles.width}
+            height={cardStyles.height}
+            p={cardStyles.padding}
+            m={cardStyles.margin}
             isDisabled={isBtnDisabled(item)}
           />
         ))}

@@ -14,9 +14,10 @@ import {
   ModalBody,
   ModalFooter,
   ModalCloseButton,
-  Checkbox,
-  Box,
+  Radio,
+  HStack,
   Link,
+  Box,
   Image,
   Alert,
   CloseButton,
@@ -124,17 +125,24 @@ export default function Register({ isOpen, onClose }) {
 
       {/* REGISTER MODAL */}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
-        <ModalOverlay bg="rgba(0, 0, 0, 0.8)" />
-        <ModalContent bgColor="black" maxW="400px" color="white">
-          <ModalHeader textAlign="center" fontWeight="bold" fontSize="lg">
+        <ModalOverlay bg="rgba(51, 51, 51, 0.8)" />
+        <ModalContent bgColor="black" maxW="480px" height="700px" color="white">
+          <ModalHeader
+            // className="borderGreen"
+            textAlign="center"
+            fontWeight="bold"
+            fontSize="3xl"
+            p={2}
+            mt={8}
+          >
             CONT NOU
           </ModalHeader>
           <ModalCloseButton color="white" />
-          <ModalBody>
-            <Text textAlign="center" color="gray.400" mb={4}>
+          <ModalBody className="borderBlue">
+            <Text textAlign="center" color="white" fontSize="xl" mx={12} mb={2}>
               Creeaza un cont nou pentru a face mai rapid o comanda.
             </Text>
-            <VStack spacing={3}>
+            <VStack spacing={5} mx={4}>
               <Input
                 placeholder="Nume"
                 value={name}
@@ -181,37 +189,65 @@ export default function Register({ isOpen, onClose }) {
                 border="none"
                 height="50px"
               />
-              <Checkbox
-                colorScheme="yellow"
-                isChecked={agree}
-                onChange={(e) => setAgree(e.target.checked)}
-                color="gray.400"
-                size="lg"
-              >
-                Da, sunt de acord cu{" "}
-                <Link href="#" color="#ffcc00" textDecoration="underline">
-                  Politica de confidentialitate.
-                </Link>
-              </Checkbox>
-              <Button
-                bg="#ffcc00"
-                color="black"
-                _hover={{ bg: "#ffdb4d" }}
-                onClick={handleRegister}
-                height="50px"
+              <HStack className="borderRed" mt={-2} mb={4}>
+                <Radio
+                  isChecked={agree}
+                  onClick={() => setAgree(!agree)}
+                  sx={{
+                    boxSize: "21px",
+                    borderColor: "#ffcc00",
+                    borderWidth: "2px",
+                    _checked: {
+                      bg: "#ffcc00",
+                      borderColor: "#ffcc00",
+                    },
+                  }}
+                />
+                <Text color="gray.400" ml={2}>
+                  Da, sunt de acord cu{" "}
+                  <Link href="#" color="#ffcc00" fontSize="sm">
+                    Politica de confidentialitate.
+                  </Link>
+                </Text>
+              </HStack>
+              <Link
+                className="borderGreen"
+                display="flex"
+                flexDirection="row"
+                justifyContent="space-between"
+                href="#"
+                mt={0}
+                height="54px"
                 width="100%"
-                fontWeight="bold"
-                fontSize="md"
-                rightIcon={
-                  <Image src="../../assets/thumb-right.svg" boxSize="18px" />
-                }
+                bgColor="#999999"
+                borderRadius="5px"
+                onClick={handleRegister}
               >
-                INREGISTRARE
-              </Button>
-              {message && <Text color="red.500">{message}</Text>}
+                <Box
+                  color={"white"}
+                  display="flex"
+                  alignItems="center"
+                  pl={{ base: 12, md: 4 }}
+                  width="auto"
+                  fontSize={{ base: "0.8rem", md: "1rem" }}
+                  fontWeight={"bold"}
+                >
+                  INREGISTRARE
+                </Box>
+                <Image
+                  src="../../assets/thumb-right.svg"
+                  width="auto"
+                  height={"100%"}
+                  borderRadius="5px"
+                />
+              </Link>
             </VStack>
           </ModalBody>
-          <ModalFooter justifyContent="center">
+          <ModalFooter
+            className="borderRed"
+            justifyContent="center"
+            height="auto"
+          >
             <Link
               href="/login"
               color="#ffcc00"

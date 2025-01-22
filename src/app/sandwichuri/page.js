@@ -4,7 +4,14 @@ import React from "react";
 import sandwich from "../../sandwich.json";
 import Card from "../../components/Card/Card";
 
-export default function page() {
+export default function SandwichuriPage() {
+  const cardStyles = {
+    width: { base: "100%", sm: "200px", md: "244px" },
+    height: { base: "auto", sm: "500px", md: "540px" },
+    padding: { base: 6, sm: 4, md: 6 },
+    margin: "auto",
+  };
+
   return (
     <Box className="borderRed" maxW="1280px" mx="auto" px={{ base: 4, md: 8 }}>
       <SimpleGrid
@@ -19,10 +26,10 @@ export default function page() {
           <Card
             key={item.id}
             item={item}
-            width="244px"
-            height="540px"
-            p={6}
-            m={"auto"}
+            width={cardStyles.width}
+            height={cardStyles.height}
+            p={cardStyles.padding}
+            m={cardStyles.margin}
           />
         ))}
       </SimpleGrid>

@@ -28,7 +28,7 @@ export default function Card({
 
   return (
     <Box
-      className="borderRed"
+      // className="borderRed"
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
@@ -88,17 +88,21 @@ export default function Card({
             onClick={() => handleAddToCart(size)}
           >
             <HStack justify="space-between" align="center" width="100%">
-              <Text fontSize="sm" fontWeight="800" color="black">
+              <Text
+                fontSize={{ base: "md", md: "sm" }}
+                fontWeight="800"
+                color="black"
+              >
                 {size.label}
               </Text>
               {size.description && (
-                <Text fontSize="xs" color="gray.500">
+                <Text fontSize={{ base: "xs", md: "xs" }} color="gray.500">
                   {size.description}
                 </Text>
               )}
             </HStack>
             <HStack className="borderGreen" spacing={2} width={"100%"}>
-              <Text fontWeight="bold" fontSize={{ base: "md", md: "sm" }}>
+              <Text fontWeight="bold" fontSize={{ base: "2xl", md: "sm" }}>
                 {size.price}
               </Text>
             </HStack>
@@ -124,7 +128,13 @@ export default function Card({
           height="54px"
           width="100%"
         >
-          <Text className="borderBlue" width="100%" fontWeight="bold">
+          <Text
+            className="borderBlue"
+            width="100%"
+            fontWeight="bold"
+            fontSize={{ base: "xl", md: "md" }}
+            color="white"
+          >
             CUM VREI TU
           </Text>
           <Image
