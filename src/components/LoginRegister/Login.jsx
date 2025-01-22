@@ -220,7 +220,7 @@ export default function Login({ isOpen, onClose, defaultTab }) {
       size="full"
     >
       <ModalOverlay bg="rgba(51, 51, 51, 0.8)" />
-      <ModalContent bg="black" color="white">
+      <ModalContent className="borderBlue" bg="black" color="white">
         <ModalCloseButton
           color="red.500"
           size="lg"
@@ -288,7 +288,7 @@ export default function Login({ isOpen, onClose, defaultTab }) {
               display="flex"
               justifyContent="space-between"
               alignItems="center"
-              bg="#f7c000"
+              bgColor="#999999"
               color="black"
               borderRadius="5px"
               height="54px"
@@ -298,8 +298,17 @@ export default function Login({ isOpen, onClose, defaultTab }) {
               _hover={{ bg: "#e0ac00" }}
               onClick={handleLogin}
             >
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+              {/* CONTINUA AICI */}
+
               <Text>LOG IN</Text>
-              <Image src="../assets/thumb-right-yellow.svg" alt="thumb-right" />
+              <Image src="../assets/thumb-right.svg" alt="thumb-right" />
             </Link>
             <Link
               href="#"
@@ -409,7 +418,6 @@ export default function Login({ isOpen, onClose, defaultTab }) {
 
   return (
     <>
-      {/* ALERT */}
       {showAlert && (
         <Alert
           status="error"
