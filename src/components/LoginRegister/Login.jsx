@@ -143,7 +143,7 @@ export default function Login({ isOpen, onClose, defaultTab }) {
               borderRadius="5px"
               height={{ base: "54px", md: "50px" }}
               width="68%"
-              href="/register"
+              href="../components/LoginRegister/Register.jsx"
             >
               <Box
                 display="flex"
@@ -172,7 +172,7 @@ export default function Login({ isOpen, onClose, defaultTab }) {
               textAlign="center"
               _hover={{ color: "red.500" }}
             >
-              DESPRE SAN MARCO
+              DESPRE SAO MARCO
             </Link>
             <Link
               href="#"
@@ -235,8 +235,8 @@ export default function Login({ isOpen, onClose, defaultTab }) {
           alignItems="center"
           py={10}
         >
-          <VStack spacing={5} w="100%" px={8}>
-            <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+          <VStack spacing={4} w="100%" px={0}>
+            <Text fontSize="2xl" fontWeight="bold" textAlign="center" pb={5}>
               Log in
             </Text>
             <Input
@@ -293,27 +293,24 @@ export default function Login({ isOpen, onClose, defaultTab }) {
               borderRadius="5px"
               height="54px"
               width="100%"
-              px={6}
+              mt={5}
+              pl={6}
               fontWeight="bold"
               _hover={{ bg: "#e0ac00" }}
               onClick={handleLogin}
             >
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-              {/* CONTINUA AICI */}
-
-              <Text>LOG IN</Text>
-              <Image src="../assets/thumb-right.svg" alt="thumb-right" />
+              <Text color={"white"}>LOG IN</Text>
+              <Image
+                src="../assets/thumb-right.svg"
+                alt="thumb-right"
+                height={"100%"}
+                borderRadius="5px"
+              />
             </Link>
             <Link
               href="#"
-              color="yellow.400"
-              fontSize="sm"
+              color="#FFD101"
+              fontSize="md"
               fontWeight="bold"
               _hover={{ color: "yellow.300" }}
             >
