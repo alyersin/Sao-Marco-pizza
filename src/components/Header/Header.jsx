@@ -87,7 +87,7 @@ export default function Header() {
                 <Image
                   src="../assets/sao-marco-pizza.svg"
                   alt="Logo"
-                  height="98px"
+                  height="100px"
                   width="auto"
                   objectFit="contain"
                 />
@@ -122,6 +122,7 @@ export default function Header() {
 
           {/* NAV MENU (MOBILE) */}
           <Box
+            className="borderRed"
             bg="black"
             height="100%"
             py={{ base: 0, md: 2 }}

@@ -137,14 +137,14 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                         onChange={() => setAgree(!agree)}
                         sx={{
                           boxSize: "21px",
-                          borderColor: "#ff6633",
+                          borderColor: "#ffcc00",
                           borderWidth: "2px",
-                          _checked: { bg: "#ff6633", borderColor: "#ff6633" },
+                          _checked: { bg: "#ffcc00", borderColor: "#ff6633" },
                         }}
                       />
                       <Text color="gray.400" ml={2} fontSize={15}>
                         Da, sunt de acord cu{" "}
-                        <Link href="#" color="#ff6633">
+                        <Link href="#" color="#ffcc00">
                           Politica de confidentialitate.
                         </Link>
                       </Text>

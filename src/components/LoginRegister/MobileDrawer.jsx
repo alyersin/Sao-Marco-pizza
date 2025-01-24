@@ -16,12 +16,14 @@ import {
   Image,
   Alert,
   CloseButton,
+  Radio,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  sendPasswordResetEmail,
   onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../../lib/firebase";
@@ -69,7 +71,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         setShowAlert(false);
         setView("menu");
         onClose();
-      }, 3000);
+      }, 500);
     } catch (error) {
       setMessage(error.message);
       setShowAlert(true);
@@ -106,6 +108,30 @@ export default function MobileDrawer({ isOpen, onClose }) {
       }, 3000);
     } catch (error) {
       setMessage(error.message);
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email) {
+      setMessage("Please enter a valid email address.");
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setMessage("Password reset email sent! Check your inbox.");
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+    } catch (error) {
+      console.error("Error sending reset email:", error);
+      setMessage(
+        error.code === "auth/user-not-found"
+          ? "Email address not found. Please try again."
+          : `Failed to send reset email: ${error.message}`
+      );
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);
     }
@@ -165,7 +191,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               display="flex"
               textAlign="left"
               alignItems="center"
-              pl={12}
+              pl={6}
               fontSize="1.2rem"
             >
               LOG IN
@@ -193,7 +219,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               display="flex"
               textAlign="left"
               alignItems="center"
-              pl={12}
+              pl={6}
               fontSize="1.2rem"
             >
               REGISTER
@@ -256,14 +282,14 @@ export default function MobileDrawer({ isOpen, onClose }) {
       return (
         <VStack
           //   className="borderBlue"
-          spacing={6}
+          spacing={3}
           textAlign="center"
           mt="260px"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
             Log in
           </Text>
-          <VStack mt={1} width="100%" spacing={1}>
+          <VStack mt={4} width="100%" spacing={0}>
             <Input
               placeholder="Email"
               sx={{
@@ -297,39 +323,56 @@ export default function MobileDrawer({ isOpen, onClose }) {
           </VStack>
           <HStack
             justifyContent="flex-start"
-            width="80%"
+            width="100%"
             spacing={4}
-            mt={2}
+            mt={0}
             align="center"
           >
-            <input
-              type="checkbox"
-              checked={agree}
+            <Radio
+              isChecked={agree}
               onChange={() => setAgree(!agree)}
-              style={{
-                width: "20px",
-                height: "20px",
-                accentColor: "#FFD101",
+              sx={{
+                boxSize: "20px",
+                borderColor: "#ffcc00",
+                borderWidth: "2px",
+                _checked: {
+                  bg: "#ffcc00",
+                  borderColor: "#FFD101",
+                },
               }}
             />
-            <Text fontSize="sm" color="gray.400">
+
+            <Text fontSize="15px" color="gray.400">
               Da, sunt de acord cu{" "}
-              <Link href="#" color="#FFD101" fontWeight="bold">
+              <Link href="#" color="#FFD101">
                 Politica de confidentialitate.
               </Link>
             </Text>
           </HStack>
+
           <Link
             onClick={handleLogin}
-            bg="#FFD101"
-            color="black"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            bg="#999999"
+            color="white"
             borderRadius="5px"
-            p={4}
-            width="80%"
-            mt={4}
+            height="54px"
+            width="100%"
+            mt={6}
+            pl={6}
             fontWeight="bold"
           >
-            LOG IN
+            <Text fontSize="19px" fontWeight="normal">
+              LOG IN
+            </Text>
+            <Image
+              src="../assets/thumb-right.svg"
+              alt="thumb-right"
+              height={"100%"}
+              borderRadius="5px"
+            />
           </Link>
 
           {/* CONTINUA AICI */}
@@ -345,13 +388,11 @@ export default function MobileDrawer({ isOpen, onClose }) {
           {/* CONTINUA AICI */}
 
           <Link
-            color="#FFD101"
             fontSize="md"
             fontWeight="bold"
-            mt={4}
+            color="#FFD101"
             _hover={{ color: "yellow.300" }}
-            // href="/ForgotPassword"
-            onClick={switchToRegister}
+            onClick={() => setView("resetPassword")}
           >
             Ai uitat parola? Click aici
           </Link>
@@ -359,13 +400,12 @@ export default function MobileDrawer({ isOpen, onClose }) {
       );
     } else if (view === "register") {
       return (
-        <VStack spacing={4} textAlign="center" mt={6}>
+        <VStack spacing={0} textAlign="center" mt={"42%"}>
           <Text fontSize="2xl" fontWeight="bold" color="white">
             CONT NOU
           </Text>
 
-          {/* Input Fields */}
-          <Box width="80%">
+          <VStack width="100%" spacing={2} mt={6}>
             <Input
               placeholder="Nume"
               sx={{
@@ -378,6 +418,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               bg="#707070"
               border="none"
               color="white"
+              height={"52px"}
               mb={2}
             />
             <Input
@@ -392,6 +433,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               bg="#707070"
               border="none"
               color="white"
+              height={"52px"}
               mb={2}
             />
             <Input
@@ -406,6 +448,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               bg="#707070"
               border="none"
               color="white"
+              height={"52px"}
               mb={2}
             />
             <Input
@@ -420,6 +463,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
               bg="#707070"
               border="none"
               color="white"
+              height={"52px"}
               mb={2}
             />
             <Input
@@ -435,30 +479,34 @@ export default function MobileDrawer({ isOpen, onClose }) {
               bg="#707070"
               border="none"
               color="white"
+              height={"52px"}
               mb={2}
             />
-          </Box>
+          </VStack>
 
           <HStack
             justifyContent="flex-start"
-            width="80%"
-            spacing={4}
-            mt={2}
+            width="100%"
+            spacing={2}
+            mt={1}
             align="center"
           >
-            <input
-              type="checkbox"
-              checked={agree}
-              onChange={() => setAgree(!agree)}
-              style={{
-                width: "20px",
-                height: "20px",
-                accentColor: "#FFD101",
+            <Radio
+              isChecked={agree}
+              onClick={() => setAgree(!agree)}
+              sx={{
+                boxSize: "21px",
+                borderColor: "#ffcc00",
+                borderWidth: "2px",
+                _checked: {
+                  bg: "#ffcc00",
+                  borderColor: "#FFD101",
+                },
               }}
             />
-            <Text fontSize="sm" color="gray.400">
+            <Text fontSize="15px" color="gray.400" ml={3}>
               Da, sunt de acord cu{" "}
-              <Link href="#" color="#FFD101" fontWeight="bold">
+              <Link href="#" color="#FFD101">
                 Politica de confidentialitate.
               </Link>
             </Text>
@@ -469,17 +517,18 @@ export default function MobileDrawer({ isOpen, onClose }) {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
-            bg="#FFD101"
-            color="black"
+            bg="#999999"
+            color="white"
             borderRadius="5px"
             height="54px"
-            width="80%"
-            mt={4}
+            width="100%"
+            mt={10}
             pl={6}
-            pr={4}
             fontWeight="bold"
           >
-            <Text>INREGISTRARE</Text>
+            <Text fontSize="19px" fontWeight="normal">
+              INREGISTRARE
+            </Text>
             <Image
               src="../assets/thumb-right.svg"
               alt="thumb-right"
@@ -492,13 +541,71 @@ export default function MobileDrawer({ isOpen, onClose }) {
             color="#FFD101"
             fontSize="md"
             fontWeight="bold"
-            mt={4}
+            mt={2}
             _hover={{ color: "yellow.300" }}
             onClick={switchToLogin}
             // href="/login"
           >
             Ai deja cont? Log in aici
           </Link>
+        </VStack>
+      );
+    } else if (view === "resetPassword") {
+      return (
+        <VStack
+          //   className="borderBlue"
+          spacing={2}
+          textAlign="center"
+          mt={"84%"}
+        >
+          <Text fontSize="2xl" fontWeight="bold" color="white">
+            Recuperare parola
+          </Text>
+          <VStack mt={12} width="100%">
+            <Input
+              placeholder="Email"
+              sx={{
+                "::placeholder": {
+                  color: "#B3B3B3",
+                },
+              }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              bg="#707070"
+              border="none"
+              height="42px"
+              color="white"
+            />
+          </VStack>
+          <Link
+            onClick={handlePasswordReset}
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            bg="#999999"
+            color="white"
+            borderRadius="5px"
+            height="54px"
+            width="100%"
+            mt={6}
+            pl={6}
+            fontWeight="bold"
+          >
+            <Text fontSize="19px" fontWeight="normal">
+              TRIMITE PAROLA
+            </Text>
+            <Image
+              src="../assets/thumb-right.svg"
+              alt="thumb-right"
+              height={"100%"}
+              borderRadius="5px"
+            />
+          </Link>
+          {message && (
+            <Text fontSize="sm" color="gray.400" mt={4}>
+              {message}
+            </Text>
+          )}
         </VStack>
       );
     }
@@ -516,7 +623,12 @@ export default function MobileDrawer({ isOpen, onClose }) {
           top={4}
         />
         {showAlert && (
-          <Alert status="error" bg="#FF5549" color="white" borderRadius="md">
+          <Alert
+            status={message.includes("success") ? "success" : "error"}
+            bgColor={message.includes("success") ? "green" : "#FF5549"}
+            color="white"
+            borderRadius="md"
+          >
             <CloseButton onClick={() => setShowAlert(false)} />
             {message}
           </Alert>
