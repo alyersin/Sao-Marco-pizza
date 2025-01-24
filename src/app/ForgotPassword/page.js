@@ -23,12 +23,12 @@ export default function ForgotPassword() {
       <Heading mb={6}>Forgot Password</Heading>
       <VStack spacing={4}>
         <Input
-          placeholder="Enter your email"
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Button onClick={handlePasswordReset} colorScheme="blue">
-          Send Reset Email
+          Reset Password
         </Button>
         {message && <Text>{message}</Text>}
       </VStack>
