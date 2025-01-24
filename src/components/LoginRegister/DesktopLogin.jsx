@@ -90,7 +90,12 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
       )}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="rgba(51, 51, 51, 0.8)" />
-        <ModalContent bgColor="black" width="476px" height="440px">
+        <ModalContent
+          className="borderRed"
+          bgColor="black"
+          width="476px"
+          height="440px"
+        >
           <ModalCloseButton color="white" />
           <ModalBody my="8">
             <Tabs
@@ -110,7 +115,7 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                   flexDirection={"column"}
                   gap={2}
                 >
-                  <VStack spacing={5}>
+                  <VStack className="borderGreen" spacing={5}>
                     <Input
                       placeholder="Email"
                       bg="#707070"
@@ -157,6 +162,7 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                       mt={4}
                       height="50px"
                       width="100%"
+                      _hover={{ textDecoration: "none" }}
                       bgColor="#999999"
                       borderRadius="5px"
                       onClick={handleLogin}
@@ -164,6 +170,15 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                       <Text color="white" fontWeight="bold">
                         LOG IN
                       </Text>
+                    </Link>
+                    <Link
+                      fontSize="md"
+                      fontWeight="bold"
+                      color="#FFD101"
+                      _hover={{ color: "yellow.300" }}
+                      // onClick={() => setView("resetPassword")}
+                    >
+                      Ai uitat parola? Click aici
                     </Link>
                   </VStack>
                 </TabPanel>

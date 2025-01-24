@@ -182,6 +182,7 @@ export default function DesktopRegister({ isOpen, onClose }) {
               <Link
                 display="block"
                 textAlign="center"
+                _hover={{ textDecoration: "none" }}
                 bg="#999999"
                 color="white"
                 py={3}
