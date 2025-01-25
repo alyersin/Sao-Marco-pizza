@@ -174,7 +174,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
       }
 
       return (
-        <VStack spacing={5} mt={52} textAlign="center">
+        <VStack className="borderRed" spacing={5} mt={52} textAlign="center">
           <Link
             // className="borderRed"
             onClick={switchToLogin}
@@ -285,6 +285,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
           spacing={3}
           textAlign="center"
           height="100vh"
+          py="50%"
           // mt="260px"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
