@@ -416,9 +416,15 @@ export default function MobileDrawer({ isOpen, onClose }) {
         <VStack
           className="borderRed"
           spacing={0}
-          my={"40%"}
-          height="auto"
           textAlign="center"
+          mt={"40%"}
+          height="auto"
+
+          // className="borderRed"
+          // spacing={3}
+          // textAlign="center"
+          // my={"50%"}
+          // height="auto"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
             CONT NOU
