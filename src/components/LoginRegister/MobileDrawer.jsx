@@ -296,7 +296,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
           className="borderRed"
           spacing={3}
           textAlign="center"
-          my={"70%"}
+          my={"60%"}
           height="auto"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
@@ -416,7 +416,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         <VStack
           className="borderRed"
           spacing={0}
-          my={"40%"}
+          my={"30%"}
           height="auto"
           textAlign="center"
         >
