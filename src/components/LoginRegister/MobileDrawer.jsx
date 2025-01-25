@@ -141,6 +141,13 @@ export default function MobileDrawer({ isOpen, onClose }) {
     if (view === "menu") {
       if (isLoggedIn) {
         return (
+          // className="borderRed"
+          // spacing={3}
+          // textAlign="center"
+          // height="100%"
+          // py="50%"
+          // mt="260px"
+
           <VStack spacing={6} textAlign="center">
             <Link
               href="/profile"
@@ -174,9 +181,14 @@ export default function MobileDrawer({ isOpen, onClose }) {
       }
 
       return (
-        <VStack className="borderRed" spacing={5} mt={52} textAlign="center">
+        <VStack
+          className="borderRed"
+          spacing={5}
+          textAlign="center"
+          my={"50%"}
+          height="auto"
+        >
           <Link
-            // className="borderRed"
             onClick={switchToLogin}
             display="flex"
             justifyContent="space-between"
@@ -284,9 +296,8 @@ export default function MobileDrawer({ isOpen, onClose }) {
           className="borderRed"
           spacing={3}
           textAlign="center"
-          // height="100%"
-          // py="50%"
-          // mt="260px"
+          my={"70%"}
+          height="auto"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
             Log in
@@ -402,7 +413,13 @@ export default function MobileDrawer({ isOpen, onClose }) {
       );
     } else if (view === "register") {
       return (
-        <VStack spacing={0} textAlign="center" mt={"42%"}>
+        <VStack
+          className="borderRed"
+          spacing={0}
+          my={"40%"}
+          height="auto"
+          textAlign="center"
+        >
           <Text fontSize="2xl" fontWeight="bold" color="white">
             CONT NOU
           </Text>
@@ -616,7 +633,13 @@ export default function MobileDrawer({ isOpen, onClose }) {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="full">
       <DrawerOverlay />
-      <DrawerContent bg="black" color="white" py={"50%"}>
+      <DrawerContent
+        className="borderBlue"
+        bg="black"
+        color="white"
+        height={"auto"}
+        // my={"50%"}
+      >
         <DrawerCloseButton
           className="borderRed"
           onClick={() => setView("menu")}
