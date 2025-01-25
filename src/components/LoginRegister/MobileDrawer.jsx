@@ -196,6 +196,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
             bgColor="#999999"
             color="#FFFFFF"
             borderRadius="5px"
+            _hover={{ textDecoration: "none" }}
             height="54px"
             width="68%"
           >
@@ -224,6 +225,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
             bgColor="#999999"
             color="#FFFFFF"
             borderRadius="5px"
+            _hover={{ textDecoration: "none" }}
             height="54px"
             width="68%"
           >
@@ -371,6 +373,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
             bg="#999999"
             color="white"
             borderRadius="5px"
+            _hover={{ textDecoration: "none" }}
             height="54px"
             width="100%"
             mt={6}
@@ -545,6 +548,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
             bg="#999999"
             color="white"
             borderRadius="5px"
+            _hover={{ textDecoration: "none" }}
             height="54px"
             width="100%"
             mt={10}

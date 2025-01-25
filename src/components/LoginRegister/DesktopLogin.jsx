@@ -13,6 +13,8 @@ import {
   Tab,
   TabPanel,
   VStack,
+  Box,
+  Image,
   Input,
   Radio,
   HStack,
@@ -155,21 +157,32 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                       </Text>
                     </HStack>
                     <Link
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                      href="#"
-                      mt={4}
-                      height="50px"
-                      width="100%"
-                      _hover={{ textDecoration: "none" }}
-                      bgColor="#999999"
-                      borderRadius="5px"
                       onClick={handleLogin}
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      bgColor="#999999"
+                      color="#FFFFFF"
+                      borderRadius="5px"
+                      _hover={{ textDecoration: "none" }}
+                      height="54px"
+                      width="100%"
                     >
-                      <Text color="white" fontWeight="bold">
+                      <Box
+                        display="flex"
+                        textAlign="left"
+                        alignItems="center"
+                        pl={6}
+                        fontSize="1.2rem"
+                      >
                         LOG IN
-                      </Text>
+                      </Box>
+                      <Image
+                        src="../assets/arrow-right.svg"
+                        alt="arrow"
+                        height={"100%"}
+                        borderRadius="5px"
+                      />
                     </Link>
                     <Link
                       fontSize="md"
