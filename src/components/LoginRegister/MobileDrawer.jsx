@@ -280,7 +280,13 @@ export default function MobileDrawer({ isOpen, onClose }) {
       );
     } else if (view === "login") {
       return (
-        <VStack spacing={3} textAlign="center" mt="260px">
+        <VStack
+          className="borderRed"
+          spacing={3}
+          textAlign="center"
+          height="100vh"
+          // mt="260px"
+        >
           <Text fontSize="2xl" fontWeight="bold" color="white">
             Log in
           </Text>
