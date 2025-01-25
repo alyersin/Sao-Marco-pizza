@@ -284,8 +284,8 @@ export default function MobileDrawer({ isOpen, onClose }) {
           className="borderRed"
           spacing={3}
           textAlign="center"
-          height="100vh"
-          py="50%"
+          // height="100%"
+          // py="50%"
           // mt="260px"
         >
           <Text fontSize="2xl" fontWeight="bold" color="white">
@@ -616,8 +616,9 @@ export default function MobileDrawer({ isOpen, onClose }) {
   return (
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="full">
       <DrawerOverlay />
-      <DrawerContent bg="black" color="white">
+      <DrawerContent bg="black" color="white" py={"50%"}>
         <DrawerCloseButton
+          className="borderRed"
           onClick={() => setView("menu")}
           color="red"
           fontSize={22}
