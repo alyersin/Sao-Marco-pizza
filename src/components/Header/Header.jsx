@@ -83,7 +83,7 @@ export default function Header() {
             />
 
             <Box>
-              <Link href="/">
+              <Link href="#blackBar">
                 <Image
                   src="../assets/sao-marco-pizza.svg"
                   alt="Logo"

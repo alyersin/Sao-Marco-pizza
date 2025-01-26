@@ -19,7 +19,7 @@ export default function Contact() {
     <Box
       className="borderRed"
       maxWidth="1280px"
-      mx="auto"
+      mx="10"
       my={20}
       bg="black"
       color="white"

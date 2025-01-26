@@ -26,7 +26,7 @@ export default function Footer() {
           <HStack spacing={4} justify="center">
             <Box
               as={NextLink}
-              href="/"
+              href="#blackBar"
               bg="yellow.400"
               borderRadius="full"
               w={10}
