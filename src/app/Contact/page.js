@@ -32,10 +32,10 @@ export default function Contact() {
         </Text>
 
         <Heading fontSize="2xl" mb={4}>
-          CONTACTEAZĂ-NE!
+          CONTACTEAZA-NE!
         </Heading>
         <Text fontSize="md" mb={6}>
-          Ai întrebări? Lasă-ne un mesaj în acest formular.
+          Ai intrebari? Lasa-ne un mesaj in acest formular.
         </Text>
 
         <HStack spacing={8} align="flex-start" flexWrap="wrap">
@@ -51,7 +51,7 @@ export default function Contact() {
             <Checkbox colorScheme="yellow">
               Da, sunt de acord cu{" "}
               <Link color="yellow.400" href="#">
-                Politica de confidențialitate.
+                Politica de confidentialitate.
               </Link>
             </Checkbox>
             <Button
@@ -69,7 +69,7 @@ export default function Contact() {
               Program de lucru:
             </Text>
             <Text>
-              Te așteptăm între 10:00 și 24:00, de Luni până Duminică pentru
+              Te asteptam intre 10:00 si 24:00, de Luni până Duminica pentru
               comenzi online sau la telefon.
             </Text>
             <Text fontSize="lg" fontWeight="bold" mt={4}>
@@ -79,8 +79,8 @@ export default function Contact() {
             <Text fontSize="lg" fontWeight="bold" mt={4}>
               Adrese:
             </Text>
-            <Text>I. C. Brătianu , Constanța</Text>
-            <Text>A. Lăpușneanu , City Mall</Text>
+            <Text>I. C. Bratianu , Constanta</Text>
+            <Text>A. Lapusneanu , City Mall</Text>
             <Text>Aurel Vlaicu , complex Aviatorii</Text>
           </VStack>
         </HStack>

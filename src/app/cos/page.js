@@ -147,10 +147,10 @@ export default function Cos() {
         >
           {cart.map((item, index) => (
             <Box
-              //
+              className="borderRed"
               key={index}
               pt={{ base: 8, md: 10 }}
-              pb={{ base: 5, md: 5 }}
+              pb={{ base: 5, md: 0 }}
               borderRadius="md"
               display="flex"
               flexDirection={{ base: "column", md: "row" }}
@@ -163,7 +163,6 @@ export default function Cos() {
             >
               {/* IMAGE NAME SIZE */}
               <HStack
-                //
                 spacing={{ base: 0, md: 8 }}
                 alignItems="center"
                 mb={{ base: 4, md: 0 }}
@@ -213,8 +212,10 @@ export default function Cos() {
 
                   {/* ADAUGA BUTTONS */}
                   <Box
+                    className="borderRed"
                     display={{ base: "flex", md: "flex" }}
-                    gap={{ base: 0, md: 16 }}
+                    alignItems="end"
+                    gap={{ base: 0, md: 10 }}
                   >
                     <Box
                       display={{ base: "none", md: "flex" }}
@@ -295,16 +296,18 @@ export default function Cos() {
 
                     {/* QUANTITY PRICE */}
                     <HStack
+                      className="borderRed"
                       mx={{ base: "auto", md: 0 }}
-                      mr={{ base: "16px", md: 0 }}
-                      spacing={2}
+                      mr={{ base: 0, md: 0 }}
+                      spacing={{ base: 8, md: 2 }}
                       align="center"
                     >
                       <HStack
+                        className="borderBlue"
                         bgColor="#707070"
                         borderRadius="md"
                         width={{ base: "auto", md: "140px" }}
-                        height="100%"
+                        height={{ base: "100%", md: "auto" }}
                         spacing={2}
                         color="#B3B3B3"
                       >
@@ -332,6 +335,7 @@ export default function Cos() {
                         </Button>
                       </HStack>
                       <Text
+                        className="borderGreen"
                         fontWeight="bold"
                         fontSize={{ base: "1.7rem", md: "1.9rem" }}
                       >

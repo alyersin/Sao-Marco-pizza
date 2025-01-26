@@ -14,6 +14,8 @@ import {
   Radio,
   HStack,
   Link,
+  Image,
+  Box,
   Text,
   useToast,
   Alert,
@@ -105,26 +107,33 @@ export default function DesktopRegister({ isOpen, onClose }) {
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="rgba(51, 51, 51, 0.8)" />
-        <ModalContent bgColor="black" maxW="480px" height="700px" color="white">
+        <ModalContent
+          bgColor="black"
+          maxW="486px"
+          height="700px"
+          color="white"
+          px={4}
+        >
           <ModalHeader
             textAlign="center"
             fontWeight="bold"
             fontSize="3xl"
-            mt={8}
+            mt={4}
           >
             CONT NOU
           </ModalHeader>
           <ModalCloseButton color="white" />
           <ModalBody>
-            <Text textAlign="center" fontSize="xl" color="white" mb={6}>
+            <Text textAlign="center" fontSize="xl" color="white" mb={2} px={4}>
               Creeaza un cont nou pentru a face mai rapid o comanda.
             </Text>
-            <VStack spacing={5}>
+            <VStack spacing={4}>
               <Input
                 placeholder="Nume"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 bg="#707070"
+                height={12}
                 _placeholder={{ color: "gray.400" }}
                 border="none"
               />
@@ -133,6 +142,7 @@ export default function DesktopRegister({ isOpen, onClose }) {
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)}
                 bg="#707070"
+                height={12}
                 _placeholder={{ color: "gray.400" }}
                 border="none"
               />
@@ -141,6 +151,7 @@ export default function DesktopRegister({ isOpen, onClose }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 bg="#707070"
+                height={12}
                 _placeholder={{ color: "gray.400" }}
                 border="none"
               />
@@ -149,6 +160,7 @@ export default function DesktopRegister({ isOpen, onClose }) {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 bg="#707070"
+                height={12}
                 _placeholder={{ color: "gray.400" }}
                 border="none"
               />
@@ -158,10 +170,11 @@ export default function DesktopRegister({ isOpen, onClose }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 bg="#707070"
+                height={12}
                 _placeholder={{ color: "gray.400" }}
                 border="none"
               />
-              <HStack>
+              <HStack width={"100%"}>
                 <Radio
                   isChecked={agree}
                   onClick={() => setAgree(!agree)}
@@ -180,24 +193,41 @@ export default function DesktopRegister({ isOpen, onClose }) {
                 </Text>
               </HStack>
               <Link
-                display="block"
-                textAlign="center"
-                _hover={{ textDecoration: "none" }}
-                bg="#999999"
-                color="white"
-                py={3}
-                borderRadius="5px"
                 onClick={handleRegister}
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                bgColor="#999999"
+                color="#FFFFFF"
+                borderRadius="5px"
+                _hover={{ textDecoration: "none" }}
+                height="54px"
+                width="100%"
+                mt={6}
               >
-                INREGISTRARE
+                <Box
+                  display="flex"
+                  textAlign="left"
+                  alignItems="center"
+                  pl={6}
+                  fontSize="1.2rem"
+                >
+                  LOG IN
+                </Box>
+                <Image
+                  src="../assets/thumb-right.svg"
+                  alt="arrow"
+                  height={"100%"}
+                  borderRadius="5px"
+                />
               </Link>
             </VStack>
+            <ModalFooter justifyContent="center">
+              <Link href="/login" color="#ffcc00" fontWeight="bold">
+                Ai deja cont? Log in aici
+              </Link>
+            </ModalFooter>
           </ModalBody>
-          <ModalFooter justifyContent="center">
-            <Link href="/login" color="#ffcc00" fontWeight="bold">
-              Ai deja cont? Log in aici
-            </Link>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

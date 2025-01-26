@@ -660,7 +660,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
         {showAlert && (
           <Alert
             status={message.includes("success") ? "success" : "error"}
-            bgColor={message.includes("success") ? "green" : "#FF5549"}
+            bgColor={message.includes("success") ? "#FF5549" : "#50C878"}
             color="white"
             borderRadius="md"
           >

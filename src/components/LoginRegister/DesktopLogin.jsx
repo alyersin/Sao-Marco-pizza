@@ -53,7 +53,7 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
         setShowAlert(false);
         setMessage("");
         onClose();
-      }, 3000);
+      }, 500);
     } catch (error) {
       setMessage(error.message);
       setShowAlert(true);
@@ -67,7 +67,7 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
         <Alert
           status="error"
           position="absolute"
-          bgColor="#FF5549"
+          bgColor="#50C878"
           color="white"
           top="10px"
           right="10px"
@@ -93,9 +93,9 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay bg="rgba(51, 51, 51, 0.8)" />
         <ModalContent
-          className="borderRed"
+          className="borderBlue"
           bgColor="black"
-          width="476px"
+          maxWidth="476px"
           height="440px"
         >
           <ModalCloseButton color="white" />
@@ -178,7 +178,7 @@ export default function DesktopLogin({ isOpen, onClose, defaultTab }) {
                         LOG IN
                       </Box>
                       <Image
-                        src="../assets/arrow-right.svg"
+                        src="../assets/thumb-right.svg"
                         alt="arrow"
                         height={"100%"}
                         borderRadius="5px"
