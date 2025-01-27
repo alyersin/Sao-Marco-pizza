@@ -11,6 +11,9 @@ import {
   Divider,
   Link as ChakraLink,
   Icon,
+  Link,
+  Image,
+  Text,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -58,15 +61,15 @@ export default function Page() {
       bg="black"
       color="white"
       p={{ base: 4, md: 8 }}
-      maxW="800px"
+      maxW="1024px"
       mx="auto"
-      mt={{ base: 4, md: 10 }}
-      mb={{ base: 4, md: 10 }}
+      mt={{ base: 4, md: 20 }}
+      mb={{ base: 4, md: 20 }}
       borderRadius="md"
     >
-      <Heading fontSize={{ base: "md", md: "lg" }} mb={{ base: 4, md: 6 }}>
+      <Text fontSize={{ base: "md", md: "18px" }} mb={{ base: 4, md: 6 }}>
         Cont personal | Date personale
-      </Heading>
+      </Text>
 
       <HStack
         spacing={{ base: 2, md: 4 }}
@@ -78,7 +81,7 @@ export default function Page() {
           as={NextLink}
           href="/profile"
           color="#FFD100"
-          fontWeight="bold"
+          // fontWeight="bold"
           fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
@@ -94,7 +97,7 @@ export default function Page() {
           as={NextLink}
           href="/adrese-de-livrare"
           color="gray.500"
-          fontWeight="bold"
+          // fontWeight="bold"
           fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
@@ -110,7 +113,7 @@ export default function Page() {
           as={NextLink}
           href="/istoricComenzi"
           color="gray.500"
-          fontWeight="bold"
+          // fontWeight="bold"
           fontSize={{ base: "sm", md: "lg" }}
           textDecoration="none"
         >
@@ -121,76 +124,155 @@ export default function Page() {
       <Divider borderColor="#FFD100" mb={{ base: 4, md: 6 }} />
 
       <VStack spacing={4} align="stretch">
-        <HStack spacing={2} flexWrap="wrap">
+        <HStack spacing={10} flexWrap="wrap">
           <Input
-            placeholder="First Name"
+            placeholder="Nume"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             bg="gray.600"
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
+            height={{ base: "46px", md: "50px" }}
           />
           <Input
-            placeholder="Last Name"
+            placeholder="Prenume"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             bg="gray.600"
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
+            height={{ base: "46px", md: "50px" }}
           />
         </HStack>
-        <Input
-          placeholder="Email"
-          value={user?.email || ""}
-          isDisabled
-          bg="gray.600"
-          color="white"
-          border="none"
-        />
-        <Input
-          placeholder="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          bg="gray.600"
-          color="white"
-          border="none"
-        />
 
-        <HStack spacing={2} flexWrap="wrap">
+        <Box
+          display="flex"
+          flexDirection={{ base: "column", md: "row" }}
+          gap={10}
+        >
           <Input
-            placeholder="Old Password"
-            type="password"
-            value={oldPassword}
-            onChange={(e) => setOldPassword(e.target.value)}
+            placeholder="Email"
+            value={user?.email || ""}
+            isDisabled
             bg="gray.600"
             color="white"
             border="none"
-            flex={{ base: "1 1 100%", md: "1 1 45%" }}
+            height={{ base: "46px", md: "50px" }}
           />
           <Input
-            placeholder="New Password"
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            placeholder="Numar de telefon"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             bg="gray.600"
             color="white"
             border="none"
-            flex={{ base: "1 1 100%", md: "1 1 45%" }}
+            height={{ base: "46px", md: "50px" }}
           />
-        </HStack>
+        </Box>
+
+        <Box
+          className="bordeRed"
+          display="flex"
+          flexDirection={{ base: "column", md: "row" }}
+          justifyContent="space-between"
+          alignItems="flex-end"
+          gap={2}
+        >
+          <Box
+            className="bordeRed"
+            display="flex"
+            flexDirection={{ base: "column", md: "column" }}
+            gap={4}
+            height="110px"
+            width={{ base: "100%", md: "48%" }}
+          >
+            <Input
+              className="bordeRed"
+              placeholder="Parola veche"
+              type="password"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+              bg="gray.600"
+              color="white"
+              border="none"
+              flex={{ base: "1 1 100%", md: "1 1 45%" }}
+              height={{ base: "46px", md: "50px" }}
+              width="100%"
+            />
+            <Input
+              className="bordeRed"
+              placeholder="Parola noua"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              bg="gray.600"
+              color="white"
+              border="none"
+              flex={{ base: "1 1 100%", md: "1 1 45%" }}
+              height={{ base: "46px", md: "50px" }}
+              width="100%"
+            />
+          </Box>
+
+          <Popover>
+            <PopoverTrigger>
+              <Link
+                className="borderRed"
+                href="/"
+                display="flex"
+                justifyContent="space-between"
+                alignItems="center"
+                bgColor="#999999"
+                color="#FFFFFF"
+                borderRadius="5px"
+                height={{ base: "46px", md: "50px" }}
+                width={{ base: "100%", md: "30%" }}
+              >
+                <Box
+                  //
+                  display="flex"
+                  textAlign="left"
+                  alignItems="center"
+                  pl={{ base: 12, md: 12 }}
+                  variant="solid"
+                  height={{ base: "46px", md: "50px" }}
+                  fontSize={{ base: "0.8rem", md: "inherit" }}
+                >
+                  MODIFICA DATELE
+                </Box>
+                <Image
+                  src="../assets/arrow-right.svg"
+                  alt="arrow"
+                  height={"100%"}
+                  borderRadius="5px"
+                />
+              </Link>
+            </PopoverTrigger>
+            <PopoverContent bg="gray.700" color="white">
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverBody>
+                Actualizarea profilului nu este implementata.
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </Box>
 
         <Popover>
           <PopoverTrigger>
             <Button
-              leftIcon={<FaLock />}
+              rightIcon={<FaLock />}
+              iconSpacing={60}
+              ico
               bg="gray.600"
               color="white"
               border="none"
               fontWeight="bold"
               _hover={{ bg: "gray.700" }}
-              w="full"
+              width={{ base: "100%", md: "48%" }}
+              height={{ base: "46px", md: "50px" }}
             >
               MODIFICA PAROLA
             </Button>
@@ -201,33 +283,11 @@ export default function Page() {
             <PopoverBody>Schimbarea parolei nu este implementata.</PopoverBody>
           </PopoverContent>
         </Popover>
-
-        <Popover>
-          <PopoverTrigger>
-            <Button
-              rightIcon={<Icon as={FaSignOutAlt} />}
-              bg="gray.400"
-              color="black"
-              fontWeight="bold"
-              _hover={{ bg: "gray.500" }}
-              alignSelf="flex-end"
-            >
-              MODIFICA DATELE
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent bg="gray.700" color="white">
-            <PopoverArrow />
-            <PopoverCloseButton />
-            <PopoverBody>
-              Actualizarea profilului nu este implementata.
-            </PopoverBody>
-          </PopoverContent>
-        </Popover>
       </VStack>
 
-      <Divider borderColor="gray.700" mt={{ base: 4, md: 6 }} mb={4} />
+      {/* <Divider borderColor="gray.700" mt={{ base: 4, md: 6 }} mb={4} /> */}
 
-      <HStack justifyContent="space-between" flexWrap="wrap">
+      <HStack flexWrap="wrap">
         <Button
           leftIcon={<FaSignOutAlt />}
           onClick={handleLogout}

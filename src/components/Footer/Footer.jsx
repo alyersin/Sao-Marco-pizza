@@ -5,6 +5,7 @@ import {
   Link,
   VStack,
   Icon,
+  Image,
   Divider,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
@@ -14,33 +15,29 @@ export default function Footer() {
   return (
     <Box bg="black">
       <Box
+        className="borderBlue"
         maxW="1280px"
         mx="auto"
         color="white"
-        py={6}
-        px={8}
+        py={4}
+        px={4}
         textAlign="center"
       >
-        <VStack spacing={4}>
+        <VStack spacing={2}>
           {/* TOP */}
           <HStack spacing={4} justify="center">
-            <Box
-              as={NextLink}
-              href="#blackBar"
-              bg="yellow.400"
-              borderRadius="full"
-              w={10}
-              h={10}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              fontWeight="bold"
-              fontSize="lg"
-              color="black"
-              _hover={{ bg: "yellow.300" }}
-            >
-              SO
+            <Box w={10} h={10}>
+              <Link href="#blackBar">
+                <Image
+                  src="../assets/footer-logo.svg"
+                  alt="Logo"
+                  height="38px"
+                  width="auto"
+                  objectFit="contain"
+                />
+              </Link>
             </Box>
+
             <HStack spacing={4} wrap="wrap">
               <Link href="#" _hover={{ textDecoration: "underline" }}>
                 Despre Sao Marco
