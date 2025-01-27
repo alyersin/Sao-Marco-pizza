@@ -129,24 +129,24 @@ Deploy the app using [Vercel](https://vercel.com/):
 
 1. **Firestore Database** Integration:
 
-- Store user preferences, order history, and menu details.
-- Enable real-time updates for orders and inventory.
+> - Store user preferences, order history, and menu details.
+> - Enable real-time updates for orders and inventory.
 
 2. **Payment Gateway Integration:**
 
-- Add secure payment processing using services like Stripe, PayPal, or Razorpay.
+> - Add secure payment processing using services like Stripe, PayPal, or Razorpay.
 
 3. **Push Notifications:**
 
-- Notify users of order updates and exclusive deals.
+> - Notify users of order updates and exclusive deals.
 
 4. **Advanced Admin Panel:**
 
-- Manage menu items, orders, and inventory in real-time.
+> - Manage menu items, orders, and inventory in real-time.
 
 5. **Multi-Language Support:**
 
-- Localize the app for various regions and languages.
+> - Localize the app for various regions and languages.
 
 ---
 
