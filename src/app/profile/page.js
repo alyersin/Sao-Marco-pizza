@@ -58,9 +58,11 @@ export default function Page() {
 
   return (
     <Box
+      className="borderRed"
       bg="black"
       color="white"
-      p={{ base: 4, md: 8 }}
+      px={{ base: 4, md: 10 }}
+      py={{ base: 4, md: 9 }}
       maxW="1024px"
       mx="auto"
       mt={{ base: 4, md: 20 }}
@@ -74,7 +76,8 @@ export default function Page() {
       <HStack
         spacing={{ base: 2, md: 4 }}
         justifyContent="space-between"
-        mb={{ base: 4, md: 6 }}
+        mb={{ base: 4, md: 7 }}
+        mt={{ base: 4, md: 8 }}
         flexWrap="wrap"
       >
         <ChakraLink
@@ -82,7 +85,7 @@ export default function Page() {
           href="/profile"
           color="#FFD100"
           // fontWeight="bold"
-          fontSize={{ base: "sm", md: "lg" }}
+          fontSize={{ base: "sm", md: "xl" }}
           textDecoration="none"
         >
           DATE PERSONALE
@@ -98,7 +101,7 @@ export default function Page() {
           href="/adrese-de-livrare"
           color="gray.500"
           // fontWeight="bold"
-          fontSize={{ base: "sm", md: "lg" }}
+          fontSize={{ base: "sm", md: "xl" }}
           textDecoration="none"
         >
           ADRESE DE LIVRARE
@@ -114,16 +117,20 @@ export default function Page() {
           href="/istoricComenzi"
           color="gray.500"
           // fontWeight="bold"
-          fontSize={{ base: "sm", md: "lg" }}
+          fontSize={{ base: "sm", md: "xl" }}
           textDecoration="none"
         >
           ISTORIC COMENZI
         </ChakraLink>
       </HStack>
 
-      <Divider borderColor="#FFD100" mb={{ base: 4, md: 6 }} />
+      <Divider
+        borderColor="#FFD100"
+        borderWidth="1px"
+        mb={{ base: 4, md: 12 }}
+      />
 
-      <VStack spacing={4} align="stretch">
+      <VStack spacing={5} align="stretch">
         <HStack spacing={10} flexWrap="wrap">
           <Input
             placeholder="Nume"
@@ -265,7 +272,6 @@ export default function Page() {
             <Button
               rightIcon={<FaLock />}
               iconSpacing={60}
-              ico
               bg="gray.600"
               color="white"
               border="none"
@@ -285,29 +291,42 @@ export default function Page() {
         </Popover>
       </VStack>
 
-      {/* <Divider borderColor="gray.700" mt={{ base: 4, md: 6 }} mb={4} /> */}
-
-      <HStack flexWrap="wrap">
+      <HStack flexWrap="wrap" mt={{ base: 4, md: 20 }}>
         <Button
-          leftIcon={<FaSignOutAlt />}
+          display={{ base: "none", md: "flex" }}
           onClick={handleLogout}
-          bg="black"
+          gap={3}
+          cursor="pointer"
           color="#FFD100"
-          fontWeight="bold"
-          _hover={{ textDecoration: "underline" }}
+          bgColor="inherit"
+          alignSelf={{ base: "flex-start", md: "center" }}
+          _hover={{ textDecoration: "none" }}
+          fontSize={{ base: "sm", md: "xl" }}
+          fontWeight="normal"
         >
-          Log out
+          <Image src="../assets/logout.svg" alt="Delete" boxSize="30px" />
+          <Box>Log out</Box>
         </Button>
+
         <Popover>
           <PopoverTrigger>
             <Button
-              leftIcon={<FaTrash />}
-              bg="black"
+              display={{ base: "none", md: "flex" }}
+              gap={3}
+              cursor="pointer"
               color="#FFD100"
-              fontWeight="bold"
-              _hover={{ textDecoration: "underline" }}
+              bgColor="inherit"
+              alignSelf={{ base: "flex-start", md: "center" }}
+              _hover={{ textDecoration: "none" }}
+              fontSize={{ base: "sm", md: "xl" }}
+              fontWeight="normal"
             >
-              Sterge cont
+              <Image
+                src="../assets/delete-yellow.svg"
+                alt="Delete"
+                boxSize="30px"
+              />
+              <Box>Sterge cont</Box>
             </Button>
           </PopoverTrigger>
           <PopoverContent bg="gray.700" color="white">
