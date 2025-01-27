@@ -1,6 +1,6 @@
 # Pizza Order App - Your Ultimate Pizza Experience 🍕
 
-A feature-rich and responsive web application for ordering pizza and other delicious dishes. Built using modern web technologies to provide a seamless user experience.
+A dynamic and responsive web platform designed for ordering pizza and other delicious dishes. Built using modern web technologies to provide a streamlined user experience.
 
 ---
 
