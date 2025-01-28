@@ -6,88 +6,178 @@ import {
   Input,
   Textarea,
   Button,
-  Checkbox,
+  Radio,
+  Image,
+  HStack,
   Link,
   VStack,
-  HStack,
   Icon,
+  Alert,
+  CloseButton,
 } from "@chakra-ui/react";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import React, { useState } from "react";
 
 export default function Contact() {
+  const [agree, setAgree] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleSubmit = () => {
+    if (!agree) {
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
+      return;
+    }
+
+    console.log("Message sent!");
+  };
+
   return (
     <Box
-      className="borderRed"
       maxWidth="1280px"
       mx="10"
-      my={20}
-      bg="black"
+      mt={20}
+      mb={"7px"}
+      bg="#232323"
       color="white"
       py={8}
       px={10}
     >
-      <Box className="borderGreen">
-        <Text fontSize="sm" mb={4} color="gray.400">
+      {showAlert && (
+        <Alert
+          status="error"
+          position="absolute"
+          bgColor="#FF5549"
+          color="white"
+          top="10px"
+          right="10px"
+          width="400px"
+          height="54px"
+          zIndex="2400"
+          borderRadius="md"
+          boxShadow="lg"
+          display="flex"
+          alignItems="center"
+        >
+          <CloseButton
+            position="absolute"
+            left="8px"
+            top="8px"
+            onClick={() => setShowAlert(false)}
+          />
+          <Text flex="1" textAlign="center">
+            Trebuie sa accepti politica de confidentialitate.
+          </Text>
+        </Alert>
+      )}
+
+      <Box>
+        <Text fontSize="md" mb={5} mt={2} color="gray.400">
           Homepage | Contact
         </Text>
 
-        <Heading fontSize="2xl" mb={4}>
+        <Heading fontSize="2xl" mb={10}>
           CONTACTEAZA-NE!
         </Heading>
-        <Text fontSize="md" mb={6}>
+        <Text fontSize="md" mb={8}>
           Ai intrebari? Lasa-ne un mesaj in acest formular.
         </Text>
 
-        <HStack spacing={8} align="flex-start" flexWrap="wrap">
-          <VStack spacing={4} flex="1" minW="300px">
-            <Input placeholder="Nume" bg="gray.700" border="none" />
-            <Input placeholder="Email" bg="gray.700" border="none" />
+        <HStack spacing={28} align="flex-start" flexWrap="wrap">
+          <VStack spacing={5} flex="1" maxW="50%">
+            <Input
+              placeholder="Nume"
+              bg="gray.700"
+              border="none"
+              height="50px"
+            />
+            <Input
+              placeholder="Email"
+              bg="gray.700"
+              border="none"
+              height="50px"
+            />
             <Textarea
               placeholder="Mesaj"
               bg="gray.700"
               border="none"
-              h="120px"
+              height="150px"
             />
-            <Checkbox colorScheme="yellow">
-              Da, sunt de acord cu{" "}
-              <Link color="yellow.400" href="#">
-                Politica de confidentialitate.
-              </Link>
-            </Checkbox>
-            <Button
-              bg="gray.700"
-              color="white"
-              _hover={{ bg: "gray.600" }}
-              leftIcon={<Icon as={FaMapMarkerAlt} />}
+            <HStack>
+              <Radio
+                isChecked={agree}
+                onChange={() => setAgree(!agree)}
+                sx={{
+                  boxSize: "21px",
+                  borderColor: "#ffcc00",
+                  borderWidth: "2px",
+                  _checked: { bg: "#ffcc00", borderColor: "#ff6633" },
+                }}
+              />
+              <Text color="gray.400" ml={2} fontSize={15}>
+                Da, sunt de acord cu{" "}
+                <Link href="#" color="#ffcc00">
+                  Politica de confidentialitate.
+                </Link>
+              </Text>
+            </HStack>
+
+            <Link
+              onClick={handleSubmit}
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              bgColor="#999999"
+              color="#FFFFFF"
+              borderRadius="5px"
+              _hover={{ textDecoration: "none" }}
+              height="54px"
+              width="100%"
+              mt={3}
             >
-              TRIMITE
-            </Button>
+              <Box
+                display="flex"
+                textAlign="left"
+                alignItems="center"
+                pl={6}
+                fontSize="1.2rem"
+              >
+                TRIMITE
+              </Box>
+              <Image
+                src="../assets/thumb-right.svg"
+                alt="arrow"
+                height={"100%"}
+                borderRadius="5px"
+              />
+            </Link>
           </VStack>
 
           <VStack align="flex-start" spacing={4} flex="1" minW="300px">
-            <Text fontSize="lg" fontWeight="bold">
-              Program de lucru:
-            </Text>
+            <Text fontSize="xl">Program de lucru:</Text>
             <Text>
               Te asteptam intre 10:00 si 24:00, de Luni până Duminica pentru
               comenzi online sau la telefon.
             </Text>
-            <Text fontSize="lg" fontWeight="bold" mt={4}>
+            <Text fontSize="xl" mt={4}>
               Contact:
             </Text>
             <Text>0241 555 555</Text>
-            <Text fontSize="lg" fontWeight="bold" mt={4}>
+            <Text fontSize="xl" mt={4}>
               Adrese:
             </Text>
-            <Text>I. C. Bratianu , Constanta</Text>
-            <Text>A. Lapusneanu , City Mall</Text>
-            <Text>Aurel Vlaicu , complex Aviatorii</Text>
+            <VStack>
+              <Text>I. C. Bratianu , Constanta</Text>
+              <Text>A. Lapusneanu , City Mall</Text>
+              <Text>Aurel Vlaicu , complex Aviatorii</Text>
+            </VStack>
           </VStack>
         </HStack>
 
         <Box
-          mt={8}
-          h="300px"
+          mt={20}
+          h="352px"
+          mb={2}
           bg="gray.700"
           borderRadius="md"
           overflow="hidden"

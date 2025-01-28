@@ -59,7 +59,7 @@ export default function Page() {
   return (
     <Box
       className="borderRed"
-      bg="black"
+      bg="#232323"
       color="white"
       px={{ base: 4, md: 10 }}
       py={{ base: 4, md: 9 }}
@@ -291,7 +291,7 @@ export default function Page() {
         </Popover>
       </VStack>
 
-      <HStack flexWrap="wrap" mt={{ base: 4, md: 20 }}>
+      <HStack flexWrap="wrap" mt={{ base: 4, md: 20 }} pb={2}>
         <Button
           display={{ base: "none", md: "flex" }}
           onClick={handleLogout}
