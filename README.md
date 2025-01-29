@@ -6,7 +6,12 @@ A dynamic and responsive web platform designed for ordering pizza and other dish
 
 This pizza ordering app is a **clone of the famous Pizza San Marco** brand in **Constanta, Romania**. The app replicates the menu, ordering process, and overall experience from [Pizza San Marco's official website](https://www.pizzasanmarco.ro/).
 
-## Disclaimer 🚨
+## 🌍 Live Demo
+
+Deployed on Vercel:  
+🔗 [https://sao-marco-pizza.vercel.app/](https://sao-marco-pizza.vercel.app/)
+
+## 🚨 Disclaimer 🚨
 
 This project is **strictly for academic and educational purposes**. It is **not intended for commercial or production use**. The application is developed as a learning exercise to enhance web development skills and does not operate as an official service of Pizza San Marco.
 
