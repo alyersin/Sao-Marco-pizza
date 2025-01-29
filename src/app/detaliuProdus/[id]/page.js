@@ -14,7 +14,6 @@ import {
   Radio,
 } from "@chakra-ui/react";
 
-// Import all menu data
 import pizzaData from "../../../pizza.json";
 import pasteData from "../../../paste.json";
 import bauturiData from "../../../bauturi.json";
@@ -23,7 +22,6 @@ import sandwichData from "../../../sandwich.json";
 import salateData from "../../../salate.json";
 import burgerAndWrapsData from "../../../burgerAndWraps.json";
 
-// Combine all categories into one array
 const allItems = [
   ...pizzaData,
   ...pasteData,
@@ -33,6 +31,27 @@ const allItems = [
   ...salateData,
   ...burgerAndWrapsData,
 ];
+
+const extractToppings = (categoryData) => {
+  return [
+    ...new Set(
+      categoryData.flatMap((item) =>
+        item.description
+          .replace("INGREDIENTE:", "")
+          .split(",")
+          .map((topping) => topping.trim())
+      )
+    ),
+  ];
+};
+
+const pizzaToppings = extractToppings(pizzaData);
+const pastaToppings = extractToppings(pasteData);
+const sandwichToppings = extractToppings(sandwichData);
+const saladToppings = extractToppings(salateData);
+const burgerWrapToppings = extractToppings(burgerAndWrapsData);
+const dessertToppings = extractToppings(desertData);
+const drinkToppings = extractToppings(bauturiData);
 
 export default function DetaliuProdus({ params: paramsPromise }) {
   const [product, setProduct] = useState(null);
@@ -55,14 +74,14 @@ export default function DetaliuProdus({ params: paramsPromise }) {
         setProduct(foundProduct);
         setSelectedSize(foundProduct.sizes ? foundProduct.sizes[0] : null);
       } else {
-        console.error("Product not found!");
+        console.error("Produsul nu a fost gasit");
       }
     }
   }, [id]);
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert("Please select a size before adding to the cart.");
+      alert("Alege marimea produsului");
       return;
     }
 
@@ -85,12 +104,22 @@ export default function DetaliuProdus({ params: paramsPromise }) {
 
   if (!product) return <Text>Loading...</Text>;
 
-  const toppingsList = product.description
-    ? product.description
-        .replace("INGREDIENTE:", "")
-        .split(",")
-        .map((item) => item.trim())
-    : [];
+  let relevantToppings = [];
+  if (pizzaData.some((item) => item.id === product.id)) {
+    relevantToppings = pizzaToppings;
+  } else if (pasteData.some((item) => item.id === product.id)) {
+    relevantToppings = pastaToppings;
+  } else if (sandwichData.some((item) => item.id === product.id)) {
+    relevantToppings = sandwichToppings;
+  } else if (salateData.some((item) => item.id === product.id)) {
+    relevantToppings = saladToppings;
+  } else if (burgerAndWrapsData.some((item) => item.id === product.id)) {
+    relevantToppings = burgerWrapToppings;
+  } else if (desertData.some((item) => item.id === product.id)) {
+    relevantToppings = dessertToppings;
+  } else if (bauturiData.some((item) => item.id === product.id)) {
+    relevantToppings = drinkToppings;
+  }
 
   return (
     <Box
@@ -128,7 +157,7 @@ export default function DetaliuProdus({ params: paramsPromise }) {
           {product.sizes && product.sizes.length > 0 && (
             <>
               <Text fontSize="xl" fontWeight="bold">
-                Select Size
+                Alege dimensiunea:
               </Text>
               <RadioGroup
                 onChange={(sizeLabel) =>
@@ -147,17 +176,17 @@ export default function DetaliuProdus({ params: paramsPromise }) {
             </>
           )}
 
-          {toppingsList.length > 0 && (
+          {relevantToppings.length > 0 && (
             <>
               <Text fontSize="xl" fontWeight="bold" mt={4}>
-                Select Toppings
+                Adauga topping:
               </Text>
               <CheckboxGroup
                 onChange={setSelectedToppings}
                 value={selectedToppings}
               >
                 <VStack align="start">
-                  {toppingsList.map((topping, index) => (
+                  {relevantToppings.map((topping, index) => (
                     <Checkbox key={index} value={topping}>
                       {topping}
                     </Checkbox>
@@ -168,7 +197,7 @@ export default function DetaliuProdus({ params: paramsPromise }) {
           )}
 
           <Button colorScheme="green" onClick={handleAddToCart} mt={4}>
-            Adaugă în Coș
+            ADAUGA IN COS
           </Button>
         </VStack>
       </HStack>

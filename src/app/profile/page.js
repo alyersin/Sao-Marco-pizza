@@ -82,6 +82,7 @@ export default function Page() {
       >
         <ChakraLink
           as={NextLink}
+          _hover={{ textDecoration: "none" }}
           href="/profile"
           color="#FFD100"
           // fontWeight="bold"
@@ -90,14 +91,15 @@ export default function Page() {
         >
           DATE PERSONALE
         </ChakraLink>
-        <Divider
+        {/* <Divider
           orientation="vertical"
           h="20px"
           bg="#FFD100"
           display={{ base: "none", md: "block" }}
-        />
+        /> */}
         <ChakraLink
           as={NextLink}
+          _hover={{ textDecoration: "none" }}
           href="/adrese-de-livrare"
           color="gray.500"
           // fontWeight="bold"
@@ -106,14 +108,15 @@ export default function Page() {
         >
           ADRESE DE LIVRARE
         </ChakraLink>
-        <Divider
+        {/* <Divider
           orientation="vertical"
           h="20px"
           bg="#FFD100"
           display={{ base: "none", md: "block" }}
-        />
+        /> */}
         <ChakraLink
           as={NextLink}
+          _hover={{ textDecoration: "none" }}
           href="/istoricComenzi"
           color="gray.500"
           // fontWeight="bold"
@@ -136,7 +139,7 @@ export default function Page() {
             placeholder="Nume"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            bg="gray.600"
+            bg="#707070"
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
@@ -146,7 +149,7 @@ export default function Page() {
             placeholder="Prenume"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            bg="gray.600"
+            bg="#707070"
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
@@ -163,7 +166,7 @@ export default function Page() {
             placeholder="Email"
             value={user?.email || ""}
             isDisabled
-            bg="gray.600"
+            bg="#707070"
             color="white"
             border="none"
             height={{ base: "46px", md: "50px" }}
@@ -172,7 +175,7 @@ export default function Page() {
             placeholder="Numar de telefon"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            bg="gray.600"
+            bg="#707070"
             color="white"
             border="none"
             height={{ base: "46px", md: "50px" }}
@@ -201,7 +204,7 @@ export default function Page() {
               type="password"
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
-              bg="gray.600"
+              bg="#707070"
               color="white"
               border="none"
               flex={{ base: "1 1 100%", md: "1 1 45%" }}
@@ -214,7 +217,7 @@ export default function Page() {
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              bg="gray.600"
+              bg="#707070"
               color="white"
               border="none"
               flex={{ base: "1 1 100%", md: "1 1 45%" }}
@@ -226,8 +229,8 @@ export default function Page() {
           <Popover>
             <PopoverTrigger>
               <Link
-                className="borderRed"
                 href="/"
+                _hover={{ textDecoration: "none" }}
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
@@ -238,7 +241,6 @@ export default function Page() {
                 width={{ base: "100%", md: "30%" }}
               >
                 <Box
-                  //
                   display="flex"
                   textAlign="left"
                   alignItems="center"
@@ -272,7 +274,7 @@ export default function Page() {
             <Button
               rightIcon={<FaLock />}
               iconSpacing={60}
-              bg="gray.600"
+              bg="#707070"
               color="white"
               border="none"
               fontWeight="bold"
