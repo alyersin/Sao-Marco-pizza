@@ -31,10 +31,10 @@ export default function Header() {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
 
-    const total = storedCart.reduce(
-      (sum, item) => sum + parseFloat(item.size.price),
-      0
-    );
+    const total = storedCart.reduce((sum, item) => {
+      const price = parseFloat(item?.size?.price || 0);
+      return sum + price;
+    }, 0);
     setTotalAmount(total.toFixed(2));
   }, []);
 

@@ -1,6 +1,14 @@
 # Pizza Order App - Your Ultimate Pizza Experience 🍕
 
-A dynamic and responsive web platform designed for ordering pizza and other delicious dishes. Built using modern web technologies to provide a streamlined user experience.
+A dynamic and responsive web platform designed for ordering pizza and other dishes. Built using modern web technologies to provide a streamlined user experience.
+
+## About
+
+This pizza ordering app is a **clone of the famous Pizza San Marco** brand in **Constanta, Romania**. The app replicates the menu, ordering process, and overall experience from [Pizza San Marco's official website](https://www.pizzasanmarco.ro/).
+
+## Disclaimer 🚨
+
+This project is **strictly for academic and educational purposes**. It is **not intended for commercial or production use**. The application is developed as a learning exercise to enhance web development skills and does not operate as an official service of Pizza San Marco.
 
 ---
 

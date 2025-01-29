@@ -1,12 +1,17 @@
 import React from "react";
 import { Box, Image, Text, VStack, HStack } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+
 export default function Card({
   item,
+  category,
   width = "250px",
   height = "auto",
   p = 4,
   m = "auto",
 }) {
+  const router = useRouter();
+
   const handleAddToCart = (size) => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     const updatedCart = [...cart, { ...item, size }];
@@ -28,7 +33,6 @@ export default function Card({
 
   return (
     <Box
-      // className="borderRed"
       display="flex"
       flexDirection="column"
       justifyContent="space-between"
@@ -42,22 +46,16 @@ export default function Card({
       p={p}
       m={m}
     >
-      <Box className="borderGreen" display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center">
         <Image
           src={item.image}
           alt={item.name}
-          // width="100%"
           height="194px"
           borderRadius="md"
         />
       </Box>
-      <VStack
-        className="borderBlue"
-        align="center"
-        height={"100%"}
-        spacing={0}
-        p={4}
-      >
+
+      <VStack align="center" height="100%" spacing={0} p={4}>
         <Text fontWeight="bold" fontSize="lg">
           {item.name}
         </Text>
@@ -70,11 +68,10 @@ export default function Card({
           {item.description}
         </Text>
       </VStack>
+
       <VStack spacing={2}>
         {item.sizes.map((size, index) => (
-          // BUTOANE ADAUGA IN COS
           <HStack
-            className="borderBlue"
             key={index}
             justify="space-between"
             align="center"
@@ -101,7 +98,7 @@ export default function Card({
                 </Text>
               )}
             </HStack>
-            <HStack className="borderGreen" spacing={2} width={"100%"}>
+            <HStack spacing={2} width="100%">
               <Text fontWeight="bold" fontSize={{ base: "2xl", md: "sm" }}>
                 {size.price}
               </Text>
@@ -116,8 +113,8 @@ export default function Card({
             />
           </HStack>
         ))}
+
         <HStack
-          className="borderBlue"
           justify="space-between"
           align="center"
           bgColor="#999999"
@@ -127,18 +124,14 @@ export default function Card({
           cursor="pointer"
           height="54px"
           width="100%"
+          onClick={() =>
+            router.push(`/detaliuProdus/${item.id}?category=${category}`)
+          }
         >
-          <Text
-            className="borderBlue"
-            width="100%"
-            fontWeight="bold"
-            fontSize={{ base: "xl", md: "md" }}
-            color="white"
-          >
+          <Text fontWeight="bold" fontSize="md" color="white">
             CUM VREI TU
           </Text>
           <Image
-            className="borderGreen"
             borderRadius="5px"
             src="../assets/thumb-right-gray.svg"
             alt="thumb-gray"

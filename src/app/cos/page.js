@@ -54,10 +54,11 @@ export default function Cos() {
       ...item,
       size: {
         ...item.size,
-        price: parseFloat(item.size.price) || 0,
+        price: parseFloat(item.size?.price || 0),
       },
       quantity: item.quantity || 1,
     }));
+
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }, []);
