@@ -27,7 +27,7 @@ export default function Footer() {
           {/* TOP */}
           <HStack spacing={4} justify="center">
             <Box w={10} h={10}>
-              <Link href="#blackBar">
+              <Link href="/">
                 <Image
                   src="../assets/footer-logo.svg"
                   alt="Logo"
