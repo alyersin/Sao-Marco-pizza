@@ -52,7 +52,7 @@ export default function Istoric() {
           <Box key={order.id} p={4} border="1px solid gray" borderRadius="md">
             <Text>Order Date: {order.orderDate.toDate().toLocaleString()}</Text>
             <Text>Status: {order.status}</Text>
-            <Text>Total: {order.totalAmount.toFixed(2)} lei</Text>
+            <Text>Total: {parseFloat(order.totalAmount).toFixed(2)} lei</Text>
           </Box>
         ))
       )}

@@ -46,8 +46,16 @@ export const CartProvider = ({ children }) => {
 
   const calculateTotal = () => {
     return cart
-      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .reduce((total, item) => {
+        const price = parseFloat(item?.size?.price || 0);
+        return total + price * (item.quantity || 1);
+      }, 0)
       .toFixed(2);
+  };
+
+  const clearCart = () => {
+    setCart([]);
+    localStorage.removeItem("cart");
   };
 
   return (
@@ -58,6 +66,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         updateItemQuantity,
         calculateTotal,
+        clearCart,
       }}
     >
       {children}

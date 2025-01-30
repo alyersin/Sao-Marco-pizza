@@ -23,9 +23,11 @@ export default function CheckoutPage() {
     try {
       await saveOrderToHistory(cart, calculateTotal());
       clearCart();
+      localStorage.removeItem("cart");
       alert("Order confirmed! Redirecting to order history...");
-      router.push("/istoric");
+      router.push("/profile/istoric");
     } catch (error) {
+      console.error("Error confirming order:", error);
       alert("Failed to confirm the order. Please try again.");
     } finally {
       setLoading(false);
@@ -38,9 +40,9 @@ export default function CheckoutPage() {
         Checkout
       </Text>
       <VStack spacing={4}>
-        {cart.map((item) => (
+        {cart.map((item, index) => (
           <HStack
-            key={item.id}
+            key={`${item.id}-${index}`}
             justifyContent="space-between"
             width="100%"
             border="1px solid gray"
@@ -49,12 +51,13 @@ export default function CheckoutPage() {
           >
             <Text>{item.name}</Text>
             <Text>
-              {item.quantity} x {item.price} lei
+              {item.quantity} x {item.size.price} lei
             </Text>
-            <Text>{(item.price * item.quantity).toFixed(2)} lei</Text>
+            <Text>{(item.quantity * item.size.price).toFixed(2)} lei</Text>
           </HStack>
         ))}
       </VStack>
+
       <Text fontSize="2xl" fontWeight="bold" mt={6}>
         Total: {calculateTotal()} lei
       </Text>

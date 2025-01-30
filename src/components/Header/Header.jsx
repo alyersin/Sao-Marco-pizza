@@ -9,10 +9,9 @@ import {
   VStack,
   Flex,
   useDisclosure,
-  Divider,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { BsGridFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,42 +19,12 @@ import "swiper/swiper-bundle.css";
 import { useMediaQuery } from "@chakra-ui/react";
 import LoginRegister from "../LoginRegister/Login.jsx";
 import "../../app/globals.css";
+import { useCart } from "../../context/CartContext";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSmallScreen] = useMediaQuery("(max-width: 992px)");
-  const [cart, setCart] = useState([]);
-  const [totalAmount, setTotalAmount] = useState(0);
-
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
-
-    const total = storedCart.reduce((sum, item) => {
-      const price = parseFloat(item?.size?.price || 0);
-      return sum + price;
-    }, 0);
-    setTotalAmount(total.toFixed(2));
-  }, []);
-
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCart(storedCart);
-
-      const total = storedCart.reduce(
-        (sum, item) => sum + parseFloat(item.size.price),
-        0
-      );
-      setTotalAmount(total.toFixed(2));
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
+  const { cart, calculateTotal } = useCart();
 
   return (
     <Box
@@ -68,7 +37,6 @@ export default function Header() {
       {isSmallScreen ? (
         <VStack align="stretch" spacing={0}>
           <Flex
-            // className="borderRed"
             justifyContent="space-between"
             alignItems="center"
             px={4}
@@ -82,7 +50,7 @@ export default function Header() {
               cursor="pointer"
             />
 
-            <Box className="borderRed">
+            <Box>
               <Link href="/">
                 <Image
                   src="../assets/sao-marco-pizza.svg"
@@ -121,17 +89,8 @@ export default function Header() {
           </Flex>
 
           {/* NAV MENU (MOBILE) */}
-          <Box
-            // className="borderRed"
-            bg="black"
-            height="100%"
-            py={{ base: 0, md: 2 }}
-            px={4}
-            pb={{ base: 0, md: 2 }}
-            overflow="hidden"
-          >
+          <Box bg="black" height="100%" py={{ base: 0, md: 2 }} px={4}>
             <Swiper
-              // className="borderRed"
               spaceBetween={16}
               slidesPerView={2.5}
               freeMode={true}
@@ -200,7 +159,7 @@ export default function Header() {
 
           <HStack
             spacing={4}
-            divider={<Box height="24px" width="2px" bg="black" border="none" />}
+            divider={<Box height="24px" width="2px" bg="black" />}
           >
             {[
               { href: "/pizza", label: "PIZZA" },
@@ -213,16 +172,13 @@ export default function Header() {
             ].map((item) => (
               <Link key={item.href} href={item.href}>
                 <Text
-                  // className="josefin-sans-regular"
                   _hover={{ color: "#FFD100" }}
                   letterSpacing="-1px"
                   color="#1A202C"
                   fontSize="18px"
                   fontWeight="500"
                   lineHeight="37.5px"
-                  verticalAlign="baseline"
-                  wordspace="0px"
-                  whiteSpace={"nowrap"}
+                  whiteSpace="nowrap"
                 >
                   {item.label}
                 </Text>
@@ -258,7 +214,7 @@ export default function Header() {
                 </Box>
               </Box>
               <Text color="white" fontWeight="bold">
-                {totalAmount} lei
+                {calculateTotal()} lei
               </Text>
             </HStack>
           </Link>
