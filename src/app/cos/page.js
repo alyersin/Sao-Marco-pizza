@@ -89,9 +89,11 @@ export default function Cos() {
   // HANDLE CHECKOUT
   const handleCheckout = () => {
     if (isLoggedIn) {
-      alert("Checkout process initiated");
+      localStorage.setItem("checkoutCart", JSON.stringify(cart));
+
+      router.push("/checkout");
     } else {
-      alert("You need to log in to checkout");
+      alert("You need to log in to proceed with checkout.");
     }
   };
 
@@ -612,6 +614,7 @@ export default function Cos() {
                   href="/"
                   display="flex"
                   justifyContent="space-between"
+                  _hover={{ textDecoration: "none" }}
                   alignItems="center"
                   bgColor="#999999"
                   color="#FFFFFF"
@@ -979,6 +982,7 @@ export default function Cos() {
             // as={Button}
             // href=""
             onClick={() => router.back()}
+            _hover={{ textDecoration: "none" }}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
@@ -1010,10 +1014,11 @@ export default function Cos() {
           </Link>
 
           <Link
-            href="/"
+            onClick={handleCheckout}
             display="flex"
             justifyContent="space-between"
             alignItems="center"
+            _hover={{ textDecoration: "none" }}
             bgColor="#999999"
             color="#FFFFFF"
             borderRadius="5px"
@@ -1034,7 +1039,6 @@ export default function Cos() {
               alt="arrow"
               height={"100%"}
               borderRadius="5px"
-              onClick={handleCheckout}
             />
           </Link>
         </Stack>
