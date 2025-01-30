@@ -56,7 +56,7 @@ export default function BlackBar() {
           <Box height="20px" width="1px" bg="#828282" />
 
           <Link
-            href="/contact"
+            href="../../contact"
             fontSize="0.9rem"
             _hover={{ textDecoration: "none" }}
           >
