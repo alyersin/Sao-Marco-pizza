@@ -68,7 +68,7 @@ export default function Header() {
       {isSmallScreen ? (
         <VStack align="stretch" spacing={0}>
           <Flex
-            className="borderRed"
+            // className="borderRed"
             justifyContent="space-between"
             alignItems="center"
             px={4}
@@ -82,8 +82,8 @@ export default function Header() {
               cursor="pointer"
             />
 
-            <Box>
-              <Link href="#blackBar">
+            <Box className="borderRed">
+              <Link href="/">
                 <Image
                   src="../assets/sao-marco-pizza.svg"
                   alt="Logo"
@@ -122,7 +122,7 @@ export default function Header() {
 
           {/* NAV MENU (MOBILE) */}
           <Box
-            className="borderRed"
+            // className="borderRed"
             bg="black"
             height="100%"
             py={{ base: 0, md: 2 }}
@@ -131,6 +131,7 @@ export default function Header() {
             overflow="hidden"
           >
             <Swiper
+              // className="borderRed"
               spaceBetween={16}
               slidesPerView={2.5}
               freeMode={true}

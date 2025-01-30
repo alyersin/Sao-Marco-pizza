@@ -12,6 +12,10 @@ import {
   Link as ChakraLink,
   Icon,
   Link,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
   Image,
   Text,
   Popover,
@@ -26,6 +30,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import NextLink from "next/link";
 import { FaTrash, FaSignOutAlt, FaLock } from "react-icons/fa";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 export default function Page() {
   const [user, setUser] = useState(null);
@@ -35,6 +40,7 @@ export default function Page() {
   const [phone, setPhone] = useState("");
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [activeItem, setActiveItem] = useState("Date personale");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -58,22 +64,27 @@ export default function Page() {
 
   return (
     <Box
-      className="borderRed"
       bg="#232323"
       color="white"
       px={{ base: 4, md: 10 }}
       py={{ base: 4, md: 9 }}
       maxW="1024px"
       mx="auto"
-      mt={{ base: 4, md: 20 }}
+      mt={{ base: 0, md: 20 }}
       mb={{ base: 4, md: 20 }}
       borderRadius="md"
     >
-      <Text fontSize={{ base: "md", md: "18px" }} mb={{ base: 4, md: 6 }}>
+      <Text
+        display={{ base: "none", md: "flex" }}
+        fontSize={{ base: "md", md: "18px" }}
+        mb={{ base: 4, md: 6 }}
+      >
         Cont personal | Date personale
       </Text>
 
+      {/* NAVIGATION */}
       <HStack
+        display={{ base: "none", md: "flex" }}
         spacing={{ base: 2, md: 4 }}
         justifyContent="space-between"
         mb={{ base: 4, md: 7 }}
@@ -91,16 +102,11 @@ export default function Page() {
         >
           DATE PERSONALE
         </ChakraLink>
-        {/* <Divider
-          orientation="vertical"
-          h="20px"
-          bg="#FFD100"
-          display={{ base: "none", md: "block" }}
-        /> */}
+
         <ChakraLink
           as={NextLink}
           _hover={{ textDecoration: "none" }}
-          href="/adrese-de-livrare"
+          href="/profile/adrese"
           color="gray.500"
           // fontWeight="bold"
           fontSize={{ base: "sm", md: "xl" }}
@@ -108,16 +114,11 @@ export default function Page() {
         >
           ADRESE DE LIVRARE
         </ChakraLink>
-        {/* <Divider
-          orientation="vertical"
-          h="20px"
-          bg="#FFD100"
-          display={{ base: "none", md: "block" }}
-        /> */}
+
         <ChakraLink
           as={NextLink}
           _hover={{ textDecoration: "none" }}
-          href="/istoricComenzi"
+          href="/profile/istoric"
           color="gray.500"
           // fontWeight="bold"
           fontSize={{ base: "sm", md: "xl" }}
@@ -127,14 +128,81 @@ export default function Page() {
         </ChakraLink>
       </HStack>
 
+      {/* NAVIGATION MOBILE */}
+      <Box
+        display={{ base: "flex", md: "none" }}
+        width={"full"}
+        mt={{ base: 2, md: 0 }}
+      >
+        <Menu matchWidth>
+          <MenuButton
+            as={Button}
+            rightIcon={<ChevronDownIcon boxSize={8} />}
+            width="full"
+            height={"50px"}
+            bg="#707070"
+            color="white"
+            _hover={{ bg: "#606060" }}
+            textAlign="center"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            {activeItem}
+          </MenuButton>
+          <MenuList width="full" bg="#707070" border="none">
+            {" "}
+            <MenuItem
+              onClick={() => setActiveItem("Date personale")}
+              bg="#707070"
+              color="white"
+              _hover={{ bg: "#606060" }}
+              textAlign="center"
+              justifyContent="center"
+              height="30px"
+            >
+              Date personale
+            </MenuItem>
+            <MenuItem
+              onClick={() => setActiveItem("Adrese de livrare")}
+              bg="#707070"
+              color="white"
+              _hover={{ bg: "#606060" }}
+              textAlign="center"
+              justifyContent="center"
+              height="30px"
+            >
+              Adrese de livrare
+            </MenuItem>
+            <MenuItem
+              onClick={() => setActiveItem("Istoric comenzi")}
+              bg="#707070"
+              color="white"
+              _hover={{ bg: "#606060" }}
+              textAlign="center"
+              justifyContent="center"
+              height="30px"
+            >
+              Istoric comenzi
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </Box>
+
       <Divider
+        display={{ base: "none", md: "flex" }}
         borderColor="#FFD100"
         borderWidth="1px"
         mb={{ base: 4, md: 12 }}
       />
 
-      <VStack spacing={5} align="stretch">
-        <HStack spacing={10} flexWrap="wrap">
+      <VStack
+        className="borderGreen"
+        mt={{ base: 14, md: 0 }}
+        spacing={{ base: 4, md: 5 }}
+        align="stretch"
+      >
+        <Box display={"flex"} gap={{ base: 4, md: 10 }} flexWrap="wrap">
           <Input
             placeholder="Nume"
             value={firstName}
@@ -143,7 +211,7 @@ export default function Page() {
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
-            height={{ base: "46px", md: "50px" }}
+            height={{ base: "52px", md: "50px" }}
           />
           <Input
             placeholder="Prenume"
@@ -153,14 +221,14 @@ export default function Page() {
             color="white"
             border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
-            height={{ base: "46px", md: "50px" }}
+            height={{ base: "52px", md: "50px" }}
           />
-        </HStack>
+        </Box>
 
         <Box
           display="flex"
           flexDirection={{ base: "column", md: "row" }}
-          gap={10}
+          gap={{ base: 4, md: 10 }}
         >
           <Input
             placeholder="Email"
@@ -169,7 +237,7 @@ export default function Page() {
             bg="#707070"
             color="white"
             border="none"
-            height={{ base: "46px", md: "50px" }}
+            height={{ base: "52px", md: "50px" }}
           />
           <Input
             placeholder="Numar de telefon"
@@ -178,7 +246,7 @@ export default function Page() {
             bg="#707070"
             color="white"
             border="none"
-            height={{ base: "46px", md: "50px" }}
+            height={{ base: "52px", md: "50px" }}
           />
         </Box>
 
@@ -191,37 +259,45 @@ export default function Page() {
           gap={2}
         >
           <Box
-            className="bordeRed"
+            // className="borderRed"
             display="flex"
             flexDirection={{ base: "column", md: "column" }}
-            gap={4}
-            height="110px"
+            gap={{ base: 9, md: 4 }}
+            // height="120px"
             width={{ base: "100%", md: "48%" }}
           >
             <Input
-              className="bordeRed"
               placeholder="Parola veche"
+              sx={{
+                "::placeholder": {
+                  color: "#B3B3B3",
+                },
+              }}
               type="password"
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
               bg="#707070"
               color="white"
               border="none"
-              flex={{ base: "1 1 100%", md: "1 1 45%" }}
-              height={{ base: "46px", md: "50px" }}
+              // flex={{ base: "1 1 100%", md: "1 1 45%" }}
+              height={{ base: "52px", md: "50px" }}
               width="100%"
             />
             <Input
-              className="bordeRed"
               placeholder="Parola noua"
+              sx={{
+                "::placeholder": {
+                  color: "#B3B3B3",
+                },
+              }}
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               bg="#707070"
               color="white"
               border="none"
-              flex={{ base: "1 1 100%", md: "1 1 45%" }}
-              height={{ base: "46px", md: "50px" }}
+              // flex={{ base: "1 1 100%", md: "1 1 45%" }}
+              height={{ base: "52px", md: "50px" }}
               width="100%"
             />
           </Box>
@@ -237,17 +313,19 @@ export default function Page() {
                 bgColor="#999999"
                 color="#FFFFFF"
                 borderRadius="5px"
-                height={{ base: "46px", md: "50px" }}
+                mt={{ base: 8, md: 0 }}
+                height={{ base: "52px", md: "50px" }}
                 width={{ base: "100%", md: "30%" }}
               >
                 <Box
                   display="flex"
                   textAlign="left"
                   alignItems="center"
-                  pl={{ base: 12, md: 12 }}
+                  pl={{ base: 5, md: 5 }}
                   variant="solid"
-                  height={{ base: "46px", md: "50px" }}
-                  fontSize={{ base: "0.8rem", md: "inherit" }}
+                  height={{ base: "100%", md: "50px" }}
+                  fontSize={{ base: "1rem", md: "inherit" }}
+                  fontWeight={"bold"}
                 >
                   MODIFICA DATELE
                 </Box>
@@ -272,15 +350,17 @@ export default function Page() {
         <Popover>
           <PopoverTrigger>
             <Button
+              className="borderRed"
               rightIcon={<FaLock />}
-              iconSpacing={60}
+              iconSpacing={{ base: 48, md: 60 }}
               bg="#707070"
+              mt={{ base: 1, md: 0 }}
               color="white"
               border="none"
               fontWeight="bold"
               _hover={{ bg: "gray.700" }}
               width={{ base: "100%", md: "48%" }}
-              height={{ base: "46px", md: "50px" }}
+              height={{ base: "52px", md: "50px" }}
             >
               MODIFICA PAROLA
             </Button>
@@ -293,9 +373,9 @@ export default function Page() {
         </Popover>
       </VStack>
 
-      <HStack flexWrap="wrap" mt={{ base: 4, md: 20 }} pb={2}>
+      <HStack flexWrap="wrap" mt={{ base: 20, md: 20 }} pb={2}>
         <Button
-          display={{ base: "none", md: "flex" }}
+          // display={{ base: "none", md: "flex" }}
           onClick={handleLogout}
           gap={3}
           cursor="pointer"
@@ -303,7 +383,7 @@ export default function Page() {
           bgColor="inherit"
           alignSelf={{ base: "flex-start", md: "center" }}
           _hover={{ textDecoration: "none" }}
-          fontSize={{ base: "sm", md: "xl" }}
+          fontSize={{ base: "lg", md: "xl" }}
           fontWeight="normal"
         >
           <Image src="../assets/logout.svg" alt="Delete" boxSize="30px" />
@@ -313,14 +393,14 @@ export default function Page() {
         <Popover>
           <PopoverTrigger>
             <Button
-              display={{ base: "none", md: "flex" }}
+              // display={{ base: "none", md: "flex" }}
               gap={3}
               cursor="pointer"
               color="#FFD100"
               bgColor="inherit"
               alignSelf={{ base: "flex-start", md: "center" }}
               _hover={{ textDecoration: "none" }}
-              fontSize={{ base: "sm", md: "xl" }}
+              fontSize={{ base: "lg", md: "xl" }}
               fontWeight="normal"
             >
               <Image
