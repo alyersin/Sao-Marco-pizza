@@ -5,6 +5,9 @@ import {
   Box,
   Button,
   Heading,
+  Text,
+  Link,
+  Image,
   Input,
   Collapse,
   VStack,
@@ -14,90 +17,159 @@ import "../../app/globals.css";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function AdreseDeLivrare() {
-  const [isAddingAddress, setIsAddingAddress] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const toggleAddressForm = () => {
-    setIsAddingAddress(!isAddingAddress);
+    setIsCollapsed(!isCollapsed);
   };
 
   return (
     <Box
-      className="borderRed"
+      className="borderBlue"
+      display="flex"
+      flexDirection={"column"}
+      alignItems="left"
+      justifyContent={"left"}
+      alignContent={"left"}
+      textAlign={"left"}
       bg="#232323"
+      gap={14}
       color="white"
-      px={{ base: 4, md: 10 }}
-      py={{ base: 4, md: 9 }}
-      maxW="1024px"
-      mx="auto"
-      mt={{ base: 0, md: 0 }}
-      mb={{ base: 4, md: 20 }}
+      mt={10}
+      mb={{ base: 4, md: 6 }}
       borderRadius="md"
     >
-      <Heading size="sm" mb={4}>
-        {isAddingAddress ? "ADAUGA ADRESA" : "Adauga adrese de livrare."}
-      </Heading>
+      <Box>
+        <Text
+          className="borderRed"
+          fontSize={"1.3rem"}
+          width={"fit-content"}
+          mb={6}
+        >
+          Adauga adrese de livrare.
+        </Text>
 
-      <Collapse in={isAddingAddress} animateOpacity>
-        <Box bg="black" p={6} borderRadius="md" mb={4}>
-          <VStack spacing={4}>
-            <HStack spacing={4} width="full">
-              <Input
-                placeholder="Cauta localitatea"
-                sx={{ "::placeholder": { color: "#B3B3B3" } }}
-                bg="#707070"
-                color="white"
-              />
-              <Input
-                placeholder="Strada"
-                sx={{ "::placeholder": { color: "#B3B3B3" } }}
-                bg="#707070"
-                color="white"
-              />
-            </HStack>
-            <HStack spacing={4} width="full">
-              <Input
-                placeholder="Numarul strazii"
-                sx={{ "::placeholder": { color: "#B3B3B3" } }}
-                bg="#707070"
-                color="white"
-              />
-              <Input
-                placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"
-                sx={{ "::placeholder": { color: "#B3B3B3" } }}
-                bg="#707070"
-                color="white"
-              />
-            </HStack>
-            <Input
-              placeholder="Repere"
-              sx={{ "::placeholder": { color: "#B3B3B3" } }}
-              bg="#707070"
-              color="white"
-            />
-            <Button
-              colorScheme="gray"
-              bg="#707070"
-              color="white"
-              rightIcon={<ChevronRightIcon />}
-              _hover={{ bg: "gray.500" }}
-              onClick={() => alert("Adresa salvata!")}
+        <Collapse in={isCollapsed} animateOpacity>
+          <Box bg="black" px={10} py={9} borderRadius="md">
+            <Text fontSize={"1.2rem"} width="fit-content" mb={12}>
+              ADAUGA ADRESA
+            </Text>
+            <VStack
+              className="borderRed"
+              alignItems="flex-start"
+              // width="full"
+              spacing={4}
             >
-              SALVEAZA ADRESA
-            </Button>
-          </VStack>
-        </Box>
-      </Collapse>
+              <HStack className="borderBlue" spacing={20} width="full">
+                <Input
+                  placeholder="Cauta localitatea"
+                  sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                  bg="#707070"
+                  color="white"
+                  height="50px"
+                />
+                <Input
+                  placeholder="Strada"
+                  sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                  bg="#707070"
+                  color="white"
+                  height="50px"
+                />
+              </HStack>
+              <HStack className="borderBlue" spacing={20} width="full">
+                <Input
+                  placeholder="Numarul strazii"
+                  sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                  bg="#707070"
+                  color="white"
+                  height="50px"
+                />
+                <Input
+                  placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"
+                  sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                  bg="#707070"
+                  color="white"
+                  height="50px"
+                />
+              </HStack>
+              <VStack className="borderBlue" spacing={3} width="auto" mb={2}>
+                <Input
+                  placeholder="Repere"
+                  sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                  bg="#707070"
+                  height="50px"
+                  color="white"
+                  width={"392px"}
+                />
 
-      <Button
-        colorScheme="gray"
-        bg="gray.600"
-        color="white"
-        rightIcon={<ChevronRightIcon />}
-        _hover={{ bg: "gray.500" }}
+                <Link
+                  href="#"
+                  _hover={{ textDecoration: "none" }}
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  bgColor="#999999"
+                  color="#FFFFFF"
+                  borderRadius="5px"
+                  mt={{ base: 8, md: 0 }}
+                  height="54px"
+                  width="100%"
+                  onClick={() => alert("Adresa salvata!")}
+                >
+                  <Box
+                    display="flex"
+                    textAlign="left"
+                    alignItems="center"
+                    pl={{ base: 5, md: 5 }}
+                    fontSize={{ base: "1rem", md: "inherit" }}
+                    fontWeight="bold"
+                  >
+                    SALVEAZA ADRESA
+                  </Box>
+                  <Image
+                    src="../assets/arrow-right.svg"
+                    alt="arrow"
+                    height="100%"
+                    borderRadius="5px"
+                  />
+                </Link>
+              </VStack>
+            </VStack>
+          </Box>
+        </Collapse>
+      </Box>
+
+      <Link
+        href="#"
+        _hover={{ textDecoration: "none" }}
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        bgColor="#999999"
+        color="#FFFFFF"
+        borderRadius="5px"
+        mt={{ base: 8, md: 0 }}
+        height="54px"
+        width="32%"
         onClick={toggleAddressForm}
       >
-        {isAddingAddress ? "ANULEAZA" : "ADAUGA ADRESA"}
-      </Button>
+        <Box
+          display="flex"
+          textAlign="left"
+          alignItems="center"
+          pl={{ base: 5, md: 5 }}
+          fontSize={{ base: "1rem", md: "inherit" }}
+          fontWeight="bold"
+        >
+          {isCollapsed ? "ANULEAZA" : "ADAUGA ADRESA"}
+        </Box>
+        <Image
+          src="../assets/arrow-right.svg"
+          alt="arrow"
+          height="100%"
+          borderRadius="5px"
+        />
+      </Link>
     </Box>
   );
 }

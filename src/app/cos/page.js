@@ -611,7 +611,6 @@ export default function Cos() {
                   placeholder="Voucher"
                   bg="#707070"
                   color="white"
-                  border="none"
                   height={{ base: "46px", md: "50px" }}
                   width={{ base: "auto", md: "auto" }}
                   sx={{
@@ -900,7 +899,6 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
-                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -912,7 +910,6 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
-                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -924,7 +921,6 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
-                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -936,7 +932,6 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
-                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",
@@ -948,7 +943,6 @@ export default function Cos() {
                     bg="#707070"
                     color="white"
                     height={{ base: "50px", md: "56px" }}
-                    border="none"
                     sx={{
                       "::placeholder": {
                         color: "#B3B3B3",

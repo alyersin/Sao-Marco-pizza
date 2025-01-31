@@ -40,7 +40,8 @@ export default function Page() {
       bg="#232323"
       color="white"
       px={{ base: 4, md: 10 }}
-      py={{ base: 4, md: 9 }}
+      pt={{ base: 4, md: 9 }}
+      pb={{ base: 4, md: 6 }}
       maxW="1024px"
       mx="auto"
       mt={{ base: 0, md: 20 }}
@@ -49,8 +50,8 @@ export default function Page() {
     >
       <Text
         display={{ base: "none", md: "flex" }}
-        fontSize={{ base: "md", md: "18px" }}
-        mb={{ base: 4, md: 6 }}
+        fontSize={{ base: "md", md: "16px" }}
+        mb={{ base: 4, md: 9 }}
       >
         Cont personal | {activeItem}
       </Text>
@@ -58,14 +59,14 @@ export default function Page() {
       <HStack
         display={{ base: "none", md: "flex" }}
         spacing={{ base: 2, md: 4 }}
-        justifyContent="space-between"
-        mb={{ base: 4, md: 7 }}
+        justifyContent="space-around"
+        mb={{ base: 4, md: 6 }}
         mt={{ base: 4, md: 8 }}
         flexWrap="wrap"
       >
         <ChakraLink
           onClick={() => setActiveItem("Date personale")}
-          color={activeItem === "Date personale" ? "#FFD100" : "gray.500"}
+          color={activeItem === "Date personale" ? "#FFD100" : "white"}
           fontSize={{ base: "sm", md: "xl" }}
           cursor="pointer"
           _hover={{ textDecoration: "none" }}
@@ -75,7 +76,7 @@ export default function Page() {
 
         <ChakraLink
           onClick={() => setActiveItem("Adrese de livrare")}
-          color={activeItem === "Adrese de livrare" ? "#FFD100" : "gray.500"}
+          color={activeItem === "Adrese de livrare" ? "#FFD100" : "white"}
           fontSize={{ base: "sm", md: "xl" }}
           cursor="pointer"
           _hover={{ textDecoration: "none" }}
@@ -85,7 +86,7 @@ export default function Page() {
 
         <ChakraLink
           onClick={() => setActiveItem("Istoric comenzi")}
-          color={activeItem === "Istoric comenzi" ? "#FFD100" : "gray.500"}
+          color={activeItem === "Istoric comenzi" ? "#FFD100" : "white"}
           fontSize={{ base: "sm", md: "xl" }}
           cursor="pointer"
           _hover={{ textDecoration: "none" }}
@@ -156,7 +157,7 @@ export default function Page() {
         display={{ base: "none", md: "flex" }}
         borderColor="#FFD100"
         borderWidth="1px"
-        mb={{ base: 4, md: 12 }}
+        mb={{ base: 4, md: 0 }}
       />
       {/* RENDER CONTENT */}
       {renderContent()}

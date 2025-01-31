@@ -26,6 +26,34 @@ const theme = extendTheme({
       },
     },
   },
+  components: {
+    Input: {
+      baseStyle: {
+        border: "none",
+        _focus: {
+          boxShadow: "none",
+        },
+      },
+      variants: {
+        outline: {
+          field: {
+            border: "none",
+            _focus: {
+              boxShadow: "none",
+            },
+          },
+        },
+        filled: {
+          field: {
+            border: "none",
+            _focus: {
+              boxShadow: "none",
+            },
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

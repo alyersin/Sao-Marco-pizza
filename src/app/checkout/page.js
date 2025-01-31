@@ -25,7 +25,7 @@ export default function CheckoutPage() {
       clearCart();
       localStorage.removeItem("cart");
       alert("Order confirmed! Redirecting to order history...");
-      router.push("/profile/istoric");
+      router.push("/cos");
     } catch (error) {
       console.error("Error confirming order:", error);
       alert("Failed to confirm the order. Please try again.");

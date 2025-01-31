@@ -3,7 +3,6 @@
 import {
   Box,
   VStack,
-  Text,
   Link,
   Popover,
   Image,
@@ -15,7 +14,6 @@ import {
   Button,
   Input,
   HStack,
-  Divider,
   useToast,
 } from "@chakra-ui/react";
 import { FaLock } from "react-icons/fa";
@@ -109,7 +107,7 @@ export default function DatePersonale() {
     <Box>
       <VStack
         className="borderGreen"
-        mt={{ base: 14, md: 0 }}
+        mt={{ base: 14, md: 12 }}
         spacing={{ base: 4, md: 5 }}
         align="stretch"
       >
@@ -121,7 +119,6 @@ export default function DatePersonale() {
             onChange={(e) => setFirstName(e.target.value)}
             bg="#707070"
             color="white"
-            border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
             height={{ base: "52px", md: "50px" }}
           />
@@ -132,7 +129,6 @@ export default function DatePersonale() {
             onChange={(e) => setLastName(e.target.value)}
             bg="#707070"
             color="white"
-            border="none"
             flex={{ base: "1 1 100%", md: "1 1 45%" }}
             height={{ base: "52px", md: "50px" }}
           />
@@ -150,7 +146,6 @@ export default function DatePersonale() {
             isDisabled
             bg="#707070"
             color="white"
-            border="none"
             height={{ base: "52px", md: "50px" }}
           />
           <Input
@@ -160,7 +155,6 @@ export default function DatePersonale() {
             onChange={(e) => setPhone(e.target.value)}
             bg="#707070"
             color="white"
-            border="none"
             height={{ base: "52px", md: "50px" }}
           />
         </Box>
@@ -187,7 +181,6 @@ export default function DatePersonale() {
               onChange={(e) => setOldPassword(e.target.value)}
               bg="#707070"
               color="white"
-              border="none"
               height={{ base: "52px", md: "50px" }}
             />
             <Input
@@ -198,7 +191,6 @@ export default function DatePersonale() {
               onChange={(e) => setNewPassword(e.target.value)}
               bg="#707070"
               color="white"
-              border="none"
               height={{ base: "52px", md: "50px" }}
             />
           </Box>
@@ -270,7 +262,7 @@ export default function DatePersonale() {
           </PopoverContent>
         </Popover>
 
-        <HStack flexWrap="wrap" mt={{ base: 20, md: 20 }} pb={2}>
+        <HStack flexWrap="wrap" mt={{ base: 20, md: 16 }} pb={4}>
           <Button
             onClick={handleLogout}
             gap={3}

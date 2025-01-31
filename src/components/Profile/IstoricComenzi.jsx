@@ -41,15 +41,22 @@ export default function IstoricComenzi() {
   }
 
   return (
-    <VStack spacing={4}>
-      <Text fontSize="2xl" fontWeight="bold">
-        Order History
+    <VStack className="borderBlue" spacing={4}>
+      <Text fontSize="xl">
+        Poti sa vezi factura sau detaliile de comanda la fiecare din comenzile
+        tale.
       </Text>
       {orders.length === 0 ? (
         <Text>No orders found.</Text>
       ) : (
         orders.map((order) => (
-          <Box key={order.id} p={4} border="1px solid gray" borderRadius="md">
+          <Box
+            key={order.id}
+            p={4}
+            width={"100%"}
+            border="1px solid gray"
+            borderRadius="md"
+          >
             <Text>Order Date: {order.orderDate.toDate().toLocaleString()}</Text>
             <Text>Status: {order.status}</Text>
             <Text>Total: {parseFloat(order.totalAmount).toFixed(2)} lei</Text>
