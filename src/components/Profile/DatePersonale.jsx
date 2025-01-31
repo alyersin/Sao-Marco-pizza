@@ -116,6 +116,7 @@ export default function DatePersonale() {
         <Box display={"flex"} gap={{ base: 4, md: 10 }} flexWrap="wrap">
           <Input
             placeholder="Nume"
+            sx={{ "::placeholder": { color: "#B3B3B3" } }}
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             bg="#707070"
@@ -126,6 +127,7 @@ export default function DatePersonale() {
           />
           <Input
             placeholder="Prenume"
+            sx={{ "::placeholder": { color: "#B3B3B3" } }}
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             bg="#707070"
@@ -143,6 +145,7 @@ export default function DatePersonale() {
         >
           <Input
             placeholder="Email"
+            sx={{ "::placeholder": { color: "#B3B3B3" } }}
             value={user?.email || ""}
             isDisabled
             bg="#707070"
@@ -152,6 +155,7 @@ export default function DatePersonale() {
           />
           <Input
             placeholder="Numar de telefon"
+            sx={{ "::placeholder": { color: "#B3B3B3" } }}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             bg="#707070"

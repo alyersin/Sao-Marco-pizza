@@ -31,50 +31,51 @@ export default function AdreseDeLivrare() {
       mb={{ base: 4, md: 20 }}
       borderRadius="md"
     >
-      <Heading size="md" mb={4}>
-        Cont personal | Date personale
-      </Heading>
-
-      <HStack spacing={8} mb={4}>
-        <Heading
-          size="sm"
-          color="gray.300"
-          borderBottom="2px solid"
-          borderColor="yellow.400"
-        >
-          DATE PERSONALE
-        </Heading>
-        <Heading size="sm" color="yellow.400">
-          ADRESE DE LIVRARE
-        </Heading>
-        <Heading size="sm" color="gray.300">
-          ISTORIC COMENZI
-        </Heading>
-      </HStack>
-
       <Heading size="sm" mb={4}>
         {isAddingAddress ? "ADAUGA ADRESA" : "Adauga adrese de livrare."}
       </Heading>
 
       <Collapse in={isAddingAddress} animateOpacity>
-        <Box bg="gray.800" p={6} borderRadius="md" mb={4}>
+        <Box bg="black" p={6} borderRadius="md" mb={4}>
           <VStack spacing={4}>
             <HStack spacing={4} width="full">
-              <Input placeholder="CONSTANTA" bg="gray.700" color="white" />
-              <Input placeholder="Pescarilor" bg="gray.700" color="white" />
+              <Input
+                placeholder="Cauta localitatea"
+                sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                bg="#707070"
+                color="white"
+              />
+              <Input
+                placeholder="Strada"
+                sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                bg="#707070"
+                color="white"
+              />
             </HStack>
             <HStack spacing={4} width="full">
               <Input
                 placeholder="Numarul strazii"
-                bg="gray.700"
+                sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                bg="#707070"
                 color="white"
               />
-              <Input placeholder="Bloc" bg="gray.700" color="white" />
+              <Input
+                placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"
+                sx={{ "::placeholder": { color: "#B3B3B3" } }}
+                bg="#707070"
+                color="white"
+              />
             </HStack>
-            <Input placeholder="Repere" bg="gray.700" color="white" />
+            <Input
+              placeholder="Repere"
+              sx={{ "::placeholder": { color: "#B3B3B3" } }}
+              bg="#707070"
+              color="white"
+            />
             <Button
               colorScheme="gray"
-              bg="gray.600"
+              bg="#707070"
+              color="white"
               rightIcon={<ChevronRightIcon />}
               _hover={{ bg: "gray.500" }}
               onClick={() => alert("Adresa salvata!")}
@@ -88,6 +89,7 @@ export default function AdreseDeLivrare() {
       <Button
         colorScheme="gray"
         bg="gray.600"
+        color="white"
         rightIcon={<ChevronRightIcon />}
         _hover={{ bg: "gray.500" }}
         onClick={toggleAddressForm}
