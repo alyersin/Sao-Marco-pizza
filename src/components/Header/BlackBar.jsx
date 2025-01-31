@@ -16,6 +16,12 @@ export default function BlackBar() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  /*************  ✨ Codeium Command ⭐  *************/
+  /**
+   * Opens the login modal and sets the default tab to "login".
+   */
+
+  /******  95d900c4-a2fc-4b1d-8864-6e04e075a545  *******/
   const openLoginModal = () => {
     setDefaultTab("login");
     setIsLoginModalOpen(true);
@@ -56,7 +62,7 @@ export default function BlackBar() {
           <Box height="20px" width="1px" bg="#828282" />
 
           <Link
-            href="../contact"
+            href="../Contact"
             fontSize="0.9rem"
             _hover={{ textDecoration: "none" }}
           >
