@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getUserOrders } from "../../../lib/firestore";
+import { getUserOrders } from "../../lib/firestore";
 import { VStack, Text, Box, Spinner } from "@chakra-ui/react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../../lib/firebase";
+import { auth } from "../../lib/firebase";
 
-export default function Istoric() {
+export default function IstoricComenzi() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);

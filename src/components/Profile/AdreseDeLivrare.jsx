@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
-export default function Adrese() {
+export default function AdreseDeLivrare() {
   const [isAddingAddress, setIsAddingAddress] = useState(false);
 
   const toggleAddressForm = () => {
@@ -20,7 +20,17 @@ export default function Adrese() {
   };
 
   return (
-    <Box bg="black" color="white" p={6} borderRadius="md">
+    <Box
+      bg="#232323"
+      color="white"
+      px={{ base: 4, md: 10 }}
+      py={{ base: 4, md: 9 }}
+      maxW="1024px"
+      mx="auto"
+      mt={{ base: 0, md: 20 }}
+      mb={{ base: 4, md: 20 }}
+      borderRadius="md"
+    >
       <Heading size="md" mb={4}>
         Cont personal | Date personale
       </Heading>

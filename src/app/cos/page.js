@@ -88,6 +88,11 @@ export default function Cos() {
 
   // HANDLE CHECKOUT
   const handleCheckout = () => {
+    if (cart.length === 0) {
+      alert("Cosul de cumparaturi este gol");
+      return;
+    }
+
     if (isLoggedIn) {
       localStorage.setItem("checkoutCart", JSON.stringify(cart));
 
@@ -116,6 +121,11 @@ export default function Cos() {
         0
       )
       .toFixed(2);
+  };
+
+  // CALCULATE TOTAL ITEMS
+  const calculateTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
   return (
@@ -566,7 +576,8 @@ export default function Cos() {
 
               <HStack justifyContent={"space-between"} mt={3}>
                 <Text fontWeight={"bold"} fontSize="1.7rem" color="#ff6633">
-                  Total 1 produs
+                  Total {calculateTotalItems()}{" "}
+                  {calculateTotalItems() === 1 ? "produs" : "produse"}
                 </Text>
                 <Text fontWeight={"bold"} fontSize="1.6rem" color="#ff6633">
                   {calculateTotal()} lei
@@ -771,12 +782,9 @@ export default function Cos() {
               </HStack>
 
               <HStack justifyContent={"space-between"} mt={3}>
-                <Text
-                  fontWeight={"bold"}
-                  fontSize={{ base: "1.4rem", md: "1.8rem" }}
-                  color="#ff6633"
-                >
-                  Total 1 produs
+                <Text fontWeight={"bold"} fontSize="1.7rem" color="#ff6633">
+                  Total {calculateTotalItems()}{" "}
+                  {calculateTotalItems() === 1 ? "produs" : "produse"}
                 </Text>
                 <Text fontWeight={"bold"} fontSize="1.6rem" color="#ff6633">
                   {calculateTotal()} lei
@@ -1019,11 +1027,13 @@ export default function Cos() {
             justifyContent="space-between"
             alignItems="center"
             _hover={{ textDecoration: "none" }}
-            bgColor="#999999"
+            bgColor={cart.length === 0 ? "#555555" : "#999999"}
             color="#FFFFFF"
             borderRadius="5px"
             height={{ base: "50px", md: "54px" }}
             width={{ base: "400px", md: "410px" }}
+            pointerEvents={cart.length === 0 ? "none" : "auto"}
+            opacity={cart.length === 0 ? 0.5 : 1}
           >
             <Box
               display="flex"
