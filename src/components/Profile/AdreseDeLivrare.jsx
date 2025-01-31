@@ -10,6 +10,7 @@ import {
   VStack,
   HStack,
 } from "@chakra-ui/react";
+import "../../app/globals.css";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function AdreseDeLivrare() {
@@ -21,13 +22,14 @@ export default function AdreseDeLivrare() {
 
   return (
     <Box
+      className="borderRed"
       bg="#232323"
       color="white"
       px={{ base: 4, md: 10 }}
       py={{ base: 4, md: 9 }}
       maxW="1024px"
       mx="auto"
-      mt={{ base: 0, md: 20 }}
+      mt={{ base: 0, md: 0 }}
       mb={{ base: 4, md: 20 }}
       borderRadius="md"
     >

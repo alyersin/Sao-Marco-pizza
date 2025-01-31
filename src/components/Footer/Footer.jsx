@@ -45,7 +45,7 @@ export default function Footer() {
               <Link href="#" _hover={{ textDecoration: "underline" }}>
                 Restaurante
               </Link>
-              <Link href="#" _hover={{ textDecoration: "underline" }}>
+              <Link href="/Contact" _hover={{ textDecoration: "underline" }}>
                 Contact
               </Link>
               <Link href="#" _hover={{ textDecoration: "underline" }}>
