@@ -34,7 +34,6 @@ export default function RootLayout({ children }) {
             {!isSmallScreen && <BlackBar />}
             <Header />
             <main style={{ flex: 1 }}>{children}</main>
-            <ScrollToTop />
             <Footer />
           </CartProvider>
         </ChakraProvider>

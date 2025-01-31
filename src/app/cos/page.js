@@ -27,6 +27,7 @@ import { useRouter } from "next/navigation";
 import { auth } from "../../lib/firebase";
 import { useMediaQuery } from "@chakra-ui/react";
 import { onAuthStateChanged } from "firebase/auth";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
 export default function Cos() {
   const [cart, setCart] = useState([]);
