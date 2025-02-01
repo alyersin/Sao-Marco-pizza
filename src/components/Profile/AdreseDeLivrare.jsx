@@ -17,7 +17,7 @@ export default function AdreseDeLivrare() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   // HANDLE ADDRESS
-  const handleSaveAddress = () => {
+  const handleSaveAddress = async () => {
     const localitate = document.querySelector(
       'input[placeholder="Cauta localitatea"]'
     ).value;
@@ -32,10 +32,24 @@ export default function AdreseDeLivrare() {
 
     const newAddress = `${localitate}, ${strada}, ${numar}, ${detalii}, ${repere}`;
 
-    localStorage.setItem("deliveryAddress", newAddress);
-    alert("Adresa salvata!");
+    try {
+      const response = await fetch("/api/update-address", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ address: newAddress }),
+      });
 
-    window.dispatchEvent(new Event("storage"));
+      if (response.ok) {
+        alert("Adresa salvata!");
+      } else {
+        alert("Eroare la salvarea adresei.");
+      }
+    } catch (error) {
+      console.error("Failed to update address:", error);
+      alert("Eroare la conectarea la server.");
+    }
   };
 
   const toggleAddressForm = () => {

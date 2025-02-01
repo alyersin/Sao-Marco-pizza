@@ -67,20 +67,19 @@ export default function Cos() {
   }, []);
 
   useEffect(() => {
-    const loadAddress = () => {
-      const address = localStorage.getItem("deliveryAddress");
-      if (address) {
-        setSavedAddress(address);
+    const fetchAddress = async () => {
+      try {
+        const response = await fetch("/api/get-address");
+        if (response.ok) {
+          const data = await response.json();
+          setSavedAddress(data.address);
+        }
+      } catch (error) {
+        console.error("Failed to fetch address:", error);
       }
     };
 
-    loadAddress();
-
-    window.addEventListener("storage", loadAddress);
-
-    return () => {
-      window.removeEventListener("storage", loadAddress);
-    };
+    fetchAddress();
   }, []);
 
   // HANDLE RADIO

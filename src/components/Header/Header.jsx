@@ -160,7 +160,7 @@ export default function Header() {
 
           <HStack
             spacing={4}
-            divider={<Box height="24px" width="2px" bg="black" />}
+            divider={<Box height="24px" width="4px" bg="black" />}
           >
             {[
               { href: "/pizza", label: "PIZZA" },
