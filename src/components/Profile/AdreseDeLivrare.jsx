@@ -47,7 +47,12 @@ export default function AdreseDeLivrare() {
         </Text>
 
         <Collapse in={isCollapsed} animateOpacity>
-          <Box bg="black" px={10} py={{ base: 5, md: 9 }} borderRadius="md">
+          <Box
+            bg="black"
+            px={{ base: 4, md: 10 }}
+            py={{ base: 5, md: 9 }}
+            borderRadius="md"
+          >
             <Text fontSize={"1.2rem"} width="fit-content" mb={12}>
               ADAUGA ADRESA
             </Text>

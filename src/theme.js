@@ -27,6 +27,14 @@ const theme = extendTheme({
     },
   },
   components: {
+    Link: {
+      baseStyle: {
+        textDecoration: "none",
+        _hover: {
+          textDecoration: "none",
+        },
+      },
+    },
     Input: {
       baseStyle: {
         border: "none",

@@ -12,6 +12,7 @@ import {
   Link,
   Box,
   HStack,
+  Icon,
   Input,
   Image,
   Alert,
@@ -19,6 +20,7 @@ import {
   Radio,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -174,10 +176,38 @@ export default function MobileDrawer({ isOpen, onClose }) {
               DESPRE SAO MARCO
             </Text>
             {""}
-            <Link href="../contact">
+            <Link href="/Contact">
               <Box fontSize={"1.4rem"} fontWeight={"bold"}>
                 CONTACT
               </Box>
+            </Link>
+            <HStack
+              spacing={4}
+              alignItems="center"
+              justifyContent="center"
+              height="100%"
+            >
+              <Link href="https://facebook.com" isExternal>
+                <Icon as={FaFacebook} boxSize={5} />
+              </Link>
+              <Link href="https://instagram.com" isExternal>
+                <Icon as={FaInstagram} boxSize={5} />
+              </Link>
+            </HStack>
+            <Link
+              href="tel:0241555555"
+              display="flex"
+              flexDirection="row"
+              spacing={2}
+              alignItems="center"
+              _hover={{ textDecoration: "none" }}
+            >
+              <VStack>
+                <Text fontSize="1.2rem" mr={1}>
+                  Comenzi telefonice:
+                </Text>
+                <Text fontSize="1.2rem">0241 555 555</Text>
+              </VStack>
             </Link>
           </VStack>
         );

@@ -17,33 +17,50 @@ import {
 } from "@chakra-ui/react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function Contact() {
   const [agree, setAgree] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!agree) {
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);
       return;
     }
+    setLoading(true);
 
-    console.log("Message sent!");
+    try {
+      await axios.post("/api/contact", formData);
+      setResponseMessage("Mesajul a fost trimis cu succes!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setResponseMessage("Eroare la trimiterea mesajului. Încercați din nou.");
+    }
+    setLoading(false);
   };
 
   return (
-    <Box className="borderRed" maxWidth="1280px" mx="auto">
+    <Box maxWidth="1280px" mx="auto">
       <Box
-        className="borderBlue"
+        // className="borderBlue"
         maxWidth="1280px"
-        mx="10"
-        mt={20}
+        mx={{ base: 0, md: 10 }}
+        mt={{ base: 0, md: 20 }}
         mb={"7px"}
         bg="#232323"
         color="white"
-        py={8}
-        px={10}
+        py={{ base: 6, md: 8 }}
+        px={{ base: 4, md: 10 }}
       >
         {showAlert && (
           <Alert
@@ -74,30 +91,50 @@ export default function Contact() {
         )}
 
         <Box>
-          <Text fontSize="md" mb={5} mt={2} color="gray.400">
-            Homepage | Contact
+          <Text
+            display={{ base: "none", md: "block" }}
+            fontSize="md"
+            mb={5}
+            mt={2}
+            color="gray.400"
+          >
+            Home page | Contact
           </Text>
 
-          <Heading fontSize="2xl" mb={10}>
+          <Heading fontSize="2xl" mb={{ base: 6, md: 10 }}>
             CONTACTEAZA-NE!
           </Heading>
-          <Text fontSize="md" mb={8}>
+          <Text fontSize="md" mb={{ base: 7, md: 8 }}>
             Ai intrebari? Lasa-ne un mesaj in acest formular.
           </Text>
 
-          <HStack spacing={28} align="flex-start" flexWrap="wrap">
-            <VStack spacing={5} flex="1" maxW="50%">
+          <HStack
+            className="borderGreen"
+            spacing={{ base: 20, md: 28 }}
+            align="flex-start"
+            flexWrap="wrap"
+          >
+            <VStack
+              className="borderRed"
+              spacing={{ base: 4, md: 5 }}
+              flex="1"
+              maxW={{ base: "100%", md: "50%" }}
+            >
               <Input
+                name="name"
                 placeholder="Nume"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 sx={{
-                  "::placeholder": {
-                    color: "#B3B3B3",
-                  },
+                  "::placeholder": { color: "#B3B3B3" },
                 }}
                 bg="#707070"
                 border="none"
                 height="50px"
               />
+
               <Input
                 placeholder="Email"
                 sx={{
@@ -139,7 +176,8 @@ export default function Contact() {
                 </Text>
               </HStack>
 
-              <Link
+              <Button
+                className="borderBlue"
                 onClick={handleSubmit}
                 display="flex"
                 justifyContent="space-between"
@@ -147,10 +185,11 @@ export default function Contact() {
                 bgColor="#999999"
                 color="#FFFFFF"
                 borderRadius="5px"
-                _hover={{ textDecoration: "none" }}
+                _hover={{ bgColor: "#888888" }}
                 height="54px"
                 width="100%"
-                mt={3}
+                mt={{ base: 6, md: 3 }}
+                isLoading={loading}
               >
                 <Box
                   display="flex"
@@ -162,15 +201,23 @@ export default function Contact() {
                   TRIMITE
                 </Box>
                 <Image
+                  className="borderBlue"
                   src="../assets/thumb-right.svg"
                   alt="arrow"
                   height={"100%"}
                   borderRadius="5px"
                 />
-              </Link>
+              </Button>
             </VStack>
 
-            <VStack align="flex-start" spacing={4} flex="1" minW="300px">
+            <VStack
+              className="borderBlue"
+              align={{ base: "center", md: "flex-start" }}
+              textAlign={{ base: "center", md: "left" }}
+              spacing={4}
+              flex="1"
+              minW="300px"
+            >
               <Text fontSize="xl">Program de lucru:</Text>
               <Text>
                 Te asteptam intre 10:00 si 24:00, de Luni până Duminica pentru

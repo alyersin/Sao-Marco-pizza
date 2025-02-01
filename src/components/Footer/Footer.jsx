@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import NextLink from "next/link";
+import "../../app/globals.css";
 
 export default function Footer() {
   return (
@@ -39,34 +40,18 @@ export default function Footer() {
             </Box>
 
             <HStack spacing={4} wrap="wrap">
-              <Link href="#" _hover={{ textDecoration: "underline" }}>
-                Despre Sao Marco
-              </Link>
-              <Link href="#" _hover={{ textDecoration: "underline" }}>
-                Restaurante
-              </Link>
-              <Link href="/Contact" _hover={{ textDecoration: "underline" }}>
-                Contact
-              </Link>
-              <Link href="#" _hover={{ textDecoration: "underline" }}>
-                Termeni si conditii
-              </Link>
+              <Link href="#">Despre Sao Marco</Link>
+              <Link href="#">Restaurante</Link>
+              <Link href="/Contact">Contact</Link>
+              <Link href="#">Termeni si conditii</Link>
             </HStack>
           </HStack>
           {/* MIDDLE */}
           <HStack spacing={4} justify="center" wrap="wrap">
-            <Link href="#" _hover={{ textDecoration: "underline" }}>
-              Politica de confidentialitate
-            </Link>
-            <Link href="#" _hover={{ textDecoration: "underline" }}>
-              Politica de cookie-uri
-            </Link>
-            <Link href="#" _hover={{ textDecoration: "underline" }}>
-              ANPC
-            </Link>
-            <Link href="#" _hover={{ textDecoration: "underline" }}>
-              Valori nutritionale
-            </Link>
+            <Link href="#">Politica de confidentialitate</Link>
+            <Link href="#">Politica de cookie-uri</Link>
+            <Link href="#">ANPC</Link>
+            <Link href="#">Valori nutritionale</Link>
           </HStack>
           <HStack spacing={4} justify="center">
             <Icon as={FaFacebook} boxSize={5} cursor="pointer" />
