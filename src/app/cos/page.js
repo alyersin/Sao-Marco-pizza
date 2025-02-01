@@ -21,13 +21,12 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import { ChevronRightIcon, ChevronLeftIcon } from "@chakra-ui/icons";
-import { FaTrash, FaMinus, FaPlus, FaPizzaSlice } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import { auth } from "../../lib/firebase";
 import { useMediaQuery } from "@chakra-ui/react";
 import { onAuthStateChanged } from "firebase/auth";
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
+import { getAddress } from "../../lib/firestore";
+import { auth } from "../../lib/firebase";
 
 export default function Cos() {
   const [cart, setCart] = useState([]);
@@ -66,20 +65,27 @@ export default function Cos() {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   }, []);
 
+  // LOAD ADDRESS
   useEffect(() => {
-    const fetchAddress = async () => {
-      try {
-        const response = await fetch("/api/get-address");
-        if (response.ok) {
-          const data = await response.json();
-          setSavedAddress(data.address);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        console.log("User is authenticated:", user);
+        try {
+          const address = await getAddress();
+          if (address) {
+            setSavedAddress(address);
+          } else {
+            console.log("No address found for the user.");
+          }
+        } catch (error) {
+          console.error("Error fetching address:", error);
         }
-      } catch (error) {
-        console.error("Failed to fetch address:", error);
+      } else {
+        console.log("User is not logged in.");
       }
-    };
+    });
 
-    fetchAddress();
+    return () => unsubscribe();
   }, []);
 
   // HANDLE RADIO
@@ -878,7 +884,7 @@ export default function Cos() {
                         },
                       }}
                     >
-                      {savedAddress ? savedAddress : "Alege adresa de livrare"}
+                      {savedAddress || "Adresa indisponibila"}
                     </Radio>
                   )}
 

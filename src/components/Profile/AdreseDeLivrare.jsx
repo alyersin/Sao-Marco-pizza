@@ -12,6 +12,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import "../../app/globals.css";
+import { saveAddress, getAddress } from "../../lib/firestore";
 
 export default function AdreseDeLivrare() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -33,25 +34,16 @@ export default function AdreseDeLivrare() {
     const newAddress = `${localitate}, ${strada}, ${numar}, ${detalii}, ${repere}`;
 
     try {
-      const response = await fetch("/api/update-address", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ address: newAddress }),
-      });
+      await saveAddress(newAddress);
 
-      if (response.ok) {
-        alert("Adresa salvata!");
-      } else {
-        alert("Eroare la salvarea adresei.");
-      }
+      const updatedAddress = await getAddress();
+
+      alert("Adresa salvata!");
     } catch (error) {
-      console.error("Failed to update address:", error);
-      alert("Eroare la conectarea la server.");
+      console.error("Failed to save address:", error);
+      alert("Eroare la salvarea adresei.");
     }
   };
-
   const toggleAddressForm = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -73,12 +65,7 @@ export default function AdreseDeLivrare() {
       borderRadius="md"
     >
       <Box>
-        <Text
-          // className="borderRed"
-          fontSize={"1.3rem"}
-          width={"fit-content"}
-          mb={{ base: 6, md: 6 }}
-        >
+        <Text fontSize={"1.3rem"} width={"fit-content"} mb={{ base: 6, md: 6 }}>
           Adauga adrese de livrare.
         </Text>
 

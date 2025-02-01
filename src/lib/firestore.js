@@ -30,6 +30,50 @@ export const saveOrderToHistory = async (cart, totalAmount) => {
   }
 };
 
+export const getAddress = async () => {
+  try {
+    const user = auth.currentUser;
+    if (!user) {
+      console.error("User is not authenticated");
+      return null;
+    }
+
+    const q = query(
+      collection(db, "addresses"),
+      where("userId", "==", user.uid)
+    );
+
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      const addressData = querySnapshot.docs[0].data();
+      return addressData.address;
+    }
+
+    return null;
+  } catch (error) {
+    console.error("Error fetching address:", error);
+    throw error;
+  }
+};
+
+export const saveAddress = async (address) => {
+  try {
+    const user = auth.currentUser;
+    if (!user) throw new Error("User is not authenticated");
+
+    const addressData = {
+      userId: user.uid,
+      address,
+    };
+
+    await addDoc(collection(db, "addresses"), addressData);
+    return true;
+  } catch (error) {
+    console.error("Error saving address:", error);
+    throw error;
+  }
+};
+
 export const getUserOrders = async () => {
   try {
     const user = auth.currentUser;
