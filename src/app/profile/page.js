@@ -105,7 +105,8 @@ export default function Page() {
             as={Button}
             rightIcon={<ChevronDownIcon boxSize={8} />}
             width="full"
-            height={"50px"}
+            height={{ base: "42px", md: "50px" }}
+            mt={{ base: 2, md: 0 }}
             bg="#707070"
             color="white"
             _hover={{ bg: "#606060" }}

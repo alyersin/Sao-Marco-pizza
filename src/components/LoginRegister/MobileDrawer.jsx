@@ -141,14 +141,7 @@ export default function MobileDrawer({ isOpen, onClose }) {
     if (view === "menu") {
       if (isLoggedIn) {
         return (
-          // className="borderRed"
-          // spacing={3}
-          // textAlign="center"
-          // height="100%"
-          // py="50%"
-          // mt="260px"
-
-          <VStack spacing={6} textAlign="center">
+          <VStack className="borderRed" spacing={8} mt="70%" textAlign="center">
             <Link
               href="/profile"
               display="flex"
@@ -165,9 +158,9 @@ export default function MobileDrawer({ isOpen, onClose }) {
                 textAlign="left"
                 alignItems="center"
                 pl={12}
-                fontSize="1.2rem"
+                fontSize="1.3rem"
               >
-                My Account
+                CONT{" "}
               </Box>
               <Image
                 src="../assets/arrow-right.svg"
@@ -175,6 +168,16 @@ export default function MobileDrawer({ isOpen, onClose }) {
                 height={"100%"}
                 borderRadius="5px"
               />
+            </Link>
+
+            <Text fontSize={"1.4rem"} fontWeight={"bold"}>
+              DESPRE SAO MARCO
+            </Text>
+            {""}
+            <Link href="../contact">
+              <Box fontSize={"1.4rem"} fontWeight={"bold"}>
+                CONTACT
+              </Box>
             </Link>
           </VStack>
         );

@@ -3,8 +3,6 @@
 import { useState } from "react";
 import {
   Box,
-  Button,
-  Heading,
   Text,
   Link,
   Image,
@@ -14,7 +12,6 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import "../../app/globals.css";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function AdreseDeLivrare() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -36,31 +33,31 @@ export default function AdreseDeLivrare() {
       gap={14}
       color="white"
       mt={10}
-      mb={{ base: 4, md: 6 }}
+      mb={{ base: 0, md: 4 }}
       borderRadius="md"
     >
       <Box>
         <Text
-          className="borderRed"
+          // className="borderRed"
           fontSize={"1.3rem"}
           width={"fit-content"}
-          mb={6}
+          mb={{ base: 6, md: 6 }}
         >
           Adauga adrese de livrare.
         </Text>
 
         <Collapse in={isCollapsed} animateOpacity>
-          <Box bg="black" px={10} py={9} borderRadius="md">
+          <Box bg="black" px={10} py={{ base: 5, md: 9 }} borderRadius="md">
             <Text fontSize={"1.2rem"} width="fit-content" mb={12}>
               ADAUGA ADRESA
             </Text>
-            <VStack
-              className="borderRed"
-              alignItems="flex-start"
-              // width="full"
-              spacing={4}
-            >
-              <HStack className="borderBlue" spacing={20} width="full">
+            <VStack className="borderRed" alignItems="flex-start" spacing={4}>
+              <HStack
+                className="borderBlue"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 4, md: 20 }}
+                width="full"
+              >
                 <Input
                   placeholder="Cauta localitatea"
                   sx={{ "::placeholder": { color: "#B3B3B3" } }}
@@ -76,7 +73,12 @@ export default function AdreseDeLivrare() {
                   height="50px"
                 />
               </HStack>
-              <HStack className="borderBlue" spacing={20} width="full">
+              <HStack
+                className="borderBlue"
+                flexDirection={{ base: "column", md: "row" }}
+                spacing={{ base: 4, md: 20 }}
+                width="full"
+              >
                 <Input
                   placeholder="Numarul strazii"
                   sx={{ "::placeholder": { color: "#B3B3B3" } }}
@@ -92,14 +94,19 @@ export default function AdreseDeLivrare() {
                   height="50px"
                 />
               </HStack>
-              <VStack className="borderBlue" spacing={3} width="auto" mb={2}>
+              <VStack
+                className="borderBlue"
+                spacing={3}
+                width={{ base: "100%", md: "auto" }}
+                mb={{ base: 0, md: 4 }}
+              >
                 <Input
                   placeholder="Repere"
                   sx={{ "::placeholder": { color: "#B3B3B3" } }}
                   bg="#707070"
                   height="50px"
                   color="white"
-                  width={"392px"}
+                  width={{ base: "100%", md: "392px" }}
                 />
 
                 <Link
@@ -111,9 +118,8 @@ export default function AdreseDeLivrare() {
                   bgColor="#999999"
                   color="#FFFFFF"
                   borderRadius="5px"
-                  mt={{ base: 8, md: 0 }}
                   height="54px"
-                  width="100%"
+                  width={{ base: "100%", md: "100%" }}
                   onClick={() => alert("Adresa salvata!")}
                 >
                   <Box
@@ -150,7 +156,7 @@ export default function AdreseDeLivrare() {
         borderRadius="5px"
         mt={{ base: 8, md: 0 }}
         height="54px"
-        width="32%"
+        width={{ base: "100%", md: "32%" }}
         onClick={toggleAddressForm}
       >
         <Box

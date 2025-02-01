@@ -70,7 +70,7 @@ export default function DatePersonale() {
 
         toast({
           title: "Succes!",
-          description: "Profilul a fost actualizat cu succes!",
+          description: "Profilul a fost actualizat",
           status: "success",
           duration: 3000,
           isClosable: true,
@@ -79,7 +79,7 @@ export default function DatePersonale() {
         console.error("Error updating user data:", error);
         toast({
           title: "Eroare",
-          description: "Nu s-a putut actualiza profilul. Încearcă din nou.",
+          description: "Nu s-a putut actualiza profilul, Incearcă din nou.",
           status: "error",
           duration: 3000,
           isClosable: true,
@@ -93,7 +93,7 @@ export default function DatePersonale() {
       await signOut(auth);
       toast({
         title: "Deconectat",
-        description: "Te-ai deconectat cu succes!",
+        description: "Te-ai deconectat",
         status: "info",
         duration: 3000,
         isClosable: true,

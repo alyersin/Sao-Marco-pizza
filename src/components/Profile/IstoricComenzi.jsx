@@ -34,7 +34,7 @@ export default function IstoricComenzi() {
     return (
       <VStack spacing={4}>
         <Text fontSize="2xl" fontWeight="bold">
-          Please log in to view your order history.
+          Trebuie sa te autentifici pentru a vedea istoricul comenzilor
         </Text>
       </VStack>
     );
@@ -47,7 +47,7 @@ export default function IstoricComenzi() {
         tale.
       </Text>
       {orders.length === 0 ? (
-        <Text>No orders found.</Text>
+        <Text>Nu exista comenzi</Text>
       ) : (
         orders.map((order) => (
           <Box
@@ -57,7 +57,7 @@ export default function IstoricComenzi() {
             border="1px solid gray"
             borderRadius="md"
           >
-            <Text>Order Date: {order.orderDate.toDate().toLocaleString()}</Text>
+            <Text>Data: {order.orderDate.toDate().toLocaleString()}</Text>
             <Text>Status: {order.status}</Text>
             <Text>Total: {parseFloat(order.totalAmount).toFixed(2)} lei</Text>
           </Box>
