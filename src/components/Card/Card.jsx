@@ -78,7 +78,11 @@ export default function Card({
             bgColor="#999999"
             pl={2}
             borderRadius="md"
-            _hover={{ bg: "gray.700" }}
+            transition="all 0.3s ease-in-out"
+            _hover={{
+              bg: "gray.300",
+              transform: "scale(1.02)",
+            }}
             cursor="pointer"
             height="54px"
             width="100%"
@@ -120,13 +124,17 @@ export default function Card({
           bgColor="#999999"
           pl={2}
           borderRadius="md"
-          _hover={{ bg: "gray.700" }}
           cursor="pointer"
           height="54px"
           width="100%"
           onClick={() =>
             router.push(`/detaliuProdus/${item.id}?category=${category}`)
           }
+          transition="all 0.3s ease-in-out"
+          _hover={{
+            bg: "gray.700",
+            transform: "scale(1.02)",
+          }}
         >
           <Text fontWeight="bold" fontSize="md" color="white">
             CUM VREI TU

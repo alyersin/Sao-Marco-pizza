@@ -16,6 +16,28 @@ import "../../app/globals.css";
 export default function AdreseDeLivrare() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  // HANDLE ADDRESS
+  const handleSaveAddress = () => {
+    const localitate = document.querySelector(
+      'input[placeholder="Cauta localitatea"]'
+    ).value;
+    const strada = document.querySelector('input[placeholder="Strada"]').value;
+    const numar = document.querySelector(
+      'input[placeholder="Numarul strazii"]'
+    ).value;
+    const detalii = document.querySelector(
+      'input[placeholder="Detalii (Bloc, Scara, Etaj, Apartament)"]'
+    ).value;
+    const repere = document.querySelector('input[placeholder="Repere"]').value;
+
+    const newAddress = `${localitate}, ${strada}, ${numar}, ${detalii}, ${repere}`;
+
+    localStorage.setItem("deliveryAddress", newAddress);
+    alert("Adresa salvata!");
+
+    window.dispatchEvent(new Event("storage"));
+  };
+
   const toggleAddressForm = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -125,7 +147,7 @@ export default function AdreseDeLivrare() {
                   borderRadius="5px"
                   height="54px"
                   width={{ base: "100%", md: "100%" }}
-                  onClick={() => alert("Adresa salvata!")}
+                  onClick={handleSaveAddress}
                 >
                   <Box
                     display="flex"

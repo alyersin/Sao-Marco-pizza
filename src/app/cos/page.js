@@ -37,6 +37,8 @@ export default function Cos() {
   const [deliveryOption, setDeliveryOption] = useState("");
   const [showInputs, setShowInputs] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  const [savedAddress, setSavedAddress] = useState("");
+
   const router = useRouter();
 
   // CHECK IF USER IS LOGGED IN
@@ -62,6 +64,23 @@ export default function Cos() {
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+  }, []);
+
+  useEffect(() => {
+    const loadAddress = () => {
+      const address = localStorage.getItem("deliveryAddress");
+      if (address) {
+        setSavedAddress(address);
+      }
+    };
+
+    loadAddress();
+
+    window.addEventListener("storage", loadAddress);
+
+    return () => {
+      window.removeEventListener("storage", loadAddress);
+    };
   }, []);
 
   // HANDLE RADIO
@@ -860,8 +879,7 @@ export default function Cos() {
                         },
                       }}
                     >
-                      CONSTANTA, Pescarilor, 30, Bloc BM11, Scara E, ap 53,
-                      Elite Beach
+                      {savedAddress ? savedAddress : "Alege adresa de livrare"}
                     </Radio>
                   )}
 

@@ -28,6 +28,7 @@ export default function Header() {
 
   return (
     <Box
+      className="borderRed"
       position={isSmallScreen ? "static" : "sticky"}
       top="0"
       zIndex="2"
@@ -35,7 +36,7 @@ export default function Header() {
       boxShadow="md"
     >
       {isSmallScreen ? (
-        <VStack align="stretch" spacing={0}>
+        <VStack className="borderRed" align="stretch" spacing={0}>
           <Flex
             justifyContent="space-between"
             alignItems="center"
